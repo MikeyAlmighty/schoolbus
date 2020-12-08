@@ -14,7 +14,7 @@ const OverflowMenu = ({ position, options, NextLink, ...otherProps }) => {
   const LinkComponent = NextLink ? NextLink : Link
 
   const filteredOptions = useMemo(
-    () => options.filter(value => !!value).flat(),
+    () => options.filter(value => Boolean(value)).flat(),
     [options]
   )
 
