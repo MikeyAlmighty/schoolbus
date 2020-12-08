@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useMemo} from 'react'
 import PropTypes from 'prop-types'
-import Popup from '../popup'
 
+import Popup from '../popup'
 import { Button } from './styles'
 
 const Link = ({ href, children, ...otherProps }) => (
@@ -13,6 +13,11 @@ const Link = ({ href, children, ...otherProps }) => (
 const OverflowMenu = ({ position, options, NextLink, ...otherProps }) => {
   const LinkComponent = NextLink ? NextLink : Link
 
+  const filteredOptions = useMemo(
+    () => options.filter(value => !!value).flat(),
+    [options]
+  )
+
   return (
     <Popup
       closeOnSelect
@@ -21,7 +26,7 @@ const OverflowMenu = ({ position, options, NextLink, ...otherProps }) => {
       yOffset="-30px"
       {...otherProps}
     >
-      {options.map(({ name, onClick, href, ...otherProps }) =>
+      {filteredOptions.map(({ name, onClick, href, ...otherProps }) =>
         href ? (
           <LinkComponent key={name} href={href} {...otherProps}>
             <Button>{name}</Button>
