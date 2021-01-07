@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactTooltip from 'react-tooltip'
 
-const Tooltip = ({ text, children }) => (
+const Tooltip = ({ text, children, ...otherProps }) => (
   <div>
-    <ReactTooltip />
+    <ReactTooltip {...otherProps} />
     <div data-tip={text}>{children}</div>
   </div>
 )
