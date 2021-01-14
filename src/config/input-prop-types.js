@@ -4,7 +4,7 @@ import propTypes from '@styled-system/prop-types'
 export default {
   formik: PropTypes.object,
   id: PropTypes.string,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
