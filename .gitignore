@@ -7,3 +7,5 @@ storybook-build
 dist
 build.log
 stats.html
+lib
+lib-esm
