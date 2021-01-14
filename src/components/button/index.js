@@ -24,22 +24,21 @@ class Button extends React.PureComponent {
     shape: this.SHAPES.square,
     size: this.SIZES.default,
     isLoading: false,
+    type: 'button'
   }
 
   render() {
-    const { isLoading, disabled, spinnerProps, variant } = this.props
+    const { isLoading, disabled, spinnerProps, variant, children, ...otherProps } = this.props
 
     return (
       <StyledButton
-        {...this.props}
+        {...otherProps}
         variant={isLoading ? 'secondary' : variant}
         disabled={disabled || isLoading}
       >
-        {isLoading ? (
-          <Spinner color="white" size="20px" width="3px" {...spinnerProps} />
-        ) : (
-          this.props.children
-        )}
+        {isLoading 
+          ? <Spinner color="white" size="20px" width="3px" {...spinnerProps} />
+          : children}
       </StyledButton>
     )
   }

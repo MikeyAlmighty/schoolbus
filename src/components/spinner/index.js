@@ -37,8 +37,8 @@ const Spinner = styled.div`
 `
 
 Spinner.propTypes = {
-  size: PropTypes.string,
-  width: PropTypes.string,
+  size: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+  width: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
   ...propTypes.color,
   ...propTypes.space,
 }
