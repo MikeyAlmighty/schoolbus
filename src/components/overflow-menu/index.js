@@ -50,7 +50,10 @@ OverflowMenu.defaultProps = {
 
 OverflowMenu.propTypes = {
   ...Popup.propTypes,
-  options: PropTypes.arrayOf(PropTypes.object),
+  options: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.bool
+  ])),
 }
 
 export default React.memo(OverflowMenu)
