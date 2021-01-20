@@ -47,7 +47,7 @@ export const styleOverride = ({
     fontFamily: fonts.Montserrat,
     fontSize: fontSize ? fontSizes[fontSize] : fontSizes.small,
     borderRadius: shape === 'rounded' ? radii.full : radii.small,
-    boxShadow: hasShadow ? elevations[4] : 'none',
+    boxShadow: hasShadow ? elevations.toggle : 'none',
     padding: variant === 'compact' ? 0 : '0 0.8em',
     overflow: 'hidden',
     width: '100%',

@@ -36,7 +36,7 @@ export const ToggleLabel = styled.label`
   ::after {
     background: ${({ theme }) => theme.colors.grayscale.light};
     border-radius: ${({ theme }) => theme.radii.full};
-    box-shadow: ${({ theme }) => theme.elevations[0]};
+    box-shadow: ${({ theme }) => theme.elevations.titleBar};
     content: '';
     height: 24px;
     left: 0px;

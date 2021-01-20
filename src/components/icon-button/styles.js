@@ -10,7 +10,7 @@ export const Button = styled(Flex).attrs({
   border: none;
   background-color: ${({ backgroundColor }) => backgroundColor};
   pointer-events: ${({ disabled }) => (disabled ? 'none' : 'inherit')};
-  box-shadow: ${({ noShadow, theme }) => (noShadow ? 'unset' : theme.elevations[1])};
+  box-shadow: ${({ noShadow, theme }) => (noShadow ? 'unset' : theme.elevations.cardContainer)};
   width: ${({ size }) => size};
   min-width: ${({ size }) => size};
   height: ${({ size }) => size};

@@ -196,19 +196,19 @@ const buttons = {
   primary: {
     color: colors.white,
     backgroundColor: colors.primary.default,
-    boxShadow: elevations[2],
+    boxShadow: elevations.cardContainer,
     fontWeight: fontWeights[5],
   },
   secondary: {
     color: colors.white,
     backgroundColor: colors.grayscale.xlight,
-    boxShadow: elevations[2],
+    boxShadow: elevations.cardContainer,
     fontWeight: fontWeights[5],
   },
   tertiary: {
     color: colors.grayscale.default,
     backgroundColor: colors.white,
-    boxShadow: elevations[2],
+    boxShadow: elevations.cardContainer,
     fontWeight: fontWeights[5],
   },
   minimal: {
@@ -219,7 +219,7 @@ const buttons = {
   danger: {
     color: colors.white,
     backgroundColor: colors.statusFill.danger,
-    boxShadow: elevations[2],
+    boxShadow: elevations.cardContainer,
     fontWeight: fontWeights[5],
   },
 }

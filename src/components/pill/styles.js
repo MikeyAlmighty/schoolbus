@@ -12,7 +12,7 @@ export const Container = styled.button.attrs({
   height: 2.5em;
   min-width: 80px;
   border-radius: ${({ theme }) => theme.radii.full};
-  box-shadow: ${({ active, theme }) => (active ? theme.elevations[1] : 'none')};
+  box-shadow: ${({ active, theme }) => (active ? theme.elevations.cardContainer : 'none')};
   border: ${({ active, theme, count, variant }) =>
     `1px solid ${
       (count >= 0 && !active) || (variant === 'bordered' && !active)

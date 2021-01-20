@@ -6,7 +6,7 @@ export const StyledCard = styled.section`
   border-radius: ${({ theme }) => theme.radii.large};
   margin: 1em 0;
   padding: 2.5em;
-  box-shadow: ${({ theme }) => theme.elevations[0]};
+  box-shadow: ${({ theme }) => theme.elevations.titleBar};
   flex: 1;
   ${space}
   ${layout}

@@ -20,7 +20,7 @@ export const Value = styled.button`
       ? `
     color: ${theme.colors.grayscale.xdark};
     background-color: ${theme.colors.white};
-    box-shadow: ${theme.elevations[1]}
+    box-shadow: ${theme.elevations.cardContainer}
   `
       : `
     color: ${theme.colors.grayscale.dark};
