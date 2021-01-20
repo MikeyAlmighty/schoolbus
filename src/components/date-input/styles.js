@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const StyledDatePicker = styled(DatePicker)`
   background-color: ${({ disabled, theme }) =>
-    disabled ? theme.colors.transparent : theme.colors.gray.xxlight};
+    disabled ? theme.colors.transparent : theme.colors.grayscale.xxlight};
   border: 1px solid ${({ disabled, theme }) => theme.colors.gray[disabled ? 'xlight' : 'xxlight']};
   font-family: inherit;
   font-size: ${({ theme }) => theme.fontSizes.small};
@@ -11,10 +11,10 @@ export const StyledDatePicker = styled(DatePicker)`
   height: 38px;
   border-radius: ${({ theme }) => theme.radii.small};
   width: 100%;
-  color: ${({ theme }) => theme.colors.gray.xdark};
+  color: ${({ theme }) => theme.colors.grayscale.xdark};
 
   ::placeholder {
-    color: ${({ theme }) => theme.colors.gray.light};
+    color: ${({ theme }) => theme.colors.grayscale.light};
   }
 `
 

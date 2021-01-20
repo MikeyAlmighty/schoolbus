@@ -7,13 +7,13 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   border-radius: ${({ theme }) => theme.radii.small};
-  background-color: ${({ theme }) => theme.colors.gray.xxlight};
+  background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
   margin-bottom: 1em;
 `
 
 export const Inner = styled.div`
   width: 14em;
-  border: solid 1px ${({ theme }) => theme.colors.gray.xlight};
+  border: solid 1px ${({ theme }) => theme.colors.grayscale.xlight};
   border-radius: ${({ theme }) => theme.radii.small};
   background-color: ${({ theme }) => theme.colors.white};
   height: 100%;
@@ -37,5 +37,5 @@ export const DefaultText = styled.span`
   padding-left: 0.5em;
   font-weight: ${({ theme }) => theme.fontWeights.medium};
   font-size: ${({ theme }) => theme.fontSizes.small};
-  color: ${({ theme }) => theme.colors.gray.black};
+  color: ${({ theme }) => theme.colors.grayscale.black};
 `

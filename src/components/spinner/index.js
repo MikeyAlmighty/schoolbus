@@ -8,9 +8,9 @@ const Spinner = styled.div`
   border-radius: 50%;
   width: ${({ size }) => size || '60px'};
   height: ${({ size }) => size || '60px'};
-  color: ${({ color, theme }) => color || theme.colors.primary};
+  color: ${({ color, theme }) => color || theme.colors.primary.default};
   border: ${({ width }) => width || '5px'} solid
-    ${({ theme, color }) => color || theme.colors.primary};
+    ${({ theme, color }) => color || theme.colors.primary.default};
   box-sizing: border-box;
   animation: sweep 1s linear alternate infinite, rota 0.8s linear infinite;
   ${space}

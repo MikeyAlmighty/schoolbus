@@ -1,5 +1,9 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks'
 import theme from '../../config/theme'
+const {
+  content,
+  ...otherColors
+} = theme.colors
 
 <Meta title='Theme/ Colors' />
 
@@ -9,13 +13,16 @@ Can be used in places were the component accepts a color,
 or can be accessed through the theme.
 
 <ColorPalette>
-  {Object.entries(theme.colors).sort((colorsA, colorsB) => 
+  {Object
+    .entries(otherColors)
+    .concat(Object.entries(content).map(([key, color]) => [`content.${key}`, color]))
+    .sort((colorsA, colorsB) => 
       (Array.isArray(colorsB[1]) ? colorsB[1].length : 1) -
       (Array.isArray(colorsA[1]) ? colorsA[1].length : 1)
     ).map(([key, color]) => (
       <ColorItem 
         key={key}
-        title={`theme.color.${key}`} 
+        title={`theme.colors.${key}`} 
         subtitle={key}
         colors={Array.isArray(color) ? color  : [color]}
       />

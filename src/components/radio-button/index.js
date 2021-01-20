@@ -25,7 +25,7 @@ const RadioButton = ({
       <Icon
         onClick={onChange}
         checked={checked}
-        color={checked ? 'primary' : 'gray.dark'}
+        color={checked ? 'primary.default' : 'grayscale.dark'}
         {...inputProps}
       />
       {children && <StyledSpan {...labelProps}>{children}</StyledSpan>}

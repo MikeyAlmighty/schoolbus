@@ -11,11 +11,11 @@ export const EditTextContainer = styled.div`
 `
 
 export const EditText = styled.div`
-  color: ${({ theme }) => theme.colors.gray.dark};
+  color: ${({ theme }) => theme.colors.grayscale.dark};
 `
 
 export const EditButton = styled.button`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primary.default};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-size: ${({ theme }) => theme.fontSizes.medium};
   border: none;

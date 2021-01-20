@@ -78,7 +78,7 @@ class ExpandingSearchInput extends Component {
           }}
           bg="white"
           size={fontSizes.large}
-          color={colors.gray.default}
+          color={colors.grayscale.default}
         />
       </Container>
     )

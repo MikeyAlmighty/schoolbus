@@ -18,12 +18,12 @@ export const Value = styled.button`
   ${({ selected, theme }) =>
     selected
       ? `
-    color: ${theme.colors.gray.xdark};
+    color: ${theme.colors.grayscale.xdark};
     background-color: ${theme.colors.white};
-    box-shadow: ${theme.shadows[1]}
+    box-shadow: ${theme.elevations.cardContainer}
   `
       : `
-    color: ${theme.colors.gray.dark};
-    background-color: ${theme.colors.gray.xxlight};
+    color: ${theme.colors.grayscale.dark};
+    background-color: ${theme.colors.grayscale.xxlight};
   `}
 `

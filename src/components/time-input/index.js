@@ -71,7 +71,7 @@ class TimeInput extends Component {
           autoComplete="off"
           id={id}
         />
-        <ClockOutline style={styleOverrides.icon} color={colors.gray.default} />
+        <ClockOutline style={styleOverrides.icon} color={colors.grayscale.default} />
       </InputWrapper>
     )
 

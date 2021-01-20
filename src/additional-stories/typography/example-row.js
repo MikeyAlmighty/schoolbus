@@ -4,10 +4,10 @@ import Text from '../../components/text'
 const ExampleRow = ({ title, value, children }) => (
   <Flex m="1em 0" alignItems="center">
     <Flex flexDirection="column" width="30%">
-      <Text m="0" fontWeight="bold" color="gray.xdark" width="25%">
+      <Text m="0" fontWeight="bold" color="grayscale.xdark" width="25%">
         {title}
       </Text>
-      <Text m="0" color="gray.default" fontSize="small" width="20%">
+      <Text m="0" color="grayscale.default" fontSize="small" width="20%">
         {value}
       </Text>
     </Flex>

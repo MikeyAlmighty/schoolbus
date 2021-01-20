@@ -13,10 +13,10 @@ A list of the available spacing properties provided by the theme.
   {theme.space.map((space, i) => (
     <Flex mt='4em' alignItems='center'>
       <Flex flexDirection='column' mr='3em'>
-        <Text m='0' color='gray.xdark' fontWeight='bold'>theme.space[{i}]</Text>
-        <Text m='0' color='gray.default'>{space}</Text>
+        <Text m='0' color='grayscale.xdark' fontWeight='bold'>theme.space[{i}]</Text>
+        <Text m='0' color='grayscale.default'>{space}</Text>
       </Flex>
-      <Box height='1em' width={space} bg='primary' />
+      <Box height='1em' width={space} bg='primary.default' />
     </Flex>
   ))}
 </Flex>

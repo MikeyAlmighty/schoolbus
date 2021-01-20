@@ -19,10 +19,10 @@ export const ToggleLabel = styled.label`
   cursor: pointer;
   position: relative;
   height: 40px;
-  background-color: ${({ theme }) => theme.colors.gray.dark};
+  background-color: ${({ theme }) => theme.colors.grayscale.dark};
 
   ::before {
-    background: ${({ theme }) => theme.colors.gray.default};
+    background: ${({ theme }) => theme.colors.grayscale.default};
     border-radius: ${({ theme }) => theme.radii.large};
     content: '';
     height: 15px;
@@ -34,9 +34,9 @@ export const ToggleLabel = styled.label`
   }
 
   ::after {
-    background: ${({ theme }) => theme.colors.gray.light};
+    background: ${({ theme }) => theme.colors.grayscale.light};
     border-radius: ${({ theme }) => theme.radii.full};
-    box-shadow: ${({ theme }) => theme.shadows[0]};
+    box-shadow: ${({ theme }) => theme.elevations.titleBar};
     content: '';
     height: 24px;
     left: 0px;
@@ -49,13 +49,13 @@ export const ToggleLabel = styled.label`
 
   /* stylelint-disable-next-line selector-type-no-unknown */
   ${ToggleInput}:checked + &::before {
-    background: ${({ theme }) => theme.colors.gray.light};
+    background: ${({ theme }) => theme.colors.grayscale.light};
     opacity: 0.5;
   }
 
   /* stylelint-disable-next-line selector-type-no-unknown */
   ${ToggleInput}:checked + &::after {
-    background: ${({ theme }) => theme.colors.primary};
+    background: ${({ theme }) => theme.colors.primary.default};
     left: 20px;
   }
 `

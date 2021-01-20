@@ -66,7 +66,7 @@ export const OtherExamples = () => {
       <Modal
         {...createDefaultProps(4)}
         footer={
-          <Button variant="primary" onClick={console.log}>
+          <Button variant="primary.default" onClick={console.log}>
             This is a button in the footer
           </Button>
         }

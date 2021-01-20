@@ -81,7 +81,7 @@ class TranslateModal extends Component {
           </EditTextContainer>
 
           <Button
-            variant="primary"
+            variant="primary.default"
             m={2}
             onClick={() => onSubmit(languageSets)}
             disabled={disabled}
