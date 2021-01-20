@@ -48,7 +48,7 @@ export const StyledButton = styled.button`
   &:disabled {
     opacity: 1;
     cursor: default;
-    background-color: ${({ theme }) => theme.colors.gray.xlight};
+    background-color: ${({ theme }) => theme.colors.grayscale.xlight};
   }
   > div {
     margin: auto;

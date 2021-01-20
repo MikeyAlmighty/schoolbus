@@ -1,0 +1,35 @@
+import { Title, Description } from '@storybook/addon-docs/blocks'
+import { Meta } from '@storybook/addon-docs/blocks'
+import Flex from '../../components/flex'
+import Box from '../../components/box'
+import Text from '../../components/text'
+import { borderAliases, borderStyles } from '../../config/theme'
+
+<Meta title='Theme/ Border Styles' />
+
+# RadiBorder Styles
+A list of the available border properties. 
+Can be accessed through the theme by using `theme.borderStyles.<size>`
+
+<Flex flexDirection='column'>
+  {borderAliases.map(key => (
+    <Flex
+      key={key}
+      justifyContent='space-between'
+      alignItems='center'
+      mb='2.5em'
+    >
+      <Text fontWeight='extrabold'>
+        theme.borderStyles.{key}
+      </Text>
+      <Box
+        alignItems='center'
+        p='2em' 
+        width='50%'
+        border={borderStyles[key]}
+      >
+        <Text textAlign='center'>{borderStyles[key]}</Text>
+      </Box>
+    </Flex>
+  ))}
+</Flex>

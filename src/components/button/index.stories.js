@@ -16,7 +16,7 @@ export default {
 
 export const Base = args => <Button {...args}>Hello World!</Button>
 Base.args = {
-  variant: 'primary',
+  variant: 'primary.default',
   size: 'default',
   shape: 'round',
   disabled: false,
@@ -26,7 +26,7 @@ Base.args = {
 export const Variants = () => (
   <>
     <Button>Default</Button>
-    <Button variant="primary" m={2}>
+    <Button variant="primary.default" m={2}>
       Primary
     </Button>
     <Button variant="secondary" m={2}>
@@ -41,10 +41,10 @@ export const Variants = () => (
     <Button variant="danger" m={2}>
       Danger
     </Button>
-    <Button variant="primary" isLoading m={2}>
+    <Button variant="primary.default" isLoading m={2}>
       Submit
     </Button>
-    <Button variant="primary" disabled m={2}>
+    <Button variant="primary.default" disabled m={2}>
       Disabled
     </Button>
   </>
@@ -66,16 +66,16 @@ export const Sizes = () => (
 
 export const Shapes = () => (
   <>
-    <Button shape="square" variant="primary" m={2}>
+    <Button shape="square" variant="primary.default" m={2}>
       Square
     </Button>
-    <Button shape="round" variant="primary" m={2}>
+    <Button shape="round" variant="primary.default" m={2}>
       Round
     </Button>
-    <Button shape="rounded" variant="primary" m={2}>
+    <Button shape="rounded" variant="primary.default" m={2}>
       Rounded
     </Button>
-    <Button shape="block" variant="primary" m={2}>
+    <Button shape="block" variant="primary.default" m={2}>
       Block
     </Button>
   </>

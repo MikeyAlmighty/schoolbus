@@ -7,7 +7,7 @@ import { layout, space, variant } from 'styled-system'
 const StyledLabel = styled.label`
   display: block;
   font-family: inherit;
-  color: ${({ theme }) => theme.colors.gray.dark};
+  color: ${({ theme }) => theme.colors.grayscale.dark};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-size: ${({ theme }) => theme.fontSizes.xsmall};
   margin-bottom: 0.4em;
@@ -44,7 +44,7 @@ const StyledAlertText = styled.span.attrs({
   right: 0;
   font-size: ${({ theme }) => theme.fontSizes.xsmall};
   font-style: italic;
-  color: ${({ theme }) => theme.colors.red[2]};
+  color: ${({ theme }) => theme.colors.statusFill.danger};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
 `
 

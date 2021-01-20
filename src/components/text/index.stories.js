@@ -55,7 +55,7 @@ export const Colors = () => (
     <Text color="gray.xdark">gray.xdark</Text>
     <Text color="gray.xxdark">gray.xxdark</Text>
     <Text color="black">black</Text>
-    <Text color="primary">primary</Text>
+    <Text color="primary.default">primary.default</Text>
   </>
 )
 

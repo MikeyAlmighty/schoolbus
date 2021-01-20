@@ -28,7 +28,7 @@ export default {
 
 const defaultArgs = { position: 'bottomCenter' }
 export const Base = args => (
-  <Popup {...args} trigger={<Button variant="primary">Click me!</Button>}>
+  <Popup {...args} trigger={<Button variant="primary.default">Click me!</Button>}>
     Content
   </Popup>
 )
@@ -56,7 +56,7 @@ export const CustomPopupClose = () => (
   <Popup position="bottomRight">
     {closePopup => (
       <div>
-        <Button variant="primary" onClick={closePopup}>
+        <Button variant="primary.default" onClick={closePopup}>
           Closes popup
         </Button>
         <Button variant="secondary">Doesn't close popup</Button>

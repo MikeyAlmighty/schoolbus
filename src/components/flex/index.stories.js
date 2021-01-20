@@ -10,7 +10,7 @@ export default {
 export const Base = args => (
   <Flex {...args}>
     {Array.from({ length: 5 }, (_, i) => (
-      <Box key={i} m={1} p={3} bg="primary" width="30%" />
+      <Box key={i} m={1} p={3} bg="primary.default" width="30%" />
     ))}
   </Flex>
 )
@@ -23,7 +23,7 @@ Base.args = {
 
 export const Center = () => (
   <Flex justify="center" align="center">
-    <Box p={3} m={1} width={1 / 2} color="white" bg="primary">
+    <Box p={3} m={1} width={1 / 2} color="white" bg="primary.default">
       Align & justify center
     </Box>
   </Flex>
@@ -31,16 +31,16 @@ export const Center = () => (
 
 export const Wrap = () => (
   <Flex wrap>
-    <Box width="300px" m={1} p={3} color="white" bg="primary">
+    <Box width="300px" m={1} p={3} color="white" bg="primary.default">
       Flex wrap
     </Box>
-    <Box width="300px" m={1} p={3} color="white" bg="primary">
+    <Box width="300px" m={1} p={3} color="white" bg="primary.default">
       Flex wrap
     </Box>
-    <Box width="300px" m={1} p={3} color="white" bg="primary">
+    <Box width="300px" m={1} p={3} color="white" bg="primary.default">
       Flex wrap
     </Box>
-    <Box width="300px" m={1} p={3} color="white" bg="primary">
+    <Box width="300px" m={1} p={3} color="white" bg="primary.default">
       Flex wrap
     </Box>
   </Flex>
@@ -48,10 +48,10 @@ export const Wrap = () => (
 
 export const Around = () => (
   <Flex justify="space-around">
-    <Box width="300px" m={1} p={3} color="white" bg="primary">
+    <Box width="300px" m={1} p={3} color="white" bg="primary.default">
       Justify around
     </Box>
-    <Box width="300px" m={1} p={3} color="white" bg="primary">
+    <Box width="300px" m={1} p={3} color="white" bg="primary.default">
       Justify around
     </Box>
   </Flex>

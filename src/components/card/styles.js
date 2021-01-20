@@ -6,7 +6,7 @@ export const StyledCard = styled.section`
   border-radius: ${({ theme }) => theme.radii.large};
   margin: 1em 0;
   padding: 2.5em;
-  box-shadow: ${({ theme }) => theme.shadows[0]};
+  box-shadow: ${({ theme }) => theme.elevations[0]};
   flex: 1;
   ${space}
   ${layout}
@@ -20,23 +20,23 @@ export const StyledCardHeader = styled.header`
 export const StyledCardDivider = styled.div`
   width: 100%;
   margin-top: 1.5em;
-  border-bottom: ${({ theme }) => `2px solid ${theme.colors.gray.xxlight}`};
+  border-bottom: ${({ theme }) => `2px solid ${theme.colors.grayscale.xxlight}`};
   opacity: 0.7;
 `
 
 export const StyledCardTitle = styled.h2`
   font-size: ${({ theme }) => theme.fontSizes.small};
   font-family: ${({ theme }) => theme.fonts.Montserrat};
-  border-left: 5px solid ${({ theme }) => theme.colors.primary};
+  border-left: 5px solid ${({ theme }) => theme.colors.primary.default};
   font-weight: ${({ theme }) => theme.fontWeights.extrabold};
   padding: 0 0.5em;
   text-transform: uppercase;
   letter-spacing: ${({ theme }) => theme.letterSpacings.tight};
-  color: ${({ theme }) => theme.colors.gray.default};
+  color: ${({ theme }) => theme.colors.grayscale.default};
 `
 
 export const StyledCardDescription = styled.p`
-  color: ${({ theme }) => theme.colors.gray.default};
+  color: ${({ theme }) => theme.colors.grayscale.default};
   font-weight: ${({ theme }) => theme.fontWeights.normal};
   font-size: ${({ theme }) => theme.fontSizes.small};
   padding-right: 5em;

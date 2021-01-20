@@ -15,8 +15,8 @@ export const Container = styled.div`
 
 export const Input = styled.input`
   border: none;
-  background: ${({ theme }) => theme.colors.gray.xxlight};
-  color: ${({ theme }) => theme.colors.gray.xdark};
+  background: ${({ theme }) => theme.colors.grayscale.xxlight};
+  color: ${({ theme }) => theme.colors.grayscale.xdark};
   border-radius: ${({ theme }) => theme.radii.xlarge};
   padding: 0 1em;
   margin-right: 1em;
@@ -29,7 +29,7 @@ export const Input = styled.input`
   font-family: ${({ theme }) => theme.fonts.Montserrat};
   height: 100%;
   &::placeholder {
-    ${({ theme }) => theme.colors.gray.light};
+    ${({ theme }) => theme.colors.grayscale.light};
   }
 `
 

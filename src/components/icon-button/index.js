@@ -41,24 +41,24 @@ const BUTTON_SIZES = {
 
 const VARIANTS = {
   primary: {
-    color: 'primary',
+    color: 'primary.default',
     iconColor: 'white',
   },
   secondary: {
-    color: 'gray.xxlight',
-    iconColor: 'gray.xdark',
+    color: 'grayscale.xxlight',
+    iconColor: 'grayscale.xdark',
   },
   light: {
     color: 'white',
-    iconColor: 'gray.default',
+    iconColor: 'grayscale.default',
   },
   clear: {
     color: 'transparent',
-    iconColor: 'gray.default',
+    iconColor: 'grayscale.default',
     noShadow: true,
   },
   danger: {
-    color: theme.colors.red[2],
+    color: theme.colors.statusFill.danger,
     iconColor: 'white',
   },
 }
@@ -133,7 +133,7 @@ IconButton.propTypes = {
 IconButton.defaultProps = {
   icon: 'Plus',
   size: 'medium',
-  color: 'primary',
+  color: 'primary.default',
   iconColor: 'white',
   noShadow: false,
   iconStyle: {},

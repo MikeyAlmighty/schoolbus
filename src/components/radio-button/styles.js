@@ -8,7 +8,7 @@ export const StyledLabel = styled.label`
   font-size: ${({ theme }) => theme.fontSizes.small};
   font-weight: ${({ theme }) => theme.fontWeights.semi};
   line-height: ${({ theme }) => theme.lineHeights.normal};
-  color: ${({ theme }) => theme.colors.gray.dark};
+  color: ${({ theme }) => theme.colors.grayscale.dark};
   ${typography}
   ${space}
   ${layout}

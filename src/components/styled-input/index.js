@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const StyledInput = styled.input`
   background-color: ${({ disabled, theme }) =>
-    disabled ? theme.colors.white : theme.colors.gray.xxlight};
+    disabled ? theme.colors.white : theme.colors.grayscale.xxlight};
   border: 1px solid ${({ disabled, theme }) => theme.colors.gray[disabled ? 'xlight' : 'xxlight']};
   font-family: inherit;
   font-size: ${({ theme }) => theme.fontSizes.small};
@@ -10,10 +10,10 @@ const StyledInput = styled.input`
   height: 38px;
   border-radius: ${({ theme }) => theme.radii.small};
   width: 100%;
-  color: ${({ theme }) => theme.colors.gray.xdark};
+  color: ${({ theme }) => theme.colors.grayscale.xdark};
 
   ::placeholder {
-    color: ${({ theme }) => theme.colors.gray.light};
+    color: ${({ theme }) => theme.colors.grayscale.light};
   }
 
   ::-webkit-inner-spin-button,

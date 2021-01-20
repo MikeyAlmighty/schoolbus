@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { space, color, layout, flexbox, border } from 'styled-system'
+import { space, color, layout, flexbox, border, borderStyle } from 'styled-system'
 import PropTypes from 'prop-types'
 import propTypes from '@styled-system/prop-types'
 import theme from '../../config/theme'
@@ -10,10 +10,11 @@ const Box = styled.div`
   ${color}
   ${flexbox}
   ${border}
-  ${({ theme, shadow }) =>
-    shadow !== undefined &&
+  ${borderStyle}
+  ${({ theme, elevation }) =>
+    elevation !== undefined &&
     `
-    box-shadow: ${theme.shadows?.[shadow] || shadow};
+    box-shadow: ${theme.elevations?.[elevation] || elevation};
   `};
   ${({ theme, radius }) =>
     radius &&
@@ -35,7 +36,7 @@ Box.propTypes = {
   ...propTypes.flexbox,
   ...propTypes.border,
   radius: PropTypes.string,
-  shadow: PropTypes.string,
+  elevation: PropTypes.string,
 }
 
 export default Box

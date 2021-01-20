@@ -5,7 +5,7 @@ import theme from '../src/config/theme'
 export default create({
   base: 'light',
 
-  colorPrimary: theme.colors.primary,
+  colorPrimary: theme.colors.primary.default,
   colorSecondary: theme.colors.gray[3],
 
   // UI
@@ -23,7 +23,7 @@ export default create({
 
   // Toolbar default and active colors
   barTextColor: theme.colors.gray[3],
-  barSelectedColor: theme.colors.primary,
+  barSelectedColor: theme.colors.primary.default,
   barBg: theme.colors.white,
 
   // Form colors

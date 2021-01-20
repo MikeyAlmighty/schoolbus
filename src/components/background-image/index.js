@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import propTypes from '@styled-system/prop-types'
 
-import { background, space, layout, flexbox } from 'styled-system'
+import { background, space, layout, flexbox, borderStyle } from 'styled-system'
 
 import theme from '../../config/theme'
 
@@ -17,6 +17,7 @@ const BackgroundImage = styled.div`
   ${background}
   ${layout}
   ${flexbox}
+  ${borderStyle}
 `
 
 BackgroundImage.defaultProps = {

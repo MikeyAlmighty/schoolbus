@@ -111,7 +111,7 @@ class Popup extends PureComponent {
           onClick={() => !showDialogue && this.toggleDialogue(true)}
           {...otherProps}
         >
-          {trigger || <DotsVertical color={colors.gray.default} />}
+          {trigger || <DotsVertical color={colors.grayscale.default} />}
 
           <ContentWrapper
             ref={node => (this.menu = node)}

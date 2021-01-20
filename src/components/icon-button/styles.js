@@ -10,7 +10,7 @@ export const Button = styled(Flex).attrs({
   border: none;
   background-color: ${({ backgroundColor }) => backgroundColor};
   pointer-events: ${({ disabled }) => (disabled ? 'none' : 'inherit')};
-  box-shadow: ${({ noShadow, theme }) => (noShadow ? 'unset' : theme.shadows[1])};
+  box-shadow: ${({ noShadow, theme }) => (noShadow ? 'unset' : theme.elevations[1])};
   width: ${({ size }) => size};
   min-width: ${({ size }) => size};
   height: ${({ size }) => size};
@@ -36,6 +36,6 @@ export const Badge = styled.span`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   line-height: 0;
   border-radius: 9px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.primary.default};
   color: ${({ theme }) => theme.colors.white};
 `

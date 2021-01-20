@@ -60,7 +60,7 @@ export const StyledLabel = styled.label`
   z-index: 0;
   position: relative;
   display: inline-block;
-  color: ${({ theme }) => theme.colors.gray.dark};
+  color: ${({ theme }) => theme.colors.grayscale.dark};
   font-family: ${({ theme }) => theme.fonts.Montserrat};
   font-size: ${({ theme }) => theme.fontSizes.small};
   line-height: ${({ theme }) => theme.lineHeights.relaxed};
@@ -118,9 +118,9 @@ export const StyledSpan = styled.span`
   ${/* sc-selector */ StyledInput}:checked + &::before,
   ${/* sc-selector */ StyledInput}:indeterminate + &::before {
     border-color: ${({ theme, disabled }) =>
-    disabled ? theme.colors.gray[2] : theme.colors.primary};
+    disabled ? theme.colors.gray[2] : theme.colors.primary.default};
     background-color: ${({ theme, disabled }) =>
-    disabled ? theme.colors.gray[2] : theme.colors.primary};
+    disabled ? theme.colors.gray[2] : theme.colors.primary.default};
   }
 
   ${/* sc-selector */ StyledInput}:checked + &::after,

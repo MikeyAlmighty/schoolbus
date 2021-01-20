@@ -1,4 +1,4 @@
-import { shadows, colors, radii, fontSizes, fonts, fontWeights } from '../../config/theme'
+import { elevations, colors, radii, fontSizes, fonts, fontWeights } from '../../config/theme'
 
 const bgColorMap = {
   borderless: colors.transparent,
@@ -13,7 +13,7 @@ function getBackgroundColor(variant) {
     case 'light':
       return colors.white
     default:
-      return colors.gray.xxlight
+      return colors.grayscale.xxlight
   }
 }
 
@@ -35,24 +35,24 @@ export const styleOverride = ({
   }),
   control: (provided, state) => ({
     ...provided,
-    color: colors.gray.xdark,
+    color: colors.grayscale.xdark,
     backgroundColor: disabled
       ? getDisabledColor(variant)
-      : bgColorMap[variant] || colors.gray.xxlight,
+      : bgColorMap[variant] || colors.grayscale.xxlight,
     border:
       state.isDisabled && !hasShadow && !['borderless', 'compact'].includes(variant)
-        ? `border: 1px solid ${colors.gray.xlight}`
+        ? `border: 1px solid ${colors.grayscale.xlight}`
         : 'none',
-    borderColor: state.isDisabled ? colors.gray.xlight : null,
+    borderColor: state.isDisabled ? colors.grayscale.xlight : null,
     fontFamily: fonts.Montserrat,
     fontSize: fontSize ? fontSizes[fontSize] : fontSizes.small,
     borderRadius: shape === 'rounded' ? radii.full : radii.small,
-    boxShadow: hasShadow ? shadows[4] : 'none',
+    boxShadow: hasShadow ? elevations[4] : 'none',
     padding: variant === 'compact' ? 0 : '0 0.8em',
     overflow: 'hidden',
     width: '100%',
     ...(variant === 'light' && {
-      border: `solid 1px ${colors.gray.xxlight}`,
+      border: `solid 1px ${colors.grayscale.xxlight}`,
     }),
     fontWeight: fontWeights[shape === 'rounded' ? 'semi' : 'normal'],
   }),
@@ -67,10 +67,10 @@ export const styleOverride = ({
     borderRadius: 4,
   }),
   placeholder: () => ({
-    color: colors.gray.light,
+    color: colors.grayscale.light,
   }),
   singleValue: () => ({
-    color: colors.gray.xdark,
+    color: colors.grayscale.xdark,
     ...singleValueStyles,
   }),
   indicatorsContainer: (provided, state) => ({
@@ -79,20 +79,20 @@ export const styleOverride = ({
   option: (defaultStyles, { isSelected, isFocused }) => {
     let color = colors.white
     if (isFocused) {
-      color = colors.gray.xxlight
+      color = colors.grayscale.xxlight
     }
     if (isSelected) {
-      color = colors.gray.xxlight
+      color = colors.grayscale.xxlight
     }
 
     return {
       ...defaultStyles,
       fontSize: fontSizes.small,
-      color: colors.gray.xdark,
+      color: colors.grayscale.xdark,
       backgroundColor: color,
       ':active': {
         ...defaultStyles[':active'],
-        backgroundColor: colors.gray.xlight,
+        backgroundColor: colors.grayscale.xlight,
       },
       cursor: 'pointer',
       textAlign: align,
