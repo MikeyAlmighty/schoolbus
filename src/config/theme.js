@@ -140,7 +140,7 @@ export const letterSpacingsAliases = ['tighter', 'tight', 'normal', 'wide', 'wid
 addAliases(letterSpacings, letterSpacingsAliases)
 
 export const elevations = [
-  `0 0 2px 0 rgba(0, 0, 0, 0.1)`,
+  `0 1px 3px 0 rgba(0, 0, 0, 0.1)`,
   `0 0 10px 0 rgba(0, 0, 0, 0.05)`,
   `1px 1px 10px 0 rgba(0,0,0,0.2);`,
   `0 0 10px 0 rgba(0,0,0,0.1);`,
