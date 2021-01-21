@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const StyledInput = styled.input`
   background-color: ${({ disabled, theme }) =>
     disabled ? theme.colors.white : theme.colors.grayscale.xxlight};
-  border: 1px solid ${({ disabled, theme }) => theme.colors.gray[disabled ? 'xlight' : 'xxlight']};
+  border: 1px solid ${({ disabled, theme }) => theme.colors.grayscale[disabled ? 'xlight' : 'xxlight']};
   font-family: inherit;
   font-size: ${({ theme }) => theme.fontSizes.small};
   padding: 0.5em 1em;

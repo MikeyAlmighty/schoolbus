@@ -118,9 +118,9 @@ export const StyledSpan = styled.span`
   ${/* sc-selector */ StyledInput}:checked + &::before,
   ${/* sc-selector */ StyledInput}:indeterminate + &::before {
     border-color: ${({ theme, disabled }) =>
-    disabled ? theme.colors.gray[2] : theme.colors.primary.default};
+    disabled ? theme.colors.grayscale[2] : theme.colors.primary.default};
     background-color: ${({ theme, disabled }) =>
-    disabled ? theme.colors.gray[2] : theme.colors.primary.default};
+    disabled ? theme.colors.grayscale[2] : theme.colors.primary.default};
   }
 
   ${/* sc-selector */ StyledInput}:checked + &::after,
