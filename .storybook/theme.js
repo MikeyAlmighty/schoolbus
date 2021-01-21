@@ -6,12 +6,12 @@ export default create({
   base: 'light',
 
   colorPrimary: theme.colors.primary.default,
-  colorSecondary: theme.colors.grayscale3],
+  colorSecondary: theme.colors.grayscale[3],
 
   // UI
   appBg: theme.colors.white,
   appContentBg: theme.colors.white,
-  appBorderColor: theme.colors.grayscale1],
+  appBorderColor: theme.colors.grayscale[1],
   appBorderRadius: theme.radii[1],
 
   // Typography
@@ -22,13 +22,13 @@ export default create({
   textColor: theme.colors.dark,
 
   // Toolbar default and active colors
-  barTextColor: theme.colors.grayscale3],
+  barTextColor: theme.colors.grayscale[3],
   barSelectedColor: theme.colors.primary.default,
   barBg: theme.colors.white,
 
   // Form colors
   inputBg: theme.colors.white,
-  inputBorder: theme.colors.grayscale0],
+  inputBorder: theme.colors.grayscale[0],
   inputTextColor: theme.colors.black,
   inputBorderRadius: theme.radii[1],
 

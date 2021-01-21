@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export const StyledDatePicker = styled(DatePicker)`
   background-color: ${({ disabled, theme }) =>
     disabled ? theme.colors.transparent : theme.colors.grayscale.xxlight};
-  border: 1px solid ${({ disabled, theme }) => theme.colors.grayscaledisabled ? 'xlight' : 'xxlight']};
+  border: 1px solid ${({ disabled, theme }) => theme.colors.grayscale[disabled ? 'xlight' : 'xxlight']};
   font-family: inherit;
   font-size: ${({ theme }) => theme.fontSizes.small};
   padding: 0.6em 1em;
