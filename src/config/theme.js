@@ -238,6 +238,7 @@ const theme = {
   breakpoints,
   mediaQueries,
   buttons,
+  borderStyles
 }
 
 export default theme
