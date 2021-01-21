@@ -42,7 +42,7 @@ class ModalWrapper extends Component {
     contentStyle: PropTypes.object,
     wrapperStyle: PropTypes.object,
     children: PropTypes.node,
-    width: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     height: PropTypes.string,
     title: PropTypes.string,
     proximusTitle: PropTypes.string,
