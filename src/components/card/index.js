@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import propTypes from '@styled-system/prop-types'
 
 import IconButton from '../icon-button'
+import Flex from '../flex'
 
 import {
   StyledCard,
@@ -46,6 +47,7 @@ class Card extends React.PureComponent {
       renderHeader,
       children,
       hideDivider,
+      hideStyledContent,
       ...otherProps
     } = this.props
 
@@ -70,7 +72,12 @@ class Card extends React.PureComponent {
             {showDivider && <StyledCardDivider />}
           </StyledCardHeader>
         )}
-        <StyledContent showDivider={showDivider}>{children}</StyledContent>
+
+        {hideStyledContent
+          ? <Flex>{children}</Flex>  
+          : <StyledContent showDivider={showDivider}>{children}</StyledContent>
+        }
+
       </StyledCard>
     )
   }
