@@ -47,7 +47,7 @@ class Card extends React.PureComponent {
       renderHeader,
       children,
       hideDivider,
-      hideStyledContent,
+      wrapContent = true,
       ...otherProps
     } = this.props
 
@@ -73,9 +73,9 @@ class Card extends React.PureComponent {
           </StyledCardHeader>
         )}
 
-        {hideStyledContent
-          ? <Flex>{children}</Flex>  
-          : <StyledContent showDivider={showDivider}>{children}</StyledContent>
+        {wrapContent
+          ? <StyledContent showDivider={showDivider}>{children}</StyledContent>
+          : {children}
         }
 
       </StyledCard>
