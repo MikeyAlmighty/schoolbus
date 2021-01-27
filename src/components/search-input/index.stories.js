@@ -1,12 +1,12 @@
 import React from 'react'
-import ExpandingSearchInput from './'
+import SearchInput from './'
 
 export default {
   title: 'Inputs/ Expanding Search Input',
-  component: ExpandingSearchInput,
+  component: SearchInput,
 }
 
-export const Base = args => <ExpandingSearchInput {...args} />
+export const Base = args => <SearchInput {...args} />
 Base.args = {
   placeholder: 'Search...',
   label: 'Search',
@@ -15,4 +15,4 @@ Base.args = {
   onChange: console.log,
   debounceTimeout: 250,
 }
-export const Expanded = () => <ExpandingSearchInput expanded onChange={console.log} />
+export const Expanded = () => <SearchInput expanded onChange={console.log} />

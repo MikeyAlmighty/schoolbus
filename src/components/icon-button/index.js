@@ -86,7 +86,6 @@ const IconButton = ({ label, icon, badge, children, size, ...otherProps }) => {
         ? (
           <Tooltip 
             text={labelText}
-            effect='solid'
             place='bottom'
             arrowColor='transparent'
           >
