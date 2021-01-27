@@ -15,7 +15,7 @@ function getBorder({ variant, hasShadow, hasError }, state) {
   if (['borderless', 'compact'].includes(variant) || hasShadow) {
     return 'none'
   }
-  if (isDisabled || variant === 'light') return borderStyles.xlight
+  if (isDisabled || variant === 'light') return borderStyles.light
   if (isFocused || menuIsOpen) return borderStyles.primary
   if (hasError) return borderStyles.danger
   return 'solid 2px transparent'

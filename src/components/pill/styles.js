@@ -25,10 +25,15 @@ export const Container = styled.button.attrs({
   cursor: ${({ onClick, disabled }) => (onClick && !disabled ? 'pointer' : 'default')};
   ${space}
   ${layout}
-  &:hover {
-    border: ${({ onClick, disabled, active, theme }) =>
-    onClick && !disabled && !active ? `1px solid ${theme.colors.grayscale.light}` : 'default'};
+  
+  &:hover:not(:disabled) {
+    ${({ onClick, active, theme }) => (onClick && !active) && 
+      `background-color: ${theme.colors.grayscale.xxlight};`}
   }
+  &:active {
+    background-color: ${({ theme }) => theme.colors.grayscale.xlight};
+  }
+  
   transition: border 200ms ease-out;
 `
 

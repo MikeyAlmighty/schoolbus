@@ -22,7 +22,7 @@ const variants = {
   secondary: css`
     box-shadow: none;
     background-color: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.grayscale.xdark};
+    color: ${({ theme }) => theme.colors.grayscale.dark};
     border: ${({ theme }) => theme.borderStyles.default};
     transition: color 0.1s, background-color 0.1s;
 
