@@ -138,7 +138,7 @@ class TranslationInput extends Component {
           <TranslateIconContainer onClick={this.toggleModal}>
             {alertText
               ? (
-                <Tooltip text={alertText} effect='solid'>
+                <Tooltip text={alertText}>
                   <Alert color={colors.statusFill.error} size='1.5em' />
                 </Tooltip>
               )
