@@ -1,12 +1,4 @@
-const addAliases = (arr, aliases) =>
-  aliases.forEach((key, i) =>
-    Object.defineProperty(arr, key, {
-      enumerable: false,
-      get() {
-        return this[i]
-      },
-    })
-  )
+import addAliases from '../utils/add-aliases'
 
 export const space = [0, '0.25em', '0.5em', '1em', '2em', '4em', '8em', '16em', '32em']
 
