@@ -1,8 +1,3 @@
-/*
-  variant='compact' -> variant='mini'
-  variant='light'   -> variant='secondary'
-*/
-
 const addAliases = (arr, aliases) =>
   aliases.forEach((key, i) =>
     Object.defineProperty(arr, key, {
