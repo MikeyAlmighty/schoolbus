@@ -118,7 +118,7 @@ IconButton.defaultProps = {
   size: 'medium',
   label: '',
   color: '',
-  iconColor: '',
+  backgroundColor: '',
   noShadow: false,
   iconStyle: {},
 }

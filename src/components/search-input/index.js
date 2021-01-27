@@ -6,6 +6,7 @@ import Text from '../text'
 import Box from '../box'
 import IconButton from '../icon-button'
 import VisuallyHidden from '../visually-hidden'
+import Tooltip from '../tooltip'
 import { fontSizes, colors, radii } from '../../config/theme.js'
 import { Container, Input, iconAltStyling } from './styles'
 
@@ -74,6 +75,12 @@ class ExpandingSearchInput extends Component {
     })
   }
 
+  handleClear = () => {
+    const { onChange } = this.props
+    this.setState({ value: '' })
+    if (onChange) onChange('')
+  }
+
   render() {
     const { expanded: currentlyExpanded, focused, value } = this.state
     const {
@@ -88,6 +95,15 @@ class ExpandingSearchInput extends Component {
       expanded = currentlyExpanded,
       ...otherProps
     } = this.props
+
+    const icon = (
+      <Magnify
+        onClick={this.toggleExpanded}
+        style={iconAltStyling}
+        size={fontSizes.large}
+        color={value ? colors.primary.default : colors.grayscale.default}
+      />
+    )
 
     return (
       <Container {...otherProps}>
@@ -132,14 +148,13 @@ class ExpandingSearchInput extends Component {
             />
           </Box>
         )}
-        <Magnify
-          onClick={this.toggleExpanded}
-          style={{
-            ...iconAltStyling,
-          }}
-          size={fontSizes.large}
-          color={value ? colors.primary.default : colors.grayscale.default}
-        />
+        {expanded
+          ? icon
+          : (
+            <Tooltip text="Search" effect="solid">
+              {icon}
+            </Tooltip>
+          )}
       </Container>
     )
   }
