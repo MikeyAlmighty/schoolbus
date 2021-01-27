@@ -9,6 +9,13 @@ export const Container = styled.div`
   border-radius: ${({ theme }) => theme.radii.small};
   background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
   margin-bottom: 1em;
+
+  &:focus-within {
+    border: ${({ theme }) => theme.borderStyles.primary};
+  }
+  &:hover:not(:disabled) {
+    background-color: ${({ theme }) => theme.colors.grayscale.xlight};
+  }
 `
 
 export const Inner = styled.div`
@@ -25,6 +32,12 @@ export const Inner = styled.div`
 export const Input = styled(StyledInput)`
   height: 100%;
   border-radius: ${({ theme }) => theme.radii.small};
+  background-color: ${({ theme }) => theme.colors.transparent};
+  border: none;
+
+  &:focus {
+    border: none;
+  }
 `
 
 export const LanguageText = styled.label`

@@ -21,8 +21,8 @@ class Button extends React.PureComponent {
 
   static defaultProps = {
     onClick: () => {},
-    shape: this.SHAPES.square,
-    size: this.SIZES.default,
+    shape: 'default',
+    size: 'default',
     isLoading: false,
     type: 'button'
   }
@@ -33,7 +33,7 @@ class Button extends React.PureComponent {
     return (
       <StyledButton
         {...otherProps}
-        variant={isLoading ? 'secondary' : variant}
+        variant={isLoading ? 'loading' : variant}
         disabled={disabled || isLoading}
       >
         {isLoading 

@@ -1,4 +1,6 @@
+import React from 'react'
 import { Formik } from 'formik'
+
 import theme from '../src/config/theme'
 import { ThemeProvider, Box, Normalize } from '../src'
 

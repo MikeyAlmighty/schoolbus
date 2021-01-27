@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { space, color, layout, flexbox, border, borderStyle } from 'styled-system'
+import { space, color, layout, flexbox, border, borderStyle, position } from 'styled-system'
 import PropTypes from 'prop-types'
 import propTypes from '@styled-system/prop-types'
 import theme from '../../config/theme'
@@ -11,6 +11,7 @@ const Box = styled.div`
   ${flexbox}
   ${border}
   ${borderStyle}
+  ${position}
   ${({ theme, elevation }) =>
     elevation !== undefined &&
     `
@@ -35,6 +36,7 @@ Box.propTypes = {
   ...propTypes.color,
   ...propTypes.flexbox,
   ...propTypes.border,
+  ...propTypes.position,
   radius: PropTypes.string,
   elevation: PropTypes.string,
 }

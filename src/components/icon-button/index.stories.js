@@ -11,8 +11,8 @@ export default {
 export const Base = args => <IconButton {...args} />
 Base.args = {
   fontSize: 'large',
-  color: 'grayscale.xlight',
-  iconColor: 'primary.default',
+  backgroundColor: 'grayscale.xlight',
+  color: 'primary.default',
   badge: 2,
   noShadow: false,
   icon: 'Plus',
@@ -33,27 +33,27 @@ export const variant = () => (
   </>
 )
 
-export const color = () => (
+export const backgroundColor = () => (
   <>
     <Text mb="1em">
-      color <em>(E.G. primary.default, #333)</em>
+      backgroundColor <em>(E.G. primary.default, grayscale.dark, #333)</em>
     </Text>
     <Flex m=".5em 0 2em">
-      <IconButton color="primary.default" mr="1em" />
-      <IconButton color="grayscale.dark" mr="1em" />
-      <IconButton color="#333" mr="1em" />
+      <IconButton backgroundColor="primary.default" mr="1em" />
+      <IconButton backgroundColor="grayscale.dark" mr="1em" />
+      <IconButton backgroundColor="#333" mr="1em" />
     </Flex>
   </>
 )
 
-export const iconColor = () => (
+export const color = () => (
   <>
     <Text mb="1em">
-      iconColor <em>(E.G. grayscale.default, #FEFEFE)</em>
+      color <em>(E.G. grayscale.default, #FEFEFE)</em>
     </Text>
     <Flex m=".5em 0 2em">
-      <IconButton iconColor="grayscale.default" mr="1em" />
-      <IconButton iconColor="#FEFEFE" mr="1em" />
+      <IconButton color="grayscale.default" mr="1em" />
+      <IconButton color="#FEFEFE" mr="1em" />
     </Flex>
   </>
 )

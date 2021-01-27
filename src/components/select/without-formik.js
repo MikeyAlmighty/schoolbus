@@ -36,6 +36,7 @@ const Select = props => {
 
   const defaultOnChange = hasFormik && (value => formik.setFieldValue(name, value))
   const defaultValue = hasFormik && formik.values[name]
+  const hasError = !!alertText
 
   return (
     <InputWrapper alertText={alertText} {...otherProps}>
@@ -45,7 +46,7 @@ const Select = props => {
         onChange={onChange || defaultOnChange}
         value={value || defaultValue}
         placeholder={placeholder}
-        styles={styleOverride(props)}
+        styles={styleOverride({ hasError, ...props })}
         options={options}
         isDisabled={disableEmpty ? disabled || options.length === 0 : disabled}
         isMulti={multiple}

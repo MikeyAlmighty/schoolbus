@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './'
+import Flex from '../../../lib/components/flex'
 
 export default {
   title: 'Actions/ Button',
@@ -17,65 +18,78 @@ export default {
 export const Base = args => <Button {...args}>Hello World!</Button>
 Base.args = {
   variant: 'primary.default',
-  size: 'default',
-  shape: 'round',
+  size: '',
+  shape: '',
   disabled: false,
   isLoading: false,
 }
 
 export const Variants = () => (
   <>
-    <Button>Default</Button>
-    <Button variant="primary.default" m={2}>
-      Primary
-    </Button>
-    <Button variant="secondary" m={2}>
-      Secondary
-    </Button>
-    <Button variant="tertiary" m={2}>
-      Tertiary
-    </Button>
-    <Button variant="minimal" m={2}>
-      Minimal
-    </Button>
-    <Button variant="danger" m={2}>
-      Danger
-    </Button>
-    <Button variant="primary.default" isLoading m={2}>
+    <Flex>
+      <Button variant="primary" m={2}>
+        Primary
+      </Button>
+      <Button variant="primary" m={2} disabled>
+        disabled
+      </Button>
+    </Flex>
+    <Flex>
+      <Button variant="secondary" m={2}>
+        Secondary
+      </Button>
+      <Button variant="secondary" m={2} disabled>
+        Disabled
+      </Button>
+    </Flex>
+    <Flex>
+      <Button variant="minimal" m={2}>
+        Minimal
+      </Button>
+      <Button variant="minimal" m={2} disabled>
+        Minimal
+      </Button>
+    </Flex>
+    <Flex>
+      <Button variant="danger" m={2}>
+        Danger
+      </Button>
+      <Button variant="danger" m={2} disabled>
+        Danger
+      </Button>
+    </Flex>
+    <Button variant="primary" isLoading m={2}>
       Submit
-    </Button>
-    <Button variant="primary.default" disabled m={2}>
-      Disabled
     </Button>
   </>
 )
 
 export const Sizes = () => (
   <>
-    <Button variant="tertiary" size="compact" m={2}>
-      Compact
+    <Button size="mini" m={2}>
+      Mini
     </Button>
-    <Button variant="tertiary" size="default" m={2}>
+    <Button size="default" m={2}>
       Default
     </Button>
-    <Button variant="tertiary" size="large" m={2}>
+    <Button size="large" m={2}>
       Large
+    </Button>
+    <Button size="extended" m={2}>
+      Extended
     </Button>
   </>
 )
 
 export const Shapes = () => (
   <>
-    <Button shape="square" variant="primary.default" m={2}>
+    <Button shape="square" m={2}>
       Square
     </Button>
-    <Button shape="round" variant="primary.default" m={2}>
-      Round
-    </Button>
-    <Button shape="rounded" variant="primary.default" m={2}>
+    <Button shape="rounded" m={2}>
       Rounded
     </Button>
-    <Button shape="block" variant="primary.default" m={2}>
+    <Button shape="block" m={2}>
       Block
     </Button>
   </>

@@ -1,10 +1,19 @@
 import React from 'react'
 import ReactTooltip from 'react-tooltip'
+import styled from 'styled-components'
 
-const Tooltip = ({ text, children, ...otherProps }) => (
+const TooltipContainer = styled.div`
+  line-height: 0;
+`
+
+const Tooltip = ({ text, children, containerStyle, ...otherProps }) => (
   <div>
     <ReactTooltip {...otherProps} />
-    <div data-tip={text}>{children}</div>
+    <TooltipContainer
+      data-tip={text}
+    >
+      {children}
+    </TooltipContainer>
   </div>
 )
 
