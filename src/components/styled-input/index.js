@@ -11,6 +11,19 @@ const StyledInput = styled.input`
   border-radius: ${({ theme }) => theme.radii.small};
   width: 100%;
   color: ${({ theme }) => theme.colors.grayscale.xdark};
+  transition: background-color 0.1s, border 0.1s;
+
+  &:hover:not(:disabled) {
+    background-color: ${({ theme }) => theme.colors.grayscale.xlight};
+  }
+  &:focus {
+    border: ${({ theme }) => theme.borderStyles.primary};
+  }
+
+  ${({ hasError, theme }) => hasError && `
+    border: ${theme.borderStyles.danger};
+    padding-right: 2.5em;
+  `}
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.grayscale.light};

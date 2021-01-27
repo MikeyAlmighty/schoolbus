@@ -1,3 +1,4 @@
+import React from 'react'
 import Alert from '@lessondesk/material-icons/dist/Alert'
 
 const description = `

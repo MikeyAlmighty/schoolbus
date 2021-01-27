@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import theme from '../../config/theme'
-import { Button, Badge } from './styles'
-import Flex from '../flex'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import Eye from '@lessondesk/material-icons/dist/Eye'
 import DotsVertical from '@lessondesk/material-icons/dist/DotsVertical'
 import FilterVariant from '@lessondesk/material-icons/dist/FilterVariant'
 import Download from '@lessondesk/material-icons/dist/Download'
-import Pen from '@lessondesk/material-icons/dist/Pen'
 import Plus from '@lessondesk/material-icons/dist/Plus'
 import Close from '@lessondesk/material-icons/dist/Close'
 import Link from '@lessondesk/material-icons/dist/Link'
@@ -23,6 +19,10 @@ import FormatLineSpacing from '@lessondesk/material-icons/dist/FormatLineSpacing
 import ChevronLeft from '@lessondesk/material-icons/dist/ChevronLeft'
 import ChevronRight from '@lessondesk/material-icons/dist/ChevronRight'
 
+import Tooltip from '../tooltip'
+import Flex from '../flex'
+import { Button, Badge } from './styles'
+
 const ICON_SIZES = {
   xsmall: 18,
   small: 20,
@@ -31,44 +31,11 @@ const ICON_SIZES = {
   xlarge: 26,
 }
 
-const BUTTON_SIZES = {
-  xsmall: '28px',
-  small: '32px',
-  medium: '38px',
-  large: '44px',
-  xlarge: '48px',
-}
-
-const VARIANTS = {
-  primary: {
-    color: 'primary.default',
-    iconColor: 'white',
-  },
-  secondary: {
-    color: 'grayscale.xxlight',
-    iconColor: 'grayscale.xdark',
-  },
-  light: {
-    color: 'white',
-    iconColor: 'grayscale.default',
-  },
-  clear: {
-    color: 'transparent',
-    iconColor: 'grayscale.default',
-    noShadow: true,
-  },
-  danger: {
-    color: theme.colors.statusFill.danger,
-    iconColor: 'white',
-  },
-}
-
 const ICON_MAP = {
   Eye,
   DotsVertical,
   FilterVariant,
   Download,
-  Pen,
   Plus,
   Close,
   Link,
@@ -84,35 +51,50 @@ const ICON_MAP = {
   ChevronRight,
 }
 
-const IconButton = ({ variant, ...props }) => {
-  const { icon, badge, children, size, color, iconColor, ...otherProps } = {
-    ...props,
-    ...VARIANTS[variant],
-  }
-  // const [iconModule, setIcon] = useState(null)
-  // const importIcon = async () => setIcon(await import(`./available-icons/material-icons/dist/${icon}`))
-  // useEffect(() => {
-  //   if (icon) importIcon()
-  //   else setIcon(null)
-  // }, [icon])
+const ICON_LABEL_MAP = {
+  Eye: 'View',
+  DotsVertical: 'More options',
+  FilterVariant: 'Filter',
+  Download: 'Download',
+  Plus: 'Add',
+  Close: 'Close',
+  Pencil: 'Edit',
+  Tune: 'Configure',
+  Delete: 'Remove',
+  ArrowLeft: 'Back',
+  Magnify: 'Search',
+  FormatLineSpacing: 'Reorder',
+  ChevronLeft: 'Previous',
+  ChevronRight: 'Next',
+}
 
-  // const iconComponent = iconModule?.default && iconModule.default({
-  //   size: size ? ICON_SIZES[size] || size : ICON_SIZES.medium,
-  //   color: iconColor
-  // })
+const IconButton = ({ label, icon, badge, children, size, ...otherProps }) => {
   const Icon = ICON_MAP[icon]
+  const labelText = label || ICON_LABEL_MAP[icon]
 
   return (
     <Button
       alignItems="center"
       justifyContent="center"
       badge={badge}
-      size={BUTTON_SIZES[size] || size}
-      backgroundColor={theme.colors?.[color] || color}
+      size={size}
       {...otherProps}
+      aria-label={labelText}
     >
       {badge > 0 && <Badge>{badge}</Badge>}
-      {children || <Icon size={ICON_SIZES[size]} color={iconColor} />}
+      {labelText
+        ? (
+          <Tooltip 
+            text={labelText}
+            effect='solid'
+            place='bottom'
+            arrowColor='transparent'
+          >
+            <Icon size={ICON_SIZES[size]} color='inherit' />
+          </Tooltip>
+        )
+        : children || <Icon size={ICON_SIZES[size]} color='inherit' />}
+      
     </Button>
   )
 }
@@ -121,8 +103,9 @@ IconButton.propTypes = {
   onClick: PropTypes.func,
   icon: PropTypes.string,
   size: PropTypes.string,
+  label: PropTypes.string,
   color: PropTypes.string,
-  iconColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
   icon: PropTypes.string,
   children: PropTypes.node,
   badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -133,8 +116,9 @@ IconButton.propTypes = {
 IconButton.defaultProps = {
   icon: 'Plus',
   size: 'medium',
-  color: 'primary.default',
-  iconColor: 'white',
+  label: '',
+  color: '',
+  iconColor: '',
   noShadow: false,
   iconStyle: {},
 }

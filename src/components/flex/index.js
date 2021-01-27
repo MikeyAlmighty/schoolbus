@@ -10,7 +10,8 @@ import {
   justifyContent,
   flexWrap,
   flexDirection,
-  borderStyle
+  borderStyle,
+  position
 } from 'styled-system'
 
 import theme from '../../config/theme'
@@ -31,6 +32,7 @@ const Flex = mapProps(({ wrap, align, justify, ...otherProps }) => ({
   ${flexDirection}
   ${flexWrap}
   ${borderStyle}
+  ${position}
 `)
 
 Flex.defaultProps = {
@@ -48,6 +50,7 @@ Flex.propTypes = {
   ...propTypes.justifyContent,
   ...propTypes.flexWrap,
   ...propTypes.flexDirection,
+  ...propTypes.position,
 }
 
 Flex.displayName = 'Flex'

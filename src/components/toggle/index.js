@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { space, layout } from 'styled-system'
 import propTypes from '@styled-system/prop-types'
 
-import { ToggleContainer, ToggleInput, ToggleLabel } from './styles'
+import { ToggleContainer, ToggleInput, ToggleLabel, Circle } from './styles'
 
 class Toggle extends React.PureComponent {
   static defaultProps = {
@@ -32,7 +32,9 @@ class Toggle extends React.PureComponent {
           type="checkbox"
           readOnly
         />
-        <ToggleLabel htmlFor={this.props.id} />
+        <ToggleLabel htmlFor={this.props.id}>
+          <Circle />
+        </ToggleLabel>
       </ToggleContainer>
     )
   }

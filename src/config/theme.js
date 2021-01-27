@@ -1,49 +1,4 @@
-/*
-  Changes:
-
-    Colors:
-      colors.orange.primaryLight  -> colors.primary.lighter
-      colors.orange[0]            -> colors.primary.lighter
-      colors.orange.primary       -> colors.primary.default
-      colors.primary.default      -> colors.primary.default
-      colors.primary              -> colors.primary.default
-      colors.yellow               -> colors.primary.hover
-      colors.answerColors.        -> colors.answers.
-      colors.gray[6]              -> colors.grayscale.dark
-      colors.gray[7]              -> colors.grayscale.dark
-      colors.gray.xxdark          -> colors.grayscale.dark
-      colors.gray.xdark           -> colors.grayscale.dark
-      colors.gray.xxxlight        -> colors.grayscale.xxlight
-      colors.gray[0]              -> colors.grayscale.xxlight
-      colors.gray.                -> colors.grayscale.
-      colors.green[1]             -> colors.content.formal.default
-      colors.gray                 -> colors.grayscale
-      colors.red[0]               -> colors.statusFill.errorsLight
-      colors.red[2]               -> colors.statusFill.danger
-      colors.red[3]               -> colors.statusFill.danger
-      colors.red[6]               -> colors.statusFill.error
-
-    Make sure there are no colors.red/blue references.
-    
-    borderStyles: Swap out existing borders for borderStyles
-
-    Shadows:
-      shadows[0] -> elevations.titleBar
-      shadows[1] -> elevations.cardContainer
-      shadows[2] -> elevations.menu
-      shadows[3] -> elevations.modal
-      shadows[4] -> elevations.toggle
-*/
-
-const addAliases = (arr, aliases) =>
-  aliases.forEach((key, i) =>
-    Object.defineProperty(arr, key, {
-      enumerable: false,
-      get() {
-        return this[i]
-      },
-    })
-  )
+import addAliases from '../utils/add-aliases'
 
 export const space = [0, '0.25em', '0.5em', '1em', '2em', '4em', '8em', '16em', '32em']
 
@@ -81,7 +36,7 @@ export const colors = {
   green: ['#F9FFF4', '#85E2A2', '#37B049', '#65D287'],
   primary: ['#FFA400', 'rgb(255, 164, 0, 0.1)', '#FFB900'],
   answers: ['#F15152', '#3480EE', '#1E9E2F', '#FFA400'],
-  statusFill: ['#6DC65D', 'rgb(109, 198, 93, 0.1)', '#FB7979', 'rgb(251, 121, 121, 0.1)', '#F15252'],
+  statusFill: ['#6DC65D', '#F9FFF4', '#FB7979', '#FFF5F5', '#F15252'],
   statusText: ['#8AB657', '#C86262'],
   content: {
     roles: ['#FFB97D', 'rgb(255, 185, 125, 0.2)'],

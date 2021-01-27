@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 import toast from 'just-toasty'
 import { connect } from 'formik'
 import Translate from '@lessondesk/material-icons/dist/Translate'
+import Alert from '@lessondesk/material-icons/dist/Alert'
 import PropTypes from 'prop-types'
 
+import Tooltip from '../tooltip'
 import InputWrapper from '../input-wrapper'
 import TranslateModal from '../translate-modal'
 import Modal from '../modal'
-
 import createDefaultInputProps from '../../utils/create-input-defaults'
-import { fontSizes, colors } from '../../config/theme.js'
+import { fontSizes, colors } from '../../config/theme'
 import defaultPropTypes from '../../config/input-prop-types'
 
 import { Container, TranslateIconContainer, TranslateInputContainer } from './styles'
@@ -130,11 +131,18 @@ class TranslationInput extends Component {
             name={name}
             placeholder={placeholder || label}
             disabled={disabled}
+            hasError={!!alertText}
             {...inputProps}
           />
 
           <TranslateIconContainer onClick={this.toggleModal}>
-            <Translate size={fontSizes.normal} color={colors.grayscale.default} />
+            {alertText
+              ? (
+                <Tooltip text={alertText} effect='solid'>
+                  <Alert color={colors.statusFill.error} size='1.5em' />
+                </Tooltip>
+              )
+              : <Translate size = {fontSizes.normal} color={colors.grayscale.default} />}
           </TranslateIconContainer>
 
           <Modal isOpen={showModal} onClose={this.toggleModal} hideCloseButton>

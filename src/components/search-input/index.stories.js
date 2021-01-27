@@ -15,3 +15,4 @@ Base.args = {
   onChange: console.log,
   debounceTimeout: 250,
 }
+export const Expanded = () => <ExpandingSearchInput expanded onChange={console.log} />

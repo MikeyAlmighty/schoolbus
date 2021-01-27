@@ -31,6 +31,9 @@ export const Input = styled.input`
   &::placeholder {
     ${({ theme }) => theme.colors.grayscale.light};
   }
+  &:focus {
+    border: ${({ theme }) => theme.borderStyles.primary};
+  }
 `
 
 export const iconAltStyling = {
@@ -40,8 +43,4 @@ export const iconAltStyling = {
   padding: 9,
   fontSize: fontSizes.xxlarge,
   cursor: 'pointer',
-}
-
-export const expandedIconStyles = {
-  boxShadow: '0px 0px 16px 0px rgba(0, 0, 0, 0.09)',
 }
