@@ -12,7 +12,7 @@ import { Container, Input, iconAltStyling } from './styles'
 
 const SEARCH_DEBOUNCE_TIME = 250
 
-class ExpandingSearchInput extends Component {
+class SearchInput extends Component {
   constructor() {
     super()
 
@@ -151,7 +151,11 @@ class ExpandingSearchInput extends Component {
         {expanded
           ? icon
           : (
-            <Tooltip text="Search" effect="solid">
+            <Tooltip
+              text="Search"
+              effect="solid"
+              style={{ width: '3.5em' }}
+            >
               {icon}
             </Tooltip>
           )}
@@ -160,4 +164,4 @@ class ExpandingSearchInput extends Component {
   }
 }
 
-export default ExpandingSearchInput
+export default SearchInput
