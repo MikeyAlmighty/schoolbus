@@ -30,6 +30,7 @@ export const styleOverride = (config) => {
     disabled,
     align,
     singleValueStyles,
+    hasError,
   } = config
 
   return ({
@@ -37,6 +38,10 @@ export const styleOverride = (config) => {
       display: 'none',
     }),
     container: () => ({ width: '100%' }),
+    dropdownIndicator: (provided) => ({
+      ...provided,
+      ...(hasError && { marginRight: '1em' })
+    }),
     control: (_, state) => ({
       display: 'flex',
       color: colors.grayscale.xdark,
