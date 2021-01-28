@@ -5,6 +5,7 @@ import CalendarToday from '@lessondesk/material-icons/dist/CalendarToday'
 
 import InputWrapper from '../input-wrapper'
 import createDefaultInputProps from '../../utils/create-input-defaults'
+import ErrorIconWrapper from '../error-icon-wrapper'
 import { iconStyles, StyledDatePicker } from './styles'
 
 import { colors } from '../../config/theme'
@@ -37,24 +38,28 @@ const DateInput = ({
   })
 
   const defaultChangeHandler = hasFormik ? value => formik.setFieldValue(name, value) : onChange
+  const alertMessage = alertTextOverride || alertText
 
   return (
-    <InputWrapper alertText={alertTextOverride || alertText} {...otherProps}>
-      <StyledDatePicker
-        {...inputDefaults}
-        id={id}
-        onChange={defaultChangeHandler}
-        value={dateFormatter(value || inputDefaults.value)}
-        style={inputStyle}
-        aria-label={label}
-        aria-required={required}
-        placeholderText={placeholder || label}
-        disabled={disabled}
-        name={name}
-        autoComplete="off"
-        {...inputProps}
-      />
-      <CalendarToday style={iconStyles} color={colors.grayscale.default} />
+    <InputWrapper alertText={alertMessage} {...otherProps}>
+      <ErrorIconWrapper alertText={alertMessage}>
+        <StyledDatePicker
+          {...inputDefaults}
+          id={id}
+          onChange={defaultChangeHandler}
+          value={dateFormatter(value || inputDefaults.value)}
+          style={inputStyle}
+          aria-label={label}
+          aria-required={required}
+          placeholderText={placeholder || label}
+          disabled={disabled}
+          name={name}
+          autoComplete="off"
+          hasError={!!alertMessage}
+          {...inputProps}
+        />
+        {!alertText && <CalendarToday style={iconStyles} color={colors.grayscale.default} />}
+      </ErrorIconWrapper>
     </InputWrapper>
   )
 }

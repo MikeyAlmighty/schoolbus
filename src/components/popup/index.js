@@ -13,6 +13,7 @@ class Popup extends PureComponent {
     xOffset: '5px',
     yOffset: '5px',
     arrow: false,
+    animate: true
   }
 
   static propTypes = {
@@ -21,6 +22,7 @@ class Popup extends PureComponent {
     xOffset: PropTypes.string,
     yOffset: PropTypes.string,
     array: PropTypes.bool,
+    animate: PropTypes.bool,
   }
 
   state = {
@@ -99,6 +101,7 @@ class Popup extends PureComponent {
       yOffset,
       position,
       arrow,
+      animate,
       ...otherProps
     } = this.props
 
@@ -122,6 +125,7 @@ class Popup extends PureComponent {
             yOffset={yOffset}
             style={contentStyle}
             position={position}
+            animate={animate}
             arrow={arrow}
           >
             {typeof children === 'function' ? children(this.closePopup) : childrenWithProps}

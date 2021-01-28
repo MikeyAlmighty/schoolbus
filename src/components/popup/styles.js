@@ -72,13 +72,13 @@ export const ContentWrapper = styled.div`
   position: absolute;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: ${({ theme }) => theme.radii.small};
-  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: ${({ theme }) => theme.elevations.cardContainer};
   ${props => getVerticalOffset(props)};
   ${props => getHorizontalOffset(props)};
   z-index: ${({ theme }) => theme.zIndices[4]};
   transform: ${props => getTransform(props)};
   transform-origin: ${props => getTransformOrigin(props)};
-  transition: 80ms transform ease-out;
+  ${({ animate }) => animate && `transition: 80ms transform ease-out;`}
   &::before {
     display: ${({ arrow }) => (arrow ? 'block' : 'none')};
     content: '';

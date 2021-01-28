@@ -70,7 +70,11 @@ const InputWrapper = ({
     )}
 
     {children}
-    {alertText && <StyledAlertText style={alertStyle}>{alertText}</StyledAlertText>}
+    {alertText && (
+      <StyledAlertText style={alertStyle}>
+        {alertText?.simple || alertText}
+      </StyledAlertText>
+    )}
   </StyledInputContainer>
 )
 

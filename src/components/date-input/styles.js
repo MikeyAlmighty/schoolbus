@@ -12,6 +12,7 @@ export const StyledDatePicker = styled(DatePicker)`
   border-radius: ${({ theme }) => theme.radii.small};
   width: 100%;
   color: ${({ theme }) => theme.colors.grayscale.xdark};
+  ${({ hasError, theme }) => hasError && `border: ${theme.borderStyles.danger};`}
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.grayscale.light};
