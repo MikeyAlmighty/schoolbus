@@ -8,7 +8,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   width: auto;
-  ${({ expanded }) => expanded && `min-width: 250px`};
+  ${({ expanded }) => expanded && `min-width: 250px;`}
   ${space}
   ${layout}
 `

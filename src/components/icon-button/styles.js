@@ -15,7 +15,7 @@ const variants = {
     background-color: ${({ theme }) => theme.colors.primary.default};
     color: ${({ theme }) => theme.colors.white};
     &:hover {
-      ${({ theme, backgroundColor }) => !backgroundColor && `background-color: ${theme.colors.primary.hover}`};
+      ${({ theme, backgroundColor }) => !backgroundColor && `background-color: ${theme.colors.primary.hover};`};
     }
     &:disabled {
       background-color: ${({ theme }) => theme.colors.grayscale.light};
