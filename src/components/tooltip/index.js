@@ -19,6 +19,7 @@ const Popup = styled.p`
   color: ${({ theme }) => theme.colors.white};
   padding: 0.5em 1em;
   opacity: ${({ hovering }) => hovering ? 1 : 0};
+  pointer-events: none;
   white-space: nowrap;
   transition: opacity 0.1s;
   z-index: 10;
