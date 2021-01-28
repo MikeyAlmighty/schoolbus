@@ -120,8 +120,10 @@ class TranslationInput extends Component {
         ? formik.values[name][0].value
         : ''
 
+    const alertMessage = this.getAlertMessage(alertText)
+
     return (
-      <InputWrapper alertText={this.getAlertMessage(alertText)} {...otherProps}>
+      <InputWrapper alertText={alertMessage} {...otherProps}>
         <Container>
           <TranslateInputContainer
             {...inputDefaults}
@@ -138,7 +140,7 @@ class TranslationInput extends Component {
           <TranslateIconContainer onClick={this.toggleModal}>
             {alertText
               ? (
-                <Tooltip text={alertText}>
+                <Tooltip text={alertMessage}>
                   <Alert color={colors.statusFill.error} size='1.5em' />
                 </Tooltip>
               )

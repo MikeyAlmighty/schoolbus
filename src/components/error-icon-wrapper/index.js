@@ -13,7 +13,7 @@ const ErrorIconWrapper = ({ alertText, children, offset = '0.5em', size = '1.5em
       {children}
       {alertText && (
         <Box position='absolute' right={offset}>
-          <Tooltip text={alertText} position='top'>
+          <Tooltip text={alertText?.verbose || alertText} position='top' offset='0.75em'>
             <Alert color={theme.colors.statusFill.error} size={size} />
           </Tooltip>
         </Box>

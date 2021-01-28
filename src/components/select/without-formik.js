@@ -6,6 +6,7 @@ import InputWrapper from '../input-wrapper'
 import createDefaultInputProps from '../../utils/create-input-defaults'
 import inputPropTypes from '../../config/input-prop-types'
 import { styleOverride } from './styles'
+import ErrorIconWrapper from '../error-icon-wrapper'
 
 const Select = props => {
   const {
@@ -40,18 +41,20 @@ const Select = props => {
 
   return (
     <InputWrapper alertText={alertText} {...otherProps}>
-      <ReactSelect
-        {...inputDefaults}
-        {...otherProps}
-        onChange={onChange || defaultOnChange}
-        value={value || defaultValue}
-        placeholder={placeholder}
-        styles={styleOverride({ hasError, ...props })}
-        options={options}
-        isDisabled={disableEmpty ? disabled || options.length === 0 : disabled}
-        isMulti={multiple}
-        id={id}
-      />
+      <ErrorIconWrapper alertText={alertText}>
+        <ReactSelect
+          {...inputDefaults}
+          {...otherProps}
+          onChange={onChange || defaultOnChange}
+          value={value || defaultValue}
+          placeholder={placeholder}
+          styles={styleOverride({ hasError, ...props })}
+          options={options}
+          isDisabled={disableEmpty ? disabled || options.length === 0 : disabled}
+          isMulti={multiple}
+          id={id}
+        />
+      </ErrorIconWrapper>
     </InputWrapper>
   )
 }
