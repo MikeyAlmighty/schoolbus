@@ -36,6 +36,7 @@ export const styleOverride = (config) => {
     indicatorSeparator: () => ({
       display: 'none',
     }),
+    container: () => ({ width: '100%' }),
     control: (_, state) => ({
       display: 'flex',
       color: colors.grayscale.xdark,
