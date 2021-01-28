@@ -13,6 +13,7 @@ export const Option = styled(Flex).attrs({
   color: ${({ theme }) => theme.colors.grayscale.dark};
   background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
   transition: background-color 0.2s;
+  cursor: pointer;
 
   &:hover:not(:disabled) {
     background-color: ${({ theme }) => theme.colors.transparent};

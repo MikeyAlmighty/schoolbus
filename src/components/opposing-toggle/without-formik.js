@@ -23,12 +23,13 @@ const OpposingToggle = ({ name, options, value, onBlur, onChange, formik, ...oth
             type="radio"
             id={`${name}-${value}`}
             name={name}
+            checked={value === selected}
             value={value}
             onChange={handleChange}
             {...otherProps}
           />
           <Option 
-            for={`${name}-${value}`}
+            htmlFor={`${name}-${value}`}
             $selected={value === selected}
             hasIcon={!!icon}
             {...otherOptionrProps}
