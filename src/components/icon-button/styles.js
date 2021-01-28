@@ -14,6 +14,9 @@ const variants = {
   primary: css`
     background-color: ${({ theme }) => theme.colors.primary.default};
     color: ${({ theme }) => theme.colors.white};
+    &:hover {
+      ${({ theme, backgroundColor }) => !backgroundColor && `background-color: ${theme.colors.primary.hover}`};
+    }
     &:disabled {
       background-color: ${({ theme }) => theme.colors.grayscale.light};
       box-shadow: none;
@@ -28,7 +31,6 @@ const variants = {
 
     &:hover {
       background-color: ${({ theme }) => theme.colors.grayscale.xlight};
-      opacity: 1;
     }
     &:active {
       background-color: ${({ theme }) => theme.colors.grayscale.light};
@@ -46,7 +48,6 @@ const variants = {
 
     &:hover {
       background-color: ${({ theme }) => theme.colors.grayscale.xlight};
-      opacity: 1;
     }
     &:active {
       background-color: ${({ theme }) => theme.colors.grayscale.light};
@@ -56,6 +57,9 @@ const variants = {
   danger: css`
     background-color: ${({ theme }) => theme.colors.statusFill.danger};
     color: ${({ theme }) => theme.colors.white};
+    &:hover {
+      ${({ theme }) => theme.colors.statusFill.error};
+    }
     &:disabled {
       background-color: ${({ theme }) => theme.colors.grayscale.light};
       box-shadow: none;
@@ -84,7 +88,6 @@ export const Button = styled(Flex).attrs({
   }
   &:hover:not(:disabled) {
     cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
-    opacity: 0.9;
   }
   &:active {
     box-shadow: none;
