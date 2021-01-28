@@ -106,7 +106,7 @@ class SearchInput extends Component {
     )
 
     return (
-      <Container {...otherProps}>
+      <Container expanded={expanded} {...otherProps}>
         {id && (
           <VisuallyHidden>
             <label htmlFor={id}>{label || 'Search'}</label>
@@ -153,8 +153,7 @@ class SearchInput extends Component {
           : (
             <Tooltip
               text="Search"
-              effect="solid"
-              style={{ width: '3.5em' }}
+              style={{ width: '6em' }}
             >
               {icon}
             </Tooltip>
