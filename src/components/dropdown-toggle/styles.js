@@ -40,7 +40,7 @@ export const Option = styled.button`
 `
 
 export const List = styled.ul`
-  border-radius: 1.3em;
+  border-radius: ${({ variant }) => variant === 'mini' ? '1.1em' : '1.3em'};
   overflow: hidden;
   box-shadow: ${({ theme }) => theme.elevations.toggle};
 ` 

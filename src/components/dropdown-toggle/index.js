@@ -25,7 +25,7 @@ const DropdownToggle = ({ value, name, style, className, options, disabled, onCh
       animate={false}
       trigger={(
         <Button 
-          width='13em' 
+          width='10em' 
           disabled={disabled} 
           {...otherProps}
         >
@@ -40,7 +40,7 @@ const DropdownToggle = ({ value, name, style, className, options, disabled, onCh
         {options.map(option => {
           const { value, label = value, ...otherOptionProps } = option
           return (
-            <li>
+            <li key={value}>
               <Option 
                 onClick={() => handleSelect(option)} 
                 {...otherOptionProps}
