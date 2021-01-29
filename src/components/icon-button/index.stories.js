@@ -1,11 +1,18 @@
 import React from 'react'
-import IconButton from './'
+import IconButton, { ICON_MAP } from './'
 import Flex from '../flex'
 import Text from '../text'
 
 export default {
   title: 'Actions/ Icon Button',
   component: IconButton,
+  parameters: {
+    docs: {
+      description: {
+        component: 'A button component that displays one of a set of icons.',
+      },
+    },
+  }
 }
 
 export const Base = args => <IconButton {...args} />
@@ -14,26 +21,31 @@ Base.args = {
   backgroundColor: 'grayscale.xlight',
   color: 'primary.default',
   badge: 2,
-  noShadow: false,
   icon: 'Plus',
 }
 
-export const variant = () => (
+const VariantExample = ({ variant }) => (
+  <Flex mt='1em'>
+    <Text width='12rem'>{variant}</Text>
+    <IconButton variant={variant} mr='1em' />
+  </Flex>
+)
+
+export const Variant = () => (
   <>
     <Text mb="1em">
-      variant <em>(E.G. primary.default, secondary, light, clear, danger)</em>
+      variant <em>(E.G. primary, secondary, light, clear, danger)</em>
     </Text>
-    <Flex m=".5em 0 2em">
-      <IconButton variant="primary.default" mr="1em" />
-      <IconButton variant="secondary" mr="1em" />
-      <IconButton variant="light" mr="1em" />
-      <IconButton variant="clear" mr="1em" />
-      <IconButton variant="danger" mr="1em" />
+    <Flex flexDirection="column">
+      <VariantExample variant='primary'/>
+      <VariantExample variant='secondary' />
+      <VariantExample variant='clear' />
+      <VariantExample variant='danger' />
     </Flex>
   </>
 )
 
-export const backgroundColor = () => (
+export const BackgroundColor = () => (
   <>
     <Text mb="1em">
       backgroundColor <em>(E.G. primary.default, grayscale.dark, #333)</em>
@@ -46,7 +58,7 @@ export const backgroundColor = () => (
   </>
 )
 
-export const color = () => (
+export const Color = () => (
   <>
     <Text mb="1em">
       color <em>(E.G. grayscale.default, #FEFEFE)</em>
@@ -71,4 +83,12 @@ export const Size = () => (
       <IconButton size="xlarge" />
     </Flex>
   </>
+)
+
+export const AvailableIcons = () => (
+  <Flex wrap>
+    {Object.keys(ICON_MAP).map(icon => (
+      <IconButton icon={icon} key='icon' mr='1em' mb='1em' />
+    ))}
+  </Flex>
 )

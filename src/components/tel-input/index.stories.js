@@ -1,6 +1,5 @@
 import React from 'react'
 import TelInput from './'
-import { Formik } from 'formik'
 import defaultInputArgs from '../../config/default-input-args'
 
 export default {
@@ -14,12 +13,17 @@ export default {
     component: TelInput,
     docs: {
       description: {
-        component:
-          'An input used for mobile numbers. Includes the ability to select the countrycode from a drop down.',
+        component: 'A phone number inpu built on top of react-phone-input-2 with formik and non formik connected variants.',
       },
     },
   },
 }
 
 export const Base = args => <TelInput {...args} />
-Base.args = defaultInputArgs
+Base.args = {
+  ...defaultInputArgs,
+  defaultCountry: 'za',
+  masks: {
+    za: '.. ... ....',
+  },
+}

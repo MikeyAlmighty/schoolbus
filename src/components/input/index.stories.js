@@ -5,6 +5,13 @@ import defaultInputArgs from '../../config/default-input-args'
 export default {
   title: 'Inputs/ Input',
   component: Input,
+  parameters: {
+    docs: {
+      description: {
+        component: 'A simple input component with formik and non formik connected variants.',
+      },
+    },
+  }
 }
 
 export const Base = args => <Input {...args} />

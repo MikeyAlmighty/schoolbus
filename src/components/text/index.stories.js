@@ -4,6 +4,13 @@ import Text from './'
 export default {
   title: 'Misc/Text',
   component: Text,
+  parameters: {
+    docs: {
+      description: {
+        component: 'A text component that makes use of styled-system\'s [typography](https://styled-system.com/api/#typography) property. `fontSize`, `fontWeight`, and `color`, can be used to reference their respective theme properties.',
+      },
+    },
+  }
 }
 
 export const Base = args => <Text {...args}>The quick brown fox jumps over the lazy dog</Text>
@@ -11,6 +18,9 @@ Base.args = {
   fontSize: 'xlarge',
   fontWeight: 'bold',
   color: 'gray.dark',
+  lineHeight: '1em',
+  letterSpacing: '0.1em',
+  textAlign: 'left'
 }
 
 export const FontSizes = () => (

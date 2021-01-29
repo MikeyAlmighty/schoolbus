@@ -2,8 +2,16 @@ import React from 'react'
 import SearchInput from './'
 
 export default {
-  title: 'Inputs/ Expanding Search Input',
+  title: 'Inputs/ Search Input',
   component: SearchInput,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A search input with a debounced onChange event. Use `debounceTimeout={0}` to remove the debounce. ',
+      },
+    },
+  },
 }
 
 export const Base = args => <SearchInput {...args} />

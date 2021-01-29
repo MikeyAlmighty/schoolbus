@@ -4,7 +4,15 @@ import Spinner from './'
 export default {
   title: 'Misc/Spinner',
   component: Spinner,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A spinner component with adjustable size and color.',
+      },
+    },
+  },
 }
 
 export const Base = args => <Spinner {...args} />
-Base.args = { size: '5em', margin: '3em' }
+Base.args = { size: '5em', margin: '3em', color: '#FFA400' }

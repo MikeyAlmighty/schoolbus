@@ -14,7 +14,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'It\'s a select.',
+        component: 'A select component built on top of react-select with formik and non formik connected variants.',
       },
     },
   },
@@ -28,6 +28,7 @@ export const Empty = () => <Select {...defaultArgs} />
 export const Selected = () => <Select {...defaultArgs} value={options[0]} />
 export const Disabled = () => <Select {...defaultArgs} disabled />
 export const Invalid = () => <Select {...defaultArgs} options={options} alertText="Invalid" />
+export const Searchable = () => <Select {...defaultArgs} options={options} isSearchable />
 export const Variants = () => (
   <Flex wrap justifyContent="space-between">
     <Select {...defaultArgs} label="default" variant="default" />

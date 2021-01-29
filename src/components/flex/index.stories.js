@@ -5,6 +5,13 @@ import Box from '../box'
 export default {
   title: 'Containers & Wrappers/ Flex',
   component: Flex,
+  parameters: {
+    docs: {
+      description: {
+        component: 'A `display: flex;` component that makes use of styled-system\'s [flexbox](https://styled-system.com/api#flexbox) property.',
+      },
+    },
+  }
 }
 
 export const Base = args => (
@@ -53,6 +60,17 @@ export const Around = () => (
     </Box>
     <Box width="300px" m={1} p={3} color="white" bg="primary.default">
       Justify around
+    </Box>
+  </Flex>
+)
+
+export const FlexDirection = () => (
+  <Flex flexDirection="column">
+    <Box width="300px" m={1} p={3} color="white" bg="primary.default">
+      Column
+    </Box>
+    <Box width="300px" m={1} p={3} color="white" bg="primary.default">
+      Column
     </Box>
   </Flex>
 )
