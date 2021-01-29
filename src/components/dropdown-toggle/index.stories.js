@@ -6,7 +6,7 @@ const defaultOptions = {
   options: [
     { label: 'Option 1', value: 'value1' },
     { label: 'Option 2', value: 'value2' },
-    { label: 'Option 2', value: 'value2' },
+    { label: 'Option 3', value: 'value3' },
   ]
 }
 
@@ -17,6 +17,11 @@ export default {
     formik: {
       initialValues: {
         name: '',
+      },
+    },
+    docs: {
+      description: {
+        component: 'A select component used to toggle between different states/filters.',
       },
     },
   },

@@ -6,6 +6,13 @@ import Button from '../button'
 export default {
   title: 'Containers & Wrappers/ Modal',
   component: Modal,
+  parameters: {
+    docs: {
+      description: {
+        component: 'A modal wrapper that provides a standard formatting for title, description, and footer.',
+      },
+    },
+  }
 }
 
 const DEFAULT_WIDTH = '50em'

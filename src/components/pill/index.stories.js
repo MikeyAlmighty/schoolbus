@@ -14,7 +14,6 @@ export default {
   },
 }
 
-//TODO: Figure out why theme is being passed through in args as "theme"
 export const Base = args => <Pill {...args}>Text here</Pill>
 Base.args = {
   count: 5,
@@ -39,9 +38,6 @@ export const Inactive = () => (
     <Pill onClick={() => {}}>Inactive (default)</Pill>
     <Pill ml="1em" onClick={() => {}} count={100}>
       Count
-    </Pill>
-    <Pill ml="1em" onClick={() => {}} variant="bordered">
-      Bordered
     </Pill>
   </Flex>
 )

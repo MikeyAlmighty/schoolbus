@@ -12,13 +12,14 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'A text input field that displays the language next to it.',
+        component: 'A non formik connected input that displays the language to the left of the user\'s input',
       },
     },
   },
 }
 
 export const Base = args => <LanguageSetField {...args} />
+
 Base.args = {
   placeholder: 'Placeholder',
   name: 'name',

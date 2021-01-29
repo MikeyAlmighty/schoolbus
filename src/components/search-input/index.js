@@ -144,7 +144,7 @@ class SearchInput extends Component {
               icon='Close'
               ml='0.5em'
               label='Clear'
-              onClick={() => this.setState({ value: '' })}
+              onClick={this.handleClear}
             />
           </Box>
         )}

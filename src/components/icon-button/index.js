@@ -31,7 +31,7 @@ const ICON_SIZES = {
   xlarge: 26,
 }
 
-const ICON_MAP = {
+export const ICON_MAP = {
   Eye,
   DotsVertical,
   FilterVariant,
@@ -107,7 +107,6 @@ IconButton.propTypes = {
   icon: PropTypes.string,
   children: PropTypes.node,
   badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  noShadow: PropTypes.bool,
   ...Flex.propTypes,
 }
 
@@ -117,7 +116,6 @@ IconButton.defaultProps = {
   label: '',
   color: '',
   backgroundColor: '',
-  noShadow: false,
   iconStyle: {},
 }
 

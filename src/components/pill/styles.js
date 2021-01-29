@@ -1,6 +1,20 @@
 import styled from 'styled-components'
 import { space, layout } from 'styled-system'
 
+export const Count = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2em;
+  min-width: 2em;
+  min-width: 2em;
+  padding: 0 0.5em;
+  margin-right: 0.3em;
+  border-radius: ${({ theme }) => theme.radii.full};
+  background-color: ${({ theme, active }) =>
+    active ? theme.colors.primary.light : theme.colors.grayscale.xxlight};
+`
+
 export const Container = styled.button.attrs({
   type: 'button',
 })`
@@ -13,12 +27,10 @@ export const Container = styled.button.attrs({
   min-width: 80px;
   border-radius: ${({ theme }) => theme.radii.full};
   box-shadow: ${({ active, theme }) => (active ? theme.elevations.cardContainer : 'none')};
-  border: ${({ active, theme, count, variant }) =>
-    `1px solid ${
-      (count >= 0 && !active) || (variant === 'bordered' && !active)
-        ? theme.colors.grayscale.xlight
-        : theme.colors?.transparent
-    }`};
+  border: ${({ active, theme }) => active
+      ? 'solid 1px transparent'
+    : theme.borderStyles.light
+  };
   font-size: ${({ theme }) => theme.fontSizes.small};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-family: ${({ theme }) => theme.fonts.Montserrat};
@@ -27,8 +39,12 @@ export const Container = styled.button.attrs({
   ${layout}
   
   &:hover:not(:disabled) {
-    ${({ onClick, active, theme }) => (onClick && !active) && 
-      `background-color: ${theme.colors.grayscale.xxlight};`}
+    ${({ onClick, active, theme }) => (onClick && !active) && `
+      background-color: ${theme.colors.grayscale.xxlight};
+      & ${Count} {
+        background-color: ${theme.colors.grayscale.xlight};
+      }
+    `}
   }
   &:active {
     background-color: ${({ theme }) => theme.colors.grayscale.xlight};
@@ -39,18 +55,4 @@ export const Container = styled.button.attrs({
 
 export const Text = styled.span`
   margin: 0 1em;
-`
-
-export const Count = styled.span`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2em;
-  min-width: 2em;
-  min-width: 2em;
-  padding: 0 0.5em;
-  margin-right: 0.3em;
-  border-radius: ${({ theme }) => theme.radii.full};
-  background-color: ${({ theme, active }) =>
-    active ? theme.colors.primary.default.lighter : theme.colors.grayscale.xxlight};
 `
