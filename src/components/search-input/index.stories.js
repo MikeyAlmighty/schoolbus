@@ -22,5 +22,6 @@ Base.args = {
   onExpand: console.log,
   onChange: console.log,
   debounceTimeout: 250,
+  ml: 'auto'
 }
 export const Expanded = () => <SearchInput expanded onChange={console.log} />

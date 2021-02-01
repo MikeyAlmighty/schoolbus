@@ -66,8 +66,11 @@ class SearchInput extends Component {
   handleFocus = () => this.setState({ focused: true })
 
   handleBlur = () => {
-    const { expanded: expandedOverride } = this.props
+    const { expanded: expandedOverride, onExpand } = this.props
     const { value } = this.state
+    const expanded = expandedOverride || !!value
+    
+    onExpand && onExpand(expanded)
     this.setState({ 
       focused: false,
       // Close search input on blue if no value is entered
@@ -99,7 +102,7 @@ class SearchInput extends Component {
     const icon = (
       <Magnify
         onClick={this.toggleExpanded}
-        style={iconAltStyling}
+        style={iconAltStyling(expanded)}
         size={fontSizes.large}
         color={value ? colors.primary.default : colors.grayscale.default}
       />
@@ -151,10 +154,7 @@ class SearchInput extends Component {
         {expanded
           ? icon
           : (
-            <Tooltip
-              text="Search"
-              style={{ width: '6em' }}
-            >
+            <Tooltip text="Search">
               {icon}
             </Tooltip>
           )}

@@ -7,7 +7,7 @@ export const Container = styled.div`
   height: 38px;
   display: flex;
   align-items: center;
-  width: auto;
+  width: ${({ expanded }) => expanded ? 'auto' : 'min-content'};
   ${({ expanded }) => expanded && `min-width: 250px;`}
   ${space}
   ${layout}
@@ -36,11 +36,11 @@ export const Input = styled.input`
   }
 `
 
-export const iconAltStyling = {
+export const iconAltStyling = expanded => ({
   position: 'absolute',
-  right: 14,
+  right: expanded ? 14 : 0,
   borderRadius: radii.full,
   padding: 9,
   fontSize: fontSizes.xxlarge,
   cursor: 'pointer',
-}
+})
