@@ -10,10 +10,6 @@ import ErrorIconWrapper from '../error-icon-wrapper'
 import { iconStyles } from './styles'
 import { colors } from '../../config/theme'
 
-function getDateString(value) {
-  return value instanceof Date ? value.toDateString() : value
-}
-
 const DateInput = ({
   formik,
   disabled,
@@ -23,7 +19,7 @@ const DateInput = ({
   placeholder,
   inputProps,
   alertText: alertTextOverride,
-  dateFormatter,
+  dateFormat,
   ...otherProps
 }) => {
   const { name, id = name, label, inputStyle, required } = otherProps
@@ -49,7 +45,7 @@ const DateInput = ({
           customInput={<StyledInput />}
           onChange={value => defaultChangeHandler(value)}
           selected={value || inputDefaults.value}
-          dateFormat={"dd MMM yyyy"}
+          dateFormat={dateFormat}
           style={inputStyle}
           aria-label={label}
           aria-required={required}
@@ -67,8 +63,7 @@ const DateInput = ({
 }
 
 DateInput.defaultProps = {
-  dateFormatter: getDateString,
-  dateFormat: 'dd/MM/yyyy',
+  dateFormat: 'dd MMM yyyy',
   onBlur: () => {},
   onChange: () => {},
 }
