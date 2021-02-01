@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import toast from 'just-toasty'
 import { connect } from 'formik'
 import Translate from '@lessondesk/material-icons/dist/Translate'
-import Alert from '@lessondesk/material-icons/dist/Alert'
 import PropTypes from 'prop-types'
 
-import Tooltip from '../tooltip'
 import InputWrapper from '../input-wrapper'
 import TranslateModal from '../translate-modal'
 import Modal from '../modal'
@@ -13,7 +11,8 @@ import createDefaultInputProps from '../../utils/create-input-defaults'
 import { fontSizes, colors } from '../../config/theme'
 import defaultPropTypes from '../../config/input-prop-types'
 
-import { Container, TranslateIconContainer, TranslateInputContainer } from './styles'
+import { Container, TranslateIconContainer, TranslateInput } from './styles'
+import ErrorIconWrapper from '../error-icon-wrapper'
 
 class TranslationInput extends Component {
   static defaultProps = {
@@ -121,11 +120,12 @@ class TranslationInput extends Component {
         : ''
 
     const alertMessage = this.getAlertMessage(alertText)
+    const hasError = !!alertMessage
 
     return (
       <InputWrapper alertText={alertMessage} {...otherProps}>
-        <Container>
-          <TranslateInputContainer
+        <ErrorIconWrapper alertText={alertMessage} onClick={this.toggleModal}>
+          <TranslateInput
             {...inputDefaults}
             id={id}
             value={val}
@@ -133,18 +133,12 @@ class TranslationInput extends Component {
             name={name}
             placeholder={placeholder || label}
             disabled={disabled}
-            hasError={!!alertText}
+            hasError={hasError}
             {...inputProps}
           />
 
-          <TranslateIconContainer onClick={this.toggleModal}>
-            {alertText
-              ? (
-                <Tooltip text={alertMessage}>
-                  <Alert color={colors.statusFill.error} size='1.5em' />
-                </Tooltip>
-              )
-              : <Translate size = {fontSizes.normal} color={colors.grayscale.default} />}
+          <TranslateIconContainer onClick={this.toggleModal} hidden={hasError}>
+            <Translate size={fontSizes.normal} color={colors.grayscale.default} />
           </TranslateIconContainer>
 
           <Modal isOpen={showModal} onClose={this.toggleModal} hideCloseButton>
@@ -159,7 +153,7 @@ class TranslationInput extends Component {
               languages={languages}
             />
           </Modal>
-        </Container>
+        </ErrorIconWrapper>
       </InputWrapper>
     )
   }
