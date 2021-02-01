@@ -1,18 +1,14 @@
 import React from 'react'
 import { connect } from 'formik'
-
+import DatePicker from 'react-datepicker'
 import CalendarToday from '@lessondesk/material-icons/dist/CalendarToday'
 
+import StyledInput from '../styled-input'
 import InputWrapper from '../input-wrapper'
 import createDefaultInputProps from '../../utils/create-input-defaults'
 import ErrorIconWrapper from '../error-icon-wrapper'
-import { iconStyles, StyledDatePicker } from './styles'
-
+import { iconStyles } from './styles'
 import { colors } from '../../config/theme'
-
-function getDateString(value) {
-  return value instanceof Date ? value.toDateString() : value
-}
 
 const DateInput = ({
   formik,
@@ -23,7 +19,7 @@ const DateInput = ({
   placeholder,
   inputProps,
   alertText: alertTextOverride,
-  dateFormatter,
+  dateFormat,
   ...otherProps
 }) => {
   const { name, id = name, label, inputStyle, required } = otherProps
@@ -43,11 +39,13 @@ const DateInput = ({
   return (
     <InputWrapper alertText={alertMessage} {...otherProps}>
       <ErrorIconWrapper alertText={alertMessage}>
-        <StyledDatePicker
+        <DatePicker
           {...inputDefaults}
           id={id}
+          customInput={<StyledInput />}
           onChange={defaultChangeHandler}
-          value={dateFormatter(value || inputDefaults.value)}
+          selected={value || inputDefaults.value}
+          dateFormat={dateFormat}
           style={inputStyle}
           aria-label={label}
           aria-required={required}
@@ -65,8 +63,7 @@ const DateInput = ({
 }
 
 DateInput.defaultProps = {
-  dateFormatter: getDateString,
-  dateFormat: 'dd/MM/yyyy',
+  dateFormat: 'dd MMM yyyy',
   onBlur: () => {},
   onChange: () => {},
 }
