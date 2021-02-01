@@ -41,6 +41,11 @@ const languages = [
   },
 ]
 
+const defaultProps = {
+  ...defaultInputArgs,
+  languages,
+}
+
 export default {
   title: 'Inputs/ Translate Input',
   component: TranslateInput,
@@ -59,7 +64,12 @@ export default {
 }
 
 export const Base = args => <TranslateInput {...args} />
-Base.args = {
-  ...defaultInputArgs,
-  languages,
-}
+Base.args = defaultProps
+
+const alertText = [{ 
+  value: { 
+    simple: "Translations required", 
+    verbose: "Must have a translation for all the selected languages" 
+  }
+}]
+export const Invalid = () => <TranslateInput {...defaultProps} alertText={alertText} />

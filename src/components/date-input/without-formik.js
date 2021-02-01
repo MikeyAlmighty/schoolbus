@@ -42,7 +42,7 @@ const DateInput = ({
         <DatePicker
           {...inputDefaults}
           id={id}
-          customInput={<StyledInput />}
+          customInput={<StyledInput hasError={!!alertMessage} />}
           onChange={defaultChangeHandler}
           selected={value || inputDefaults.value}
           dateFormat={dateFormat}
@@ -53,7 +53,6 @@ const DateInput = ({
           disabled={disabled}
           name={name}
           autoComplete="off"
-          hasError={!!alertMessage}
           {...inputProps}
         />
         {!alertText && <CalendarToday style={iconStyles} color={colors.grayscale.default} />}
