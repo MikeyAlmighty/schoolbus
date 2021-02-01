@@ -44,7 +44,7 @@ class Input extends React.PureComponent {
 
     return (
       <InputWrapper 
-        {...(alertText?.length <= MAX_INLINE_ERROR_LENGTH && { alertText })}
+        alertText={alertText}
         {...otherProps}
       >
         <ErrorIconWrapper alertText={alertText}>
