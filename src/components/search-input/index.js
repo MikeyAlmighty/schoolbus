@@ -102,7 +102,7 @@ class SearchInput extends Component {
     const icon = (
       <Magnify
         onClick={this.toggleExpanded}
-        style={iconAltStyling(expanded)}
+        style={iconAltStyling}
         size={fontSizes.large}
         color={value ? colors.primary.default : colors.grayscale.default}
       />
