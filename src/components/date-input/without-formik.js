@@ -43,7 +43,7 @@ const DateInput = ({
           {...inputDefaults}
           id={id}
           customInput={<StyledInput />}
-          onChange={value => defaultChangeHandler(value)}
+          onChange={defaultChangeHandler}
           selected={value || inputDefaults.value}
           dateFormat={dateFormat}
           style={inputStyle}
