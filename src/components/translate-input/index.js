@@ -10,9 +10,8 @@ import Modal from '../modal'
 import createDefaultInputProps from '../../utils/create-input-defaults'
 import { fontSizes, colors } from '../../config/theme'
 import defaultPropTypes from '../../config/input-prop-types'
-
-import { Container, TranslateIconContainer, TranslateInput } from './styles'
 import ErrorIconWrapper from '../error-icon-wrapper'
+import { TranslateIconContainer, TranslateInput } from './styles'
 
 class TranslationInput extends Component {
   static defaultProps = {
