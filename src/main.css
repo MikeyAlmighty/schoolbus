@@ -11,11 +11,9 @@
     width: 100% !important;
   }
   
+  .react-datepicker__header,
+  .react-datepicker__day--selected,
   .react-datepicker__day--keyboard-selected {
-    background-color: #FFA400 !important;
-  }
-  
-  .react-datepicker__header {
     background-color: #FFA400 !important;
   }
   
