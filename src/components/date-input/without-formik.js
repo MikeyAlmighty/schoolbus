@@ -53,6 +53,8 @@ const DateInput = ({
           disabled={disabled}
           name={name}
           autoComplete="off"
+          showMonthDropdown
+          showYearDropdown
           {...inputProps}
         />
         {!alertText && <CalendarToday style={iconStyles} color={colors.grayscale.default} />}

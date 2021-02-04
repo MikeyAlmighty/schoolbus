@@ -1,11 +1,10 @@
 /* eslint no-use-before-define: 0 */
 import * as React from 'react'
-import { space, layout, typography } from 'styled-system'
-import inputPropTypes from '../../config/input-prop-types'
-import propTypes from '@styled-system/prop-types'
 import PropTypes from 'prop-types'
 
-import { StyledInput, StyledLabel, StyledSpan } from './styles'
+import InlineInputWrapper from '../inline-input-wrapper'
+import { StyledInput, StyledSpan } from './styles'
+import { HoverCircle } from '../inline-input-wrapper/styles'
 
 class Checkbox extends React.PureComponent {
   static propTypes = {
@@ -14,16 +13,22 @@ class Checkbox extends React.PureComponent {
     onBlur: PropTypes.func,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
-    ...propTypes.space,
-    ...propTypes.layout,
-    ...propTypes.typography,
+    ...InlineInputWrapper.propTypes
   }
 
   render() {
-    const { children, onChange, checked, onBlur, disabled, ...otherProps } = this.props
+    const { variant, children, onChange, checked, onBlur, disabled, ...otherProps } = this.props
 
     return (
-      <StyledLabel {...otherProps}>
+      <InlineInputWrapper
+        role='checkbox'
+        aria-checked={checked}
+        disabled={disabled}
+        text={children}
+        variant={variant}
+        pl={variant === 'contained' ? '1em' : 0}
+        {...otherProps}
+      >
         <StyledInput
           onChange={onChange}
           onBlur={onBlur}
@@ -31,10 +36,10 @@ class Checkbox extends React.PureComponent {
           disabled={disabled}
           readOnly
         />
-        <StyledSpan disabled={disabled} labelled={children}>
-          {children}
+        <StyledSpan>
+          <HoverCircle />
         </StyledSpan>
-      </StyledLabel>
+      </InlineInputWrapper>
     )
   }
 }

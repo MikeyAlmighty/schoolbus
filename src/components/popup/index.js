@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-import DotsVertical from '@lessondesk/material-icons/dist/DotsVertical'
+import IconButton from '../icon-button'
 import { colors } from '../../config/theme'
 
 import { Trigger, ContentWrapper } from './styles'
@@ -102,6 +102,7 @@ class Popup extends PureComponent {
       position,
       arrow,
       animate,
+      size,
       ...otherProps
     } = this.props
 
@@ -114,7 +115,15 @@ class Popup extends PureComponent {
           onClick={() => !showDialogue && this.toggleDialogue(true)}
           {...otherProps}
         >
-          {trigger || <DotsVertical color={colors.grayscale.default} />}
+          {trigger || (
+            <IconButton
+              label=''
+              icon='DotsVertical'
+              variant='clear'
+              color={colors.grayscale.default}
+              size={size}
+            />
+          )}
 
           <ContentWrapper
             ref={node => (this.menu = node)}

@@ -70,7 +70,7 @@ const ICON_LABEL_MAP = {
 
 const IconButton = ({ label, icon, badge, children, size, ...otherProps }) => {
   const Icon = ICON_MAP[icon]
-  const labelText = label || ICON_LABEL_MAP[icon]
+  const labelText = label === null ? label || ICON_LABEL_MAP[icon] : label
 
   return (
     <Button
@@ -113,7 +113,7 @@ IconButton.propTypes = {
 IconButton.defaultProps = {
   icon: 'Plus',
   size: 'medium',
-  label: '',
+  label: null,
   color: '',
   backgroundColor: '',
   iconStyle: {},

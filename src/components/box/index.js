@@ -5,6 +5,7 @@ import propTypes from '@styled-system/prop-types'
 import theme from '../../config/theme'
 
 const Box = styled.div`
+  line-height: 0;
   ${space}
   ${layout}
   ${color}

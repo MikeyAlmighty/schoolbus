@@ -1,47 +1,51 @@
-/* eslint no-use-before-define: 0 */
-import * as React from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import propTypes from '@styled-system/prop-types'
-
 import RadioboxBlank from '@lessondesk/material-icons/dist/RadioboxBlank'
 import RadioboxMarked from '@lessondesk/material-icons/dist/RadioboxMarked'
 
-import { StyledLabel, StyledSpan } from './styles'
+import Box from '../box'
+import InlineInputWrapper from '../inline-input-wrapper'
+import { HoverCircle } from '../inline-input-wrapper/styles'
 
 const RadioButton = ({
   children,
-  theme,
   onChange,
   checked,
   inputProps,
-  labelProps,
   disabled,
   ...otherProps
 }) => {
   const Icon = checked ? RadioboxMarked : RadioboxBlank
 
   return (
-    <StyledLabel disabled={disabled} {...otherProps}>
-      <Icon
-        onClick={onChange}
-        checked={checked}
-        color={checked ? 'primary.default' : 'grayscale.dark'}
-        {...inputProps}
-      />
-      {children && <StyledSpan {...labelProps}>{children}</StyledSpan>}
-    </StyledLabel>
+    <InlineInputWrapper 
+      role='radio'
+      aria-checked={checked}
+      text={children}
+      disabled={disabled}
+      hoverScale={1.5}
+      {...otherProps}
+    >
+      <Box position='relative'>
+        <Icon
+          onClick={onChange}
+          checked={checked}
+          color={checked ? 'primary.default' : 'grayscale.dark'}
+          {...inputProps}
+        />
+        <HoverCircle />
+      </Box>
+    </InlineInputWrapper>
   )
 }
 
 RadioButton.propTypes = {
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   inputProps: PropTypes.object,
   labelProps: PropTypes.object,
-  ...propTypes.typography,
-  ...propTypes.layout,
-  ...propTypes.space,
+  ...InlineInputWrapper.propTypes
 }
 
 export default RadioButton

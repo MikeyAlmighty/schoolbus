@@ -31,6 +31,8 @@ export const styleOverride = (config) => {
     align,
     singleValueStyles,
     hasError,
+    controlStyle,
+    indicatorStyle
   } = config
 
   return ({
@@ -40,7 +42,8 @@ export const styleOverride = (config) => {
     container: () => ({ width: '100%' }),
     dropdownIndicator: (provided) => ({
       ...provided,
-      ...(hasError && { marginRight: '1em' })
+      ...(hasError && { marginRight: '1em' }),
+      ...indicatorStyle
     }),
     control: (_, state) => ({
       display: 'flex',
@@ -57,6 +60,8 @@ export const styleOverride = (config) => {
       overflow: 'hidden',
       width: '100%',
       fontWeight: fontWeights[shape === 'rounded' ? 'semi' : 'normal'],
+      height: '38px',
+      ...controlStyle
     }),
     valueContainer: provided => ({
       ...provided,
@@ -79,25 +84,22 @@ export const styleOverride = (config) => {
       display: state.isDisabled ? 'none' : 'flex',
     }),
     option: (defaultStyles, { isSelected, isFocused }) => {
-      let color = colors.white
-      if (isFocused) {
-        color = colors.grayscale.xxlight
-      }
-      if (isSelected) {
-        color = colors.grayscale.xxlight
-      }
+      const backgroundColor = isFocused || isSelected 
+        ? colors.grayscale.xxlight
+        : colors.white
 
       return {
         ...defaultStyles,
         fontSize: fontSizes.small,
         color: colors.grayscale.xdark,
-        backgroundColor: color,
+        backgroundColor,
         ':active': {
           ...defaultStyles[':active'],
           backgroundColor: colors.grayscale.xlight,
         },
         cursor: 'pointer',
         textAlign: align,
+        padding: '1.3em 1em'
       }
     },
   })

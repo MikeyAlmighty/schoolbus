@@ -21,7 +21,7 @@ export const Button = styled(Flex).attrs({
     border: ${({ theme }) => theme.borderStyles.light};
     box-shadow: none;
   }
-  &:hover {
+  &:hover:not(:disabled) {
     box-shadow: ${({ theme }) => theme.elevations.cardContainer};
   }
 `
