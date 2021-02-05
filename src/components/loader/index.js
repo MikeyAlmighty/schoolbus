@@ -1,3 +1,4 @@
+import React from 'react'
 import ContentLoader from 'react-content-loader'
 import { theme } from '@lessondesk/schoolbus'
 
