@@ -6,7 +6,7 @@ import TableActions from './table-actions'
 import SortingCaret from './sorting-caret'
 import { EmptyText, StyledTable, TableRow, Th, Td } from './styles'
 
-const getSortingDirection = (sorting) => {
+const getSortingDirection = (sorting, key) => {
   if (sorting?.[key]) {
     return sorting[key] === 'asc' ? 'dsc' : 'asc'
   }
@@ -22,7 +22,7 @@ function renderHeader (header, i, props) {
       throw new Error('key and title required')
     }
 
-    const direction = getSortingDirection(sorting)
+    const direction = getSortingDirection(sorting, key)
 
     return (
       <Th key={`${title}${i}`} width={width}>
