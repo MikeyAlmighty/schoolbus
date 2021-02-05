@@ -10,14 +10,12 @@ export const decorators = [
     const { formik, containerProps } = parameters
     return (
       <ThemeProvider theme={theme}>
-        <>
-          <Normalize />
-          <Box p={3} {...containerProps}>
-            {formik 
-              ? <Formik {...formik}><Story /></Formik>
-              : <Story />}
-          </Box>
-        </>
+        <Normalize />
+        <Box p={3} {...containerProps}>
+          {formik 
+            ? <Formik {...formik}><Story /></Formik>
+            : <Story />}
+        </Box>
       </ThemeProvider>
     )
   }

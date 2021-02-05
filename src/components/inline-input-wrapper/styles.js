@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { typography, space, layout } from 'styled-system'
+import Flex from '../flex'
 
 export const HoverCircle = styled.span`
   position: absolute;
@@ -7,7 +8,7 @@ export const HoverCircle = styled.span`
   left: 50%;
   width: 100%;
   height: 100%;
-  border-radius: 50%;
+  border-radius: ${({ theme }) => theme.radii.full};
   transition: transform 0.15s;
   transform: scale(0) translate(-50%, -50%);
   transform-origin: top left;
@@ -32,9 +33,10 @@ const variants = {
   `
 }
 
-export const StyledLabel = styled.label`
-  display: flex;
-  align-items: center;
+export const StyledLabel = styled(Flex).attrs({
+  as: 'label',
+  alignItems: 'center'
+})`
   font-family: ${({ theme }) => theme.fonts.Montserrat};
   font-size: ${({ theme }) => theme.fontSizes.small};
   font-weight: ${({ theme }) => theme.fontWeights.semi};
