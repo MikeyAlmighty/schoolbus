@@ -59,6 +59,9 @@ function renderRow (row, rowFormatter, i, props) {
       key={`${key}${i}`} 
       onClick={onClick} 
       selected={isSelected}
+      // Adding selected classname since styled-components don't support &:first-of-type inside of the component
+      // https://stackoverflow.com/a/62514547
+      {...(isSelected && { className: 'selected' })}
     >
       {cells.map((cell, i) => {
         if (React.isValidElement(cell)) return cell
