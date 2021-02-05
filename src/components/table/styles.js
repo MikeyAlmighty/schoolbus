@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { borderStyles } from '../../config/theme'
 
-export const EmptyText = styled.p`
+export const EmptyText = styled.div`
   font-size: ${({ theme }) => theme.fontSizes.small};
   color: ${({ theme }) => theme.colors.grayscale.default};
   font-style: italic;
@@ -18,12 +18,8 @@ export const Th = styled.th`
   color: ${({ theme }) => theme.colors.black};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-size: ${({ theme }) => theme.fontSizes.small};
+  text-align: ${({ center }) => (center ? 'center' : 'left')};
   white-space: nowrap;
-  ${({ center }) => center && `
-    display: flex;
-    text-align: center;
-    justify-content: center;
-  `}
 `
 
 export const Td = styled.td`
@@ -32,11 +28,7 @@ export const Td = styled.td`
   color: ${({ theme }) => theme.colors.black};
   font-weight: ${({ theme }) => theme.fontWeights.light};
   font-size: ${({ theme }) => theme.fontSizes.small};
-  ${({ center }) => center && `
-    display: flex;
-    text-align: center;
-    justify-content: center;
-  `}
+  text-align: ${({ center }) => (center ? 'center' : 'left')};
 `
 
 export const TableRow = styled.tr`
