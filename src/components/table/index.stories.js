@@ -19,7 +19,10 @@ const defaultArgs = {
   data: [
     { id: '1', cell2: 'cell2', cell3: 'cell3' },
     { id: '2', cell2: 'cell2', cell3: 'cell3' },
-    { id: '3', cell2: 'cell2', cell3: 'cell3' }
+    { id: '3', cell2: 'cell2', cell3: 'cell3' },
+    { id: '4', cell2: 'cell2', cell3: 'cell3' },
+    { id: '5', cell2: 'cell2', cell3: 'cell3' },
+    { id: '6', cell2: 'cell2', cell3: 'cell3' },
   ],
   rowFormatter: ({ id, cell2, cell3 }, i) => ({
     key: id,
@@ -33,6 +36,6 @@ Base.args = defaultArgs
 export const Selected = () => (
   <Table 
     {...defaultArgs}
-    selected={[defaultArgs.data[1]]}
+    selected={[defaultArgs.data[1], defaultArgs.data[2], defaultArgs.data[4]]}
   />
 )

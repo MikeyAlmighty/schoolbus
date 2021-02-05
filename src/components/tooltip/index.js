@@ -12,8 +12,8 @@ const POSITION_MAP = {
 
 const Popup = styled.p`
   position: absolute;
-  ${({ position = 'bottom', offset = '1em' }) => 
-    `${POSITION_MAP[position]}: calc(100% + ${offset});`}
+  ${({ position = 'bottom', $offset = '1em' }) => 
+    `${POSITION_MAP[position]}: calc(100% + ${$offset});`}
   border-radius: ${({ theme }) => theme.radii.xsmall};
   background-color: ${({ theme }) => theme.colors.grayscale.dark};
   color: ${({ theme }) => theme.colors.white};
@@ -22,6 +22,7 @@ const Popup = styled.p`
   pointer-events: none;
   white-space: nowrap;
   z-index: 10;
+  line-height: 1em; 
 `
 
 const Tooltip = ({ text, children, className, style, ...otherProps }) => {

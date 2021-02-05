@@ -23,6 +23,7 @@ export const Th = styled.th`
 `
 
 export const Td = styled.td`
+  position: relative;
   padding: ${({ isCheckboxCell }) => (isCheckboxCell ? '0px' : '0.8em 1em')};
   width: ${({ isCheckboxCell }) => (isCheckboxCell ? '50px' : 'unset')};
   color: ${({ theme }) => theme.colors.black};
@@ -38,59 +39,63 @@ export const TableRow = styled.tr`
   &:hover {
     background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
   }
-  ${({ selected, theme }) => selected && `
-    background-color: ${theme.colors.primary.light};
-
-    & > ${Td} {
-      border-top: ${borderStyles.primary};
-      border-bottom: ${borderStyles.primary}!important;
-    }
-    & > ${Td}:first-of-type {
-      border-left: ${borderStyles.primary};
-    }
-    & > ${Td}:last-of-type {
-      border-right: ${borderStyles.primary};
-    }
-  `}
 `
 
 const variants = {
   default: css`
-    border: ${({ theme }) => theme.borderStyles.default};
+    border-radius: ${({ theme }) => theme.radii.small};
+    // Using box shadow and border-style hidden in place of border 
+    // to solve issue with border-collapse and border radius
+    // https://stackoverflow.com/a/2586780
+    border-style: hidden;
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.grayscale.light};
 
     th {
       background-color: ${({ theme }) => theme.colors.white};
     }
 
     th:first-child {
-      border-top-left-radius: 5px;
+      border-top-left-radius: ${({ theme }) => theme.radii.small};
     }
 
     th:last-child {
-      border-top-right-radius: 5px;
+      border-top-right-radius: ${({ theme }) => theme.radii.small};
     }
 
-    /* th:not(:last-child),
-    td:not(:last-child) {
-      border-right: 1px solid ${({ theme }) => theme.colors.grayscale.xlight};
-    } */
-
-    /* stylelint-disable-next-line no-descending-specificity */
     th,
     tr:not(:last-child) td {
-      border-bottom: 1px solid ${({ theme }) => theme.colors.grayscale.xlight};
+      border-bottom: ${({ theme }) => theme.borderStyles.default};
     }
 
-    tbody tr:last-child td:first-child {
-      border-bottom-left-radius: 5px;
+    & .selected > ${Td}:last-of-type {
+      //Using box shadow instead of border to solve above mentioned problem 
+      box-shadow: inset -4px 0px 0 -2px ${({ theme }) => theme.colors.primary.default};
     }
-
-    tbody tr:last-child td:last-child {
-      border-bottom-right-radius: 5px;
+    & .selected > ${Td}:first-of-type {
+      //Using box shadow instead of border to solve above mentioned problem 
+      box-shadow: inset 4px 0px 0 -2px ${({ theme }) => theme.colors.primary.default};
+    }
+    & .selected > ${Td} {
+      background-color: ${({ theme }) => theme.colors.primary.light};
+      border-top: ${({ theme }) => theme.borderStyles.primary};
+    }
+    & .selected + .selected > ${Td} {
+      border-top: none;
+    }
+    & .selected +:not(.selected) > ${Td} {
+      border-top: ${({ theme }) => theme.borderStyles.primary};
+    }
+    & .selected:last-child > ${Td} {
+      border-bottom: ${({ theme }) => theme.borderStyles.primary};
+    }
+    & ${TableRow}:last-child ${Td}:first-child {
+      border-bottom-left-radius: ${({ theme }) => theme.radii.small};
+    }
+    & ${TableRow}:last-child ${Td}:last-child {
+      border-bottom-right-radius: ${({ theme }) => theme.radii.small};
     }
   `,
   borderless: css`
-    border-collapse: separate;
     border-spacing: 0 0.5em;
 
     & > thead th {
@@ -147,7 +152,7 @@ const variants = {
 export const StyledTable = styled.table`
   width: 100%;
   border-radius: ${({ theme }) => theme.radii.small};
-  border-collapse: separate;
+  border-collapse: collapse;
   border-spacing: 0;
   line-height: 1em;
   flex: 1;
