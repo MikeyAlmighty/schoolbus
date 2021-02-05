@@ -18,9 +18,9 @@ function createPageSizeText (page, pageSize, count) {
 }
 
 const PAGINATION_OPTIONS = [
-  { label: 10 },
-  { label: 20 },
-  { label: 50 },
+  { label: 10, value: 10 },
+  { label: 20, value: 20 },
+  { label: 50, value: 50 },
 ]
 
 class TableActions extends Component {
@@ -55,13 +55,14 @@ class TableActions extends Component {
       >
         <Flex alignItems='center' justifyContent='center'>
           <Select
-            value={PAGINATION_OPTIONS[0]}
-            onChange={setPageSize}
+            value={PAGINATION_OPTIONS.find(({ value }) => pageSize === value)}
+            onChange={({ label }) => setPageSize && setPageSize(label)}
             options={PAGINATION_OPTIONS}
             placeholder=''
             variant='secondary'
             width='4em'
             minWidth='4em'
+            isSearchable={false}
             {...styleOverrides.select}
           />
 

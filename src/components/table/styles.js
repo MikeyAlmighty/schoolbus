@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { borderStyles } from '../../config/theme'
 
-export const EmptyText = styled.div`
+export const EmptyText = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.small};
   color: ${({ theme }) => theme.colors.grayscale.default};
   font-style: italic;
