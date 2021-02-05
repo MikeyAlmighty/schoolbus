@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { space } from 'styled-system'
 
 function getVerticalOffset(props) {
   const { renderToBottom, yOffset, position } = props
@@ -62,6 +63,7 @@ export const Trigger = styled.div`
   background-color: ${({ theme }) => theme.colors.transparent};
   margin: 0;
   font-size: unset;
+  ${space}
   &:hover {
     cursor: pointer;
   }

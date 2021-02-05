@@ -1,5 +1,6 @@
-import React from 'react'
 import Checkbox from './'
+import Text from '../text'
+import Flex from '../flex'
 
 export default {
   title: 'Actions/ Checkbox',
@@ -14,12 +15,30 @@ export default {
   },
 }
 
-export const Base = () => <Checkbox>Children go here</Checkbox>
+export const Base = args => <Checkbox {...args}>Text</Checkbox>
 Base.args = {
   checked: false,
   disabled: false,
 }
+export const WithText = () => <Checkbox>Text goes here</Checkbox>
 
-export const WithLabel = () => <Checkbox>With Label</Checkbox>
-export const Checked = () => <Checkbox checked />
-export const Disabled = () => <Checkbox disabled>Disabled</Checkbox>
+export const Variants = () => (
+  <>
+    <Checkbox>Default</Checkbox>
+    <Checkbox checked mb='1em'>Default Checked</Checkbox>
+    <Checkbox variant='contained' mb='0.5em'>Contained</Checkbox>
+    <Checkbox variant='contained' checked>Contained Checked</Checkbox>
+  </>
+)
+
+export const States = () => (
+  <>
+    <Text mb='0.5em'>Default:</Text>
+    <Checkbox checked />
+    <Text m='1em 0 0.5em'>Disabled:</Text>
+    <Flex>
+      <Checkbox disabled mr='1em'>Unchecked</Checkbox>
+      <Checkbox checked disabled>Checked</Checkbox>
+    </Flex>
+  </>
+)
