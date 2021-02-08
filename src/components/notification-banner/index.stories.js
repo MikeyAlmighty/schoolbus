@@ -10,8 +10,7 @@ export default {
     docs: {
       description: {
         component:
-          'A banner displays an important, succinct message, and provides actions for users to address (or dismiss the banner).
-It requires a user action to be dismissed.',
+          'A banner displays an important, succinct message, and provides actions for users to address (or dismiss the banner). It requires a user action to be dismissed.',
       },
     },
   },
