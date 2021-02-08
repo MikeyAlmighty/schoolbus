@@ -29,7 +29,7 @@ export const Title = styled.h2`
   }
 `
 
-export const StyledIconButton = styled(IconButotn)`
+export const StyledIconButton = styled(IconButton)`
   position: absolute;
   left: 2em;
 `
