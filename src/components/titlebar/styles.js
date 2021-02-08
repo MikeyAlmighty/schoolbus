@@ -1,11 +1,15 @@
 import styled from 'styled-components'
-import { Flex } from '@lessondesk/schoolbus'
+
+import IconButton from '../icon-button'
+import Flex from '../flex'
 
 export const TitleBarContainer = styled(Flex).attrs({
   as: 'header',
   alignItems: 'center',
   justifyContent: 'center'
 })`
+  position: relative;
+  height: 5em;
   padding: 1.2em 2em;
   background-color: ${({ theme }) => theme.colors.white};
   border-top-left-radius: ${({ theme }) => theme.radii.xxlarge};
@@ -23,4 +27,9 @@ export const Title = styled.h2`
   ::first-letter {
     text-transform: capitalize;
   }
+`
+
+export const StyledIconButton = styled(IconButotn)`
+  position: absolute;
+  left: 2em;
 `

@@ -1,8 +1,7 @@
 import React from 'react'
 import Router from 'next/router'
 
-import IconButton from '../icon-button'
-import { Title, TitleBarContainer } from './styles'
+import { Title, TitleBarContainer, StyledIconButton } from './styles'
 
 const TitleBar = ({
   to,
@@ -13,12 +12,11 @@ const TitleBar = ({
 }) => (
   <TitleBarContainer {...otherProps}>
     {withBack && (
-      <IconButton
+      <StyledIconButton
         icon='ArrowLeft'
-        variant='secondary'
+        variant='clear'
         mr='2em'
         onClick={() => onBack(to)}
-        noShadow
       />
     )}
     <Title>{children}</Title>
