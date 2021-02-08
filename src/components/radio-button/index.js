@@ -26,7 +26,7 @@ const RadioButton = ({
       hoverScale={1.5}
       {...otherProps}
     >
-      <Box position='relative'>
+      <Box position='relative' lineHeight='0'>
         <Icon
           onClick={onChange}
           checked={checked}

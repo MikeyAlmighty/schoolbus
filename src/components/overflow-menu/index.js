@@ -23,7 +23,7 @@ const OverflowMenu = ({ position, options, NextLink, ...otherProps }) => {
       closeOnSelect
       contentStyle={{ padding: '.5em 0' }}
       xOffset="-20px"
-      yOffset="-30px"
+      yOffset="0"
       {...otherProps}
     >
       {filteredOptions.map(({ name, onClick, href, ...otherProps }) =>
