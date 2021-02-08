@@ -27,7 +27,7 @@ TitleBar.defaultProps = {
   onBack: to => (to ? Router.push(to) : Router.back()),
   to: '',
   withBack: false,
-  align: 'left-align'
+  align: 'left'
 }
 
 export default TitleBar
