@@ -15,7 +15,7 @@ const TitleBar = ({
     {withBack && (
       <IconButton
         icon='ArrowLeft'
-        variant='secondary'
+        variant='clear'
         mr='2em'
         onClick={() => onBack(to)}
         noShadow
