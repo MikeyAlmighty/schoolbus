@@ -43,6 +43,7 @@ export const TableRow = styled.tr`
 
 const variants = {
   default: css`
+    border-collapse: collapse;
     border-radius: ${({ theme }) => theme.radii.small};
     // Using box shadow and border-style hidden in place of border 
     // to solve issue with border-collapse and border radius
@@ -63,7 +64,7 @@ const variants = {
     }
 
     th,
-    tr:not(:last-child) td {
+    tr:not(:last-child):not(.selected) td {
       border-bottom: ${({ theme }) => theme.borderStyles.default};
     }
 
@@ -152,7 +153,6 @@ const variants = {
 export const StyledTable = styled.table`
   width: 100%;
   border-radius: ${({ theme }) => theme.radii.small};
-  border-collapse: collapse;
   border-spacing: 0;
   line-height: 1em;
   flex: 1;
