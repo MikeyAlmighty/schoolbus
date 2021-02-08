@@ -15,6 +15,7 @@ export default {
 }
 
 const defaultArgs = {
+  variant: 'default',
   headers: ['header1', 'header2', 'header3'],
   data: [
     { id: '1', cell2: 'cell2', cell3: 'cell3' },
@@ -37,5 +38,12 @@ export const Selected = () => (
   <Table 
     {...defaultArgs}
     selected={[defaultArgs.data[1], defaultArgs.data[2], defaultArgs.data[4]]}
+  />
+)
+
+export const BorderlessVariant = () => (
+  <Table 
+    {...defaultArgs}
+    variant='borderless'
   />
 )
