@@ -97,6 +97,7 @@ const variants = {
     }
   `,
   borderless: css`
+    border-collapse: separate;
     border-spacing: 0 0.5em;
 
     & > thead th {
