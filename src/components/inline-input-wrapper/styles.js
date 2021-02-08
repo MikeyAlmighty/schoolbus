@@ -4,6 +4,7 @@ import Flex from '../flex'
 
 export const HoverCircle = styled.span`
   position: absolute;
+  pointer-events: none;
   top: 50%;
   left: 50%;
   width: 100%;
