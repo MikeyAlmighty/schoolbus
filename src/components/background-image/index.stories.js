@@ -2,7 +2,7 @@ import React from 'react'
 import BackgroundImage from './'
 
 export default {
-  title: 'Misc/BackgroundImage',
+  title: 'Misc/ Background Image',
   component: BackgroundImage,
 }
 

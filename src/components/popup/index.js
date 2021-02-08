@@ -120,7 +120,7 @@ class Popup extends PureComponent {
               label=''
               icon='DotsVertical'
               variant='clear'
-              color={colors.grayscale.default}
+              color={showDialogue ? colors.primary.default : colors.grayscale.default}
               size={size}
             />
           )}
