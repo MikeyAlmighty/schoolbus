@@ -64,7 +64,6 @@ function renderRow (row, rowFormatter, i, props) {
       {...(isSelected && { className: 'selected' })}
     >
       {cells.map((cell, i) => {
-        if (React.isValidElement(cell)) return cell
         if (typeof cell === 'function') {
           return cell({ key: cell.toString, i, row, props, isSelected })
         }
