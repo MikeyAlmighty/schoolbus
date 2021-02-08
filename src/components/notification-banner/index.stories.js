@@ -6,6 +6,15 @@ import Button from '../button'
 export default {
   title: 'Misc/ Notification Banner',
   component: NotificationBanner,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A banner displays an important, succinct message, and provides actions for users to address (or dismiss the banner).
+It requires a user action to be dismissed.',
+      },
+    },
+  },
 }
 
 export const Base = args => <NotificationBanner {...args} />
