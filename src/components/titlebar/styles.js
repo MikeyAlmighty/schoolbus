@@ -15,7 +15,10 @@ export const TitleBarContainer = styled(Flex).attrs({
   border-top-left-radius: ${({ theme }) => theme.radii.xxlarge};
   border-top-right-radius: ${({ theme }) => theme.radii.xxlarge};
   border-bottom: 1px solid ${({ theme }) => theme.colors.grayscale.xlight};
-  ${({ align }) => `text-align: ${align || 'left-align'};`}
+  text-align: ${({ align }) => align || 'left'};
+  ${({ align }) => !align || align === 'left' && `
+    padding-left: 5em;
+  `}
 `
 
 export const Title = styled.h2`
