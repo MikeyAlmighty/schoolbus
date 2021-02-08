@@ -23,8 +23,8 @@ const sizes = {
     font-size: ${({ theme }) => theme.fontSizes.small};
   `,
   large: css`
-    height: 2.5em;   
-    padding: 0 3em;
+    height: 2.1em;
+    min-width: 6em;
     font-size: ${({ theme }) => theme.fontSizes.large};
   `
 }
