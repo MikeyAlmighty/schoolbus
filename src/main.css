@@ -61,6 +61,10 @@
     border: none !important;
 }
 
+.react-tel-input > input.form-control:focus {
+  border: solid 2px #FFA400;
+}
+
 .react-tel-input > input.form-control {
   background-color: #f1f1f1 !important;
   border: none !important;
