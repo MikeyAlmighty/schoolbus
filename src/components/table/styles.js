@@ -64,7 +64,7 @@ const variants = {
     }
 
     th,
-    tr:not(:last-child):not(.selected) td {
+    tr:not(:last-child):not(:last-of-type) td {
       border-bottom: ${({ theme }) => theme.borderStyles.default};
     }
 
@@ -76,11 +76,11 @@ const variants = {
       //Using box shadow instead of border to solve above mentioned problem 
       box-shadow: inset 4px 0px 0 -2px ${({ theme }) => theme.colors.primary.default};
     }
-    & .selected > ${Td} {
+    & .selected {
       background-color: ${({ theme }) => theme.colors.primary.light};
       border-top: ${({ theme }) => theme.borderStyles.primary};
     }
-    & .selected + .selected > ${Td} {
+    & .selected + .selected {
       border-top: none;
     }
     & .selected +:not(.selected) > ${Td} {
@@ -94,6 +94,10 @@ const variants = {
     }
     & ${TableRow}:last-child ${Td}:last-child {
       border-bottom-right-radius: ${({ theme }) => theme.radii.small};
+    }
+    & ${TableRow}:last-of-type.selected {
+      box-shadow: inset 0 0px 0 2px ${({ theme }) => theme.colors.primary.default};
+      border-radius: 0 0 ${({ theme }) => `${theme.radii.small} ${theme.radii.small}`};
     }
   `,
   borderless: css`

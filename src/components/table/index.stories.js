@@ -37,7 +37,7 @@ Base.args = defaultArgs
 export const Selected = () => (
   <Table 
     {...defaultArgs}
-    selected={[defaultArgs.data[1], defaultArgs.data[2], defaultArgs.data[4]]}
+    selected={[defaultArgs.data[0], defaultArgs.data[1], defaultArgs.data[5]]}
   />
 )
 
