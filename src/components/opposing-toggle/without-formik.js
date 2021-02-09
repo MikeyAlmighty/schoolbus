@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 import createInputDefaults from '../../utils/create-input-defaults'
 import { Container, Input, Option } from './styles'
@@ -17,7 +17,7 @@ const OpposingToggle = ({ name, options, value, onBlur, onChange, formik, ...oth
   return (
     <Container>
       {options.map(({ icon, label, value = label, ...otherOptionrProps }) => (
-        <>
+        <Fragment key={value}>
           <Input
             {...inputDefaults}
             type="radio"
@@ -37,7 +37,7 @@ const OpposingToggle = ({ name, options, value, onBlur, onChange, formik, ...oth
             {icon}
             {label}
           </Option>
-        </>
+        </Fragment>
       ))}
     </Container>
   )

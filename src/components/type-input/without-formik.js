@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import createDefaultInputProps from '../../utils/create-input-defaults'
 import InputWrapper from '../input-wrapper'
 import inputPropTypes from '../../config/input-prop-types'
+import Pill from '../pill'
 
 import { Container, Value } from './styles'
 
@@ -43,16 +44,16 @@ const TypeInput = ({
       <Container>
         {options &&
           options.map(({ label, value }) => (
-            <Value
+            <Pill
               key={value}
-              selected={Array.isArray(selectedValues) && selectedValues.includes(value)}
+              active={Array.isArray(selectedValues) && selectedValues.includes(value)}
               onClick={() =>
                 onToggle ? onToggle(value) : hasFormik && formikChangeHandler(formik, name, value)
               }
-              value={typeValues}
+              mr='1em'
             >
               {label}
-            </Value>
+            </Pill>
           ))}
       </Container>
     </InputWrapper>
