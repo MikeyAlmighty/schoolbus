@@ -31,6 +31,9 @@ export const Input = styled.input`
   &::placeholder {
     ${({ theme }) => theme.colors.grayscale.light};
   }
+  &:hover:not(:disabled) {
+    background-color: ${({ theme }) => theme.colors.grayscale.xlight};
+  }
   &:focus {
     border: ${({ theme }) => theme.borderStyles.primary};
   }

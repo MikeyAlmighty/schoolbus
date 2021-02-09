@@ -49,16 +49,17 @@ export const StyledLabel = styled(Flex).attrs({
   ${space}
   ${layout}
 
-  &:hover ${HoverCircle} {
-    transform: ${({ hoverScale }) => `scale(${hoverScale || '2'}) translate(-50%, -50%)`};
-  }
 
-  ${({ disabled }) =>
+  ${({ disabled, hoverScale }) =>
     disabled
       ? `
     opacity: 0.7;
   `
       : `
     cursor: pointer;
+
+    &:hover ${HoverCircle} {
+      transform: scale(${hoverScale || '2'}) translate(-50%, -50%);
+    }
   `}
 `
