@@ -11,7 +11,17 @@ const styleOverrides = {
   }
 }
 
-const DropdownToggle = ({ value, name, style, className, options, disabled, onChange, ...otherProps }) => {
+const DropdownToggle = ({ 
+  value, 
+  name, 
+  style,
+  className,
+  options,
+  disabled,
+  onChange,
+  variant,
+  ...otherProps
+}) => {
   const [selected, setSelected] = useState(value || options[0])
   const handleSelect = useCallback((option) => {
     if (option !== selected && onChange) onChange(option)
@@ -26,8 +36,8 @@ const DropdownToggle = ({ value, name, style, className, options, disabled, onCh
       trigger={(
         <Button 
           width='10em' 
-          disabled={disabled} 
-          {...otherProps}
+          disabled={disabled}
+          variant={variant}
         >
           {selected?.label || selected?.value}
           <StyledMenuDown size='2em' color={theme.colors.grayscale.default} />
@@ -35,9 +45,11 @@ const DropdownToggle = ({ value, name, style, className, options, disabled, onCh
       )}
       position='topCenter'
       contentStyle={styleOverrides.content}
+      {...otherProps}
     >
       <List>
-        {options.map(option => {
+        {[selected, ...options.filter(value => value !== selected)]
+          .map(option => {
           const { value, label = value, ...otherOptionProps } = option
           return (
             <li key={value}>
