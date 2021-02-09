@@ -51,10 +51,6 @@ const variants = {
     border-style: hidden;
     box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.grayscale.light};
 
-    th {
-      background-color: ${({ theme }) => theme.colors.white};
-    }
-
     th:first-child {
       border-top-left-radius: ${({ theme }) => theme.radii.small};
     }
@@ -96,7 +92,7 @@ const variants = {
       border-bottom-right-radius: ${({ theme }) => theme.radii.small};
     }
     & ${TableRow}:last-of-type.selected {
-      box-shadow: inset 0 0px 0 2px ${({ theme }) => theme.colors.primary.default};
+      box-shadow: inset 0 -1px 0 2px ${({ theme }) => theme.colors.primary.default};
       border-radius: 0 0 ${({ theme }) => `${theme.radii.small} ${theme.radii.small}`};
     }
   `,
