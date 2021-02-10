@@ -2,7 +2,7 @@ import React from 'react'
 import Spinner from './'
 
 export default {
-  title: 'Misc/Spinner',
+  title: 'Loaders/ Spinner',
   component: Spinner,
   parameters: {
     docs: {
