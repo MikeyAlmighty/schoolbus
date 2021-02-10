@@ -1,5 +1,14 @@
-import styled from 'styled-components'
-import { space, layout } from 'styled-system'
+import styled, { keyframes } from 'styled-components'
+import { space, layout, color } from 'styled-system'
+
+export const scaleIn = keyframes`
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+`
 
 export const Container = styled.div`
   ${space}
@@ -11,6 +20,7 @@ export const ProgressContainer = styled.div`
   border-radius: ${({ theme }) => theme.radii.full};
   overflow: hidden;
   height: 0.5em;
+  ${color}
 `
 
 export const Progress = styled.div`
@@ -22,4 +32,6 @@ export const Progress = styled.div`
   transition: width 0.1s linear;
   border-radius: 0 ${({ theme }) => `${theme.radii.full} ${theme.radii.full}`} 0;
   background-color: ${({ theme }) => theme.colors.primary.default};
+  animation: ${scaleIn} ease-out 0.2s;
+  ${color}
 `
