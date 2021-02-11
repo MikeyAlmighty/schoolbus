@@ -6,28 +6,26 @@ import propTypes from '@styled-system/prop-types'
 import { Container, Text, Count } from './styles'
 
 Container.displayName = 'Pill'
-class Pill extends React.PureComponent {
-  static defaultProps = {
-    active: false,
-  }
 
-  static propTypes = {
-    active: PropTypes.bool,
-    onClick: PropTypes.func.isRequired,
-    ...propTypes.space,
-    ...propTypes.layout,
-  }
+const Pill = ({ children, icon, count, ...otherProps }) => {
 
-  render() {
-    const { children, active, count, ...otherProps } = this.props
+  return (
+    <Container
+      hasIcon={!!icon}
+      {...otherProps}
+    >
+      {icon}
+      <Text>{children}</Text>
+      {count >= 0 && <Count>{count}</Count>}
+    </Container>
+  )
+}
 
-    return (
-      <Container active={active} count={count} {...otherProps}>
-        <Text active={active}>{children}</Text>
-        {count >= 0 && <Count active={active}>{count}</Count>}
-      </Container>
-    )
-  }
+Pill.propTypes = {
+  variant: PropTypes.string,
+  onClick: PropTypes.func,
+  ...propTypes.space,
+  ...propTypes.layout,
 }
 
 export default Pill
