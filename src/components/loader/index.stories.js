@@ -2,7 +2,7 @@ import React from 'react'
 import Loader from './'
 
 export default {
-  title: 'Loaders/ Loader',
+  title: 'Indicators/ Loader',
   component: Loader,
   parameters: {
     docs: {

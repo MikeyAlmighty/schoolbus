@@ -112,6 +112,7 @@
   },
   "dependencies": {
     "@styled-system/prop-types": "^5.1.5",
+    "@tiaanduplessis/react-progressbar": "^1.0.0",
     "hoist-non-react-statics": "^3.3.2",
     "indexof": "^0.0.1",
     "lodash.debounce": "^4.0.8",

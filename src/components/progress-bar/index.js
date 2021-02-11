@@ -7,27 +7,46 @@ import Text from '../text'
 import { ProgressContainer, Progress } from './styles'
 
 const ProgressBar = ({
-  progress,
   hideText,
   color, 
   backgroundColor,
   fg = color,
   bg = backgroundColor, 
   children,
+  min = 0,
+  max = 100,
+  value = 0,
   ...otherProps
-}) => (
-  <Box {...otherProps}>
-    <ProgressContainer bg={bg}>
-      <Progress bg={fg} progress={progress} />
-    </ProgressContainer>
-    <Flex justifyContent='center' width='100%' mt='0.5em'>
-      {!hideText && (
-        <Text>
-          {children || `${Math.round(progress * 100)}% progress`}
-        </Text>
-      )}
-    </Flex>
-  </Box>
-)
+}) => {
+
+  const percentage = max === 100 
+    ? Math.round((value / max)  * 100)
+    : value
+
+  return (
+    <Box {...otherProps}>
+      <ProgressContainer
+        bg={bg}
+        role='progressbar'
+        aria-valuenow={value}
+        aria-valuemin={min}
+        aria-valuemax={max}
+      >
+        <Progress bg={fg} width={percentage} />
+      </ProgressContainer>
+      <Flex justifyContent='center' width='100%' mt='0.5em'>
+        {!hideText && (
+          <Text
+            fontSize='small'
+            fontWeight='bold'
+            color='grayscale.default'
+          >
+            {children || `${percentage}% progress`}
+          </Text>
+        )}
+      </Flex>
+    </Box>
+  )
+}
 
 export default ProgressBar

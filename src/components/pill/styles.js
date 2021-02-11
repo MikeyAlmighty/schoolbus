@@ -62,7 +62,6 @@ export const Container = styled.button.attrs({
   font-size: ${({ theme }) => theme.fontSizes.small};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-family: ${({ theme }) => theme.fonts.Montserrat};
-  ${({ onClick, disabled }) => console.log((onClick && !disabled) && 'cursor: pointer;')}
   ${({ onClick, disabled }) => (onClick && !disabled) && 'cursor: pointer;'}
   ${({ variant }) => variants[variant] || variants.secondary};
   ${space}
