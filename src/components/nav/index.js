@@ -12,7 +12,6 @@ const MIN_ITEMS = 4
 
 const Nav = ({ items, selected, ...otherProps }) => {
   const pathname = document?.location?.pathname
-  console.log(pathname)
 
   return (
     <Container {...otherProps}>
