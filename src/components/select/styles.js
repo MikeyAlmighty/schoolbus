@@ -99,7 +99,7 @@ export const styleOverride = (config) => {
         },
         cursor: 'pointer',
         textAlign: align,
-        padding: '1.3em 1em'
+        padding: '1em'
       }
     },
   })

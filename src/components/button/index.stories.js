@@ -83,8 +83,8 @@ export const Sizes = () => (
 
 export const Shapes = () => (
   <>
-    <Button shape="square" m={2}>
-      Square
+    <Button m={2}>
+      Default
     </Button>
     <Button shape="rounded" m={2}>
       Rounded

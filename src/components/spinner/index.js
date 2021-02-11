@@ -12,10 +12,10 @@ const Spinner = styled.div`
   border: ${({ width }) => width || '5px'} solid
     ${({ theme, color }) => color || theme.colors.primary.default};
   box-sizing: border-box;
-  animation: sweep 1s linear alternate infinite, rota 0.8s linear infinite;
+  animation: sweep 1s linear alternate infinite, rotate 0.8s linear infinite;
   ${space}
 
-  @keyframes rota {
+  @keyframes rotate {
     from {
       transform: rotate(0deg);
     }
