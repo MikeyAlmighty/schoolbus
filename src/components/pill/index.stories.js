@@ -1,5 +1,7 @@
 import React from 'react'
+import CheckCircle from '@lessondesk/material-icons/dist/CheckCircle'
 
+import theme from '../../config/theme'
 import Pill from './'
 import Flex from '../flex'
 
@@ -17,27 +19,43 @@ export default {
 export const Base = args => <Pill {...args}>Text here</Pill>
 Base.args = {
   count: 5,
-  active: true,
+  variant: 'primary',
   onClick: console.log,
-  variant: 'bordered',
 }
 
-export const Active = () => (
+export const Primary = () => (
   <Flex>
-    <Pill onClick={() => {}} active>
+    <Pill variant='primary'>
       Active
     </Pill>
-    <Pill ml="1em" onClick={() => {}} count={5} active>
+    <Pill ml="1em" count={5} variant='primary'>
       Active with count
     </Pill>
   </Flex>
 )
 
-export const Inactive = () => (
+export const Secondary = () => (
   <Flex>
-    <Pill onClick={() => {}}>Inactive (default)</Pill>
-    <Pill ml="1em" onClick={() => {}} count={100}>
+    <Pill>Inactive (default)</Pill>
+    <Pill ml="1em" count={100}>
       Count
+    </Pill>
+  </Flex>
+)
+
+export const WithIcon = () => (
+  <Flex>
+    <Pill
+      mr='1em'
+      icon={<CheckCircle size='2em' color={theme.colors.statusFill.success} />}
+    >
+      Approved
+    </Pill>
+    <Pill
+      mr='1em'
+      icon={<CheckCircle size='2em' color={theme.colors.statusFill.error} />}
+    >
+      Declined
     </Pill>
   </Flex>
 )

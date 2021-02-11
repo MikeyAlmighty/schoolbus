@@ -3,7 +3,7 @@ import StatusPill from './'
 import Flex from '../flex'
 
 export default {
-  title: 'Misc/ Status Pill',
+  title: 'Indicators/ Status Pill',
   component: StatusPill,
   parameters: {
     docs: {
