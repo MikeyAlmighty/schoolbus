@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 
+import Row from './row'
 import Flex from '../flex'
 import Loader from '../loader'
 import TableActions from './table-actions'
 import SortingCaret from './sorting-caret'
-import { EmptyText, StyledTable, TableRow, Th, Td } from './styles'
+import EmptyRow from './empty-row'
+import { EmptyText, StyledTable, Th, TableRow, Td } from './styles'
 
 const getSortingDirection = (sorting, key) => {
   if (sorting?.[key]) {
@@ -42,35 +44,6 @@ function renderHeader (header, i, props) {
     return header({ i, props })
   }
   return <Th key={`${header}${i}`}>{header}</Th>
-}
-
-function renderRow (row, rowFormatter, i, props) {
-  const formattedRow = rowFormatter(row, i, props)
-  const { selected } = props
-  const { key, cells, onClick } = formattedRow
-
-  const isSelected = selected?.some(row2 => {
-    const { key: key2 } = rowFormatter(row2, i, props)
-    return key === key2
-  })
-
-  return (
-    <TableRow 
-      key={`${key}${i}`} 
-      onClick={onClick} 
-      selected={isSelected}
-      // Adding selected classname since styled-components don't support &:first-of-type inside of the component
-      // https://stackoverflow.com/a/62514547
-      {...(isSelected && { className: 'selected' })}
-    >
-      {cells.map((cell, i) => {
-        if (typeof cell === 'function') {
-          return cell({ key: cell.toString, i, row, props, isSelected })
-        }
-        return <Td key={`${cell}${i}`}>{cell}</Td>
-      })}
-    </TableRow>
-  )
 }
 
 const Table = props => {
@@ -116,15 +89,37 @@ const Table = props => {
               </tr>
             </thead>
             <tbody>
-              {isEmpty && showEmpty
-                ? (
-                  <TableRow>
-                    <Td colSpan={headers.length} center>
-                      No data
-                    </Td>
-                  </TableRow>
-                )
-                : data.map((row, index) => renderRow(row, rowFormatter, index, props))}
+              {isEmpty 
+                ? <EmptyRow />  
+                : data.map((row, index) => {
+                  const formattedRow = rowFormatter(row, index, props)
+                  const { selected } = props
+                  const { key, cells, onClick } = formattedRow
+
+                  const isSelected = selected?.some(row2 => {
+                    const { key: key2 } = rowFormatter(row2, index, props)
+                    return key === key2
+                  })
+
+                  return (
+                    <TableRow
+                      key={key}
+                      onClick={onClick}
+                      selected={isSelected}
+                      // Adding selected classname since styled-components don't support &:first-of-type inside of the component
+                      // https://stackoverflow.com/a/62514547
+                      {...(isSelected && { className: 'selected' })}
+                    >
+                      {cells.map((cell, i) => {
+                        if (typeof cell === 'function') {
+                          return cell({ key: cell.toString, i, row, props, isSelected })
+                        }
+                        return <Td key={`${cell}${i}`}>{cell}</Td>
+                      })}
+                    </TableRow>
+                  )
+                })
+              }
             </tbody>
           </StyledTable>
         )}

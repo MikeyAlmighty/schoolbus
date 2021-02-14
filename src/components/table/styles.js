@@ -109,44 +109,66 @@ const variants = {
       font-size: ${({ theme }) => theme.fontSizes.xsmall};
     }
 
-    & > tbody > ${TableRow} {
+    & ${TableRow} {
       width: 100%;
       margin-bottom: 0.2em;
       background: none;
-      box-shadow: ${({ theme }) => theme.elevations.toggle};
       border-radius: ${({ theme }) => theme.radii.small};
-      transition: background-color 0.2s;
+      background-color: ${({ theme }) => theme.colors.white};
+      box-shadow: ${({ theme }) => theme.elevations.itemContainer};
+      transition: box-shadow 0.15s;
 
       /* stylelint-disable selector-type-no-unknown */
-      &:hover
-        > ${Td},
-        &:hover
-        > ${Td}:first-of-type,
-        &:hover
-        > ${Td}:last-of-type {
+      &:hover {
         /* stylelint-enable selector-type-no-unknown */
-        border-color: ${({ theme }) => theme.colors.primary.default};
-        background-color: #fffcf8;
+        box-shadow: ${({ theme }) => theme.elevations.cardContainer};
       }
 
       & > ${Td} {
         font-weight: ${({ theme }) => theme.fontWeights.medium};
-        border-top: ${({ theme }) => theme.borderStyles.default};
-        border-bottom: ${({ theme }) => theme.borderStyles.default};
-        border-color: ${({ theme }) => theme.colors.grayscale.xlight};
+        border-top: ${({ theme }) => theme.borderStyles.light};
+        border-bottom: ${({ theme }) => theme.borderStyles.light};
 
         &:first-of-type {
           font-weight: ${({ theme }) => theme.fontWeights.semi};
           border-top-left-radius: 0.4em;
           border-bottom-left-radius: 0.4em;
-          border-left: ${({ theme }) => theme.borderStyles.default};
+          border-left: ${({ theme }) => theme.borderStyles.light};
         }
         &:last-of-type {
           border-top-right-radius: 0.4em;
           border-bottom-right-radius: 0.4em;
-          border-right: ${({ theme }) => theme.borderStyles.default};
+          border-right: ${({ theme }) => theme.borderStyles.light};
         }
       }
+    }
+  `,
+  log: css`
+    border-collapse: separate;
+    border-spacing: 0 0.25em;
+
+    & ${Th} {
+      text-transform: uppercase;
+      color: ${({ theme }) => theme.colors.grayscale.default};
+      font-size: ${({ theme }) => theme.fontSizes.xsmall};
+      font-weight: ${({ theme }) => theme.fontWeights.extrabold};
+      height: 1em;
+      padding-bottom: 0;
+    }
+
+    & ${Td} {
+      border-top: ${({ theme }) => theme.borderStyles.light};
+      border-bottom: ${({ theme }) => theme.borderStyles.light};
+    }
+
+    & ${TableRow} ${Td}:last-of-type {
+      border-right: ${({ theme }) => theme.borderStyles.light};
+      border-radius: ${({ theme }) => `0 ${theme.radii.small} ${theme.radii.small} 0`};
+    }
+
+    & ${TableRow} ${Td}:first-of-type {
+      border-left: ${({ theme }) => theme.borderStyles.light};
+      border-radius: ${({ theme }) => `${theme.radii.small} 0 0 ${theme.radii.small}`};
     }
   `
 }

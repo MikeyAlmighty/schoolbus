@@ -1,5 +1,5 @@
 import MenuDown from '@lessondesk/material-icons/dist/MenuDown'
-import styled from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 
 import Flex from '../flex'
 
@@ -36,6 +36,9 @@ export const Option = styled.button`
 
   &:disabled {
     color: ${({ theme }) => theme.colors.grayscale.light};
+  }
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
   }
 `
 

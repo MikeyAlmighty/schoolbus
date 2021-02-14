@@ -27,12 +27,13 @@ const DropdownToggle = ({
     if (option !== selected && onChange) onChange(option)
     setSelected(option)
   })
+  const selectedValue = selected?.value || selected?.label
+  const filteredOptions = options.filter(({ label, value = label }) => value !== selectedValue)
 
   return (
     <Popup
       closeOnSelect
       disabled={disabled}
-      animate={false}
       trigger={(
         <Button 
           width='10em' 
@@ -48,20 +49,21 @@ const DropdownToggle = ({
       {...otherProps}
     >
       <List>
-        {[selected, ...options.filter(value => value !== selected)]
+        {[selected, ...filteredOptions]
           .map(option => {
-          const { value, label = value, ...otherOptionProps } = option
-          return (
-            <li key={value}>
-              <Option 
-                onClick={() => handleSelect(option)} 
-                {...otherOptionProps}
-              >
-                {label}
-              </Option>
-            </li>
-          )
-        })}
+            const { value, label = value, ...otherOptionProps } = option
+            return (
+              <li key={value}>
+                <Option 
+                  onClick={() => handleSelect(option)} 
+                  {...otherOptionProps}
+                >
+                  {label}
+                </Option>
+              </li>
+            )
+          })
+        }
       </List>
     </Popup>
   )
