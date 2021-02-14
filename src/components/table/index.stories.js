@@ -47,3 +47,10 @@ export const BorderlessVariant = () => (
     variant='borderless'
   />
 )
+
+export const LogVariant = () => (
+  <Table
+    {...defaultArgs}
+    variant='log'
+  />
+)

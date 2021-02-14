@@ -3,19 +3,8 @@ import styled from 'styled-components'
 export const StyledInput = styled.input.attrs({
   type: 'checkbox',
 })`
-  appearance: none;
+  display: none;
   position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
-  margin: 0;
-  width: 1.25em;
-  height: 1.25em;
-  background-color: rgba(0, 0, 0, 0.6);
-  box-shadow: none;
-  outline: none;
-  opacity: 0;
-  pointer-events: none;
 
   &:active + span {
     border: ${({ theme }) => theme.borderStyles.primary};
