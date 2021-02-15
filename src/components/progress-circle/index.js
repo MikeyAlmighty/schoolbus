@@ -25,6 +25,7 @@ const ProgressCircle = ({
   complementText = 'Inactive',
   fontSize = 'xxlarge',
   titleFontSize = 'medium',
+  children,
   ...otherProps
 }) => {
 
@@ -92,6 +93,7 @@ const ProgressCircle = ({
           </BreakdownText>
         </Flex>
       )}
+      {children}
     </Flex>
   )
 }
