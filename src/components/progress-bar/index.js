@@ -19,7 +19,7 @@ const ProgressBar = ({
   ...otherProps
 }) => {
 
-  const percentage = max !== 100 
+  const percentage = max !== 100 && !!max
     ? Math.round((value / max)  * 100)
     : value
 
