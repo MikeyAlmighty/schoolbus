@@ -14,7 +14,7 @@ export default function createDefaultInputProps({
     onBlur: onBlur || (hasFormik ? formik.handleBlur : undefined),
     value: value !== undefined
       ? value
-      : hasFormik && formik?.values[name],
+      : hasFormik && formik?.values?.[name],
     onChange:
       onChange ||
       (hasFormik ? ({ target }) => formik.setFieldValue(name, target.value) : undefined),
