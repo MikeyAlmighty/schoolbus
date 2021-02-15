@@ -12,7 +12,9 @@ export default function createDefaultInputProps({
   return {
     hasFormik,
     onBlur: onBlur || (hasFormik ? formik.handleBlur : undefined),
-    value: typeof value !== 'string' || (hasFormik ? formik.values[name] : undefined),
+    value: value !== undefined
+      ? value
+      : hasFormik && formik?.values[name],
     onChange:
       onChange ||
       (hasFormik ? ({ target }) => formik.setFieldValue(name, target.value) : undefined),
