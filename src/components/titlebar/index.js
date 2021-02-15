@@ -10,7 +10,7 @@ const TitleBar = ({
   children,
   ...otherProps
 }) => (
-  <TitleBarContainer {...otherProps}>
+  <TitleBarContainer withBack={withBack} {...otherProps}>
     {withBack && (
       <StyledIconButton
         icon='ArrowLeft'

@@ -16,7 +16,7 @@ export const TitleBarContainer = styled(Flex).attrs({
   border-top-right-radius: ${({ theme }) => theme.radii.xxlarge};
   border-bottom: 1px solid ${({ theme }) => theme.colors.grayscale.xlight};
   text-align: ${({ align }) => align || 'left'};
-  ${({ align }) => !align || align === 'left' && `
+  ${({ align, withBack }) => withBack && (!align || align === 'left') && `
     padding-left: 5em;
   `}
 `
