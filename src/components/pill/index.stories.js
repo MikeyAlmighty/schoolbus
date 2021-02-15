@@ -26,19 +26,28 @@ Base.args = {
 export const Primary = () => (
   <Flex>
     <Pill variant='primary'>
-      Active
+      Primary
     </Pill>
     <Pill ml="1em" count={5} variant='primary'>
-      Active with count
+      Primary with count
     </Pill>
   </Flex>
 )
 
 export const Secondary = () => (
   <Flex>
-    <Pill>Inactive (default)</Pill>
+    <Pill>Secondary (default)</Pill>
     <Pill ml="1em" count={100}>
-      Count
+      Secondary with count
+    </Pill>
+  </Flex>
+)
+
+export const Dark = () => (
+  <Flex bg='grayscale.dark' p='1em'>
+    <Pill variant='dark'>Dark</Pill>
+    <Pill variant='dark' ml="1em" count={100}>
+      Dark with count
     </Pill>
   </Flex>
 )

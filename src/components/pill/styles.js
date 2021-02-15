@@ -45,6 +45,22 @@ const variants = {
     & ${Count} {
       background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
     }
+  `,
+  dark: css`
+    color: ${({ theme }) => theme.colors.white};
+    border: ${({ theme }) => theme.borderStyles.light};
+
+    &:hover:not(:disabled) {
+      background-color: ${({ theme }) => theme.colors.grayscale.default};
+
+      & ${Count} {
+        background-color: ${({ theme }) => theme.colors.grayscale.light};
+      }
+    }
+
+    & ${Count} {
+      background-color: ${({ theme }) => theme.colors.grayscale.default};
+    }
   `
 }
 
