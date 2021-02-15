@@ -96,7 +96,7 @@ const variants = {
     & > div { margin: auto; }
   `,
   dark: css`
-    border: ${({ theme }) => theme.borderStyles.default};
+    border: ${({ theme }) => theme.borderStyles.dark};
     background-color: ${({ theme }) => theme.colors.grayscale.dark};
     color: ${({ theme }) => theme.colors.grayscale.default};
 
