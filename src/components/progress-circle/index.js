@@ -10,8 +10,8 @@ import Box from '../box'
 import theme from '../../config/theme'
 
 const ProgressCircle = ({
-  color,
-  backgroundColor,
+  color = theme.colors.primary.default,
+  backgroundColor = theme.colors.grayscale.xxlight,
   fg = color,
   bg = backgroundColor, 
   showBreakdown,
