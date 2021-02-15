@@ -35,8 +35,8 @@ const ProgressBar = ({
       >
         <Progress bg={fg} width={percentage} />
       </ProgressContainer>
-      <Flex justifyContent='center' width='100%' mt='0.5em'>
-        {!hideText && (
+      {!hideText && (
+        <Flex justifyContent='center' width='100%' mt='0.5em'>
           <Text
             fontSize='small'
             fontWeight='bold'
@@ -44,8 +44,8 @@ const ProgressBar = ({
           >
             {children || (variant !== 'compact' && `${percentage}% progress`)}
           </Text>
-        )}
-      </Flex>
+        </Flex>
+      )}
     </Box>
   )
 }
