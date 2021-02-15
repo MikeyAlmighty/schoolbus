@@ -25,7 +25,7 @@ const ProgressCircle = ({
   complementText = 'Inactive',
   fontSize = 'xxlarge',
   titleFontSize = 'medium',
-  titlePosition = 'center',
+  children,
   ...otherProps
 }) => {
 
@@ -93,14 +93,7 @@ const ProgressCircle = ({
           </BreakdownText>
         </Flex>
       )}
-      {titlePosition === 'bottom' && (
-        <Text
-          color='grayscale.default'
-          fontSize={titleFontSize}
-        >
-          {title}
-        </Text>
-      )}
+      {children}
     </Flex>
   )
 }
