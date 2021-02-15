@@ -89,7 +89,7 @@ const Table = props => {
             </thead>
             <tbody>
               {isEmpty 
-                ? <EmptyRow />  
+                ? <EmptyRow colspan={headers.length} />  
                 : data.map((row, index) => {
                   const formattedRow = rowFormatter(row, index, props)
                   const { selected } = props
