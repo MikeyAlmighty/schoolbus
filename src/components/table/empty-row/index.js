@@ -3,8 +3,8 @@ import React from 'react'
 import { TableRow, Td } from '../styles'
 
 const EmptyRow = (props) => (
-  <TableRow {...props}>
-    <Td center>
+  <TableRow>
+    <Td center {...props}>
       No data
     </Td>
   </TableRow>
