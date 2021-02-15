@@ -23,6 +23,7 @@ const ProgressCircle = ({
   width = '12em',
   text = 'Active',
   complementText = 'Inactive',
+  fontSize = 'xxlarge',
   ...otherProps
 }) => {
 
@@ -51,8 +52,8 @@ const ProgressCircle = ({
           >
             <Circle
               progress={value / max}
-              color={get(theme.colors, fg)}
-              trailColor={get(theme.colors, bg)}
+              color={get(theme.colors, fg) || fg}
+              trailColor={get(theme.colors, bg) || bg}
               strokeWidth={3}
               easing='easeInOut'
             />
@@ -63,7 +64,7 @@ const ProgressCircle = ({
             >
               <Text
                 color='grayscale.dark'
-                fontSize='xxlarge'
+                fontSize={fontSize}
                 fontWeight='bold'
               >
                 {Math.round(value)}
