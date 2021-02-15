@@ -8,8 +8,6 @@ import theme from '../../config/theme'
 import defaultPropTypes from '../../config/input-prop-types'
 import createDefaultInputProps from '../../utils/create-input-defaults'
 
-const MAX_INLINE_ERROR_LENGTH = 45
-
 class Input extends React.PureComponent {
   static propTypes = defaultPropTypes
 
