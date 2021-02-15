@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-import Row from './row'
 import Flex from '../flex'
 import Loader from '../loader'
 import TableActions from './table-actions'
 import SortingCaret from './sorting-caret'
 import EmptyRow from './empty-row'
 import { EmptyText, StyledTable, Th, TableRow, Td } from './styles'
+
 
 const getSortingDirection = (sorting, key) => {
   if (sorting?.[key]) {
