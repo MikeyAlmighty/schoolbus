@@ -88,7 +88,7 @@ const IconButton = ({ label, icon, badge, children, size, ...otherProps }) => {
             text={labelText}
             arrowColor='transparent'
           >
-            <Icon size={ICON_SIZES[size]} color='inherit' />
+            {children || <Icon size={ICON_SIZES[size]} color='inherit' />}
           </Tooltip>
         )
         : children || <Icon size={ICON_SIZES[size]} color='inherit' />}
