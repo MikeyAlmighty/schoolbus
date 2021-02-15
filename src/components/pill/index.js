@@ -1,6 +1,5 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
-import { space, layout } from 'styled-system'
 import propTypes from '@styled-system/prop-types'
 
 import { Container, Text, Count } from './styles'
@@ -26,6 +25,7 @@ Pill.propTypes = {
   onClick: PropTypes.func,
   ...propTypes.space,
   ...propTypes.layout,
+  ...propTypes.typography,
 }
 
 export default Pill

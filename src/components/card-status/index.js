@@ -18,7 +18,7 @@ const variants = {
 
 export const CardStatus = styled(Text).attrs({
   fontWeight: 'bold',
-  fontSize: 'small',
+  fontSize: 'xsmall',
   color: 'grayscale.default'
 })`
   padding: 0.1em 0.4em;

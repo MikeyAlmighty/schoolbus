@@ -1,5 +1,5 @@
 import styled, { css} from 'styled-components'
-import { space, layout } from 'styled-system'
+import { space, layout, typography } from 'styled-system'
 
 export const Count = styled.span`
   display: flex;
@@ -47,6 +47,7 @@ const variants = {
     }
   `,
   dark: css`
+    font-size: ${({ theme }) => theme.fontSizes.xsmall};
     color: ${({ theme }) => theme.colors.white};
     border: ${({ theme }) => theme.borderStyles.light};
 
@@ -82,6 +83,7 @@ export const Container = styled.button.attrs({
   ${({ variant }) => variants[variant] || variants.secondary};
   ${space}
   ${layout}
+  ${typography}
 
   &:active {
     background-color: ${({ theme }) => theme.colors.grayscale.xlight};
