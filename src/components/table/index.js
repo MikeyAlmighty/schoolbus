@@ -7,6 +7,7 @@ import SortingCaret from './sorting-caret'
 import EmptyRow from './empty-row'
 import { EmptyText, StyledTable, Th, TableRow, Td } from './styles'
 
+
 const getSortingDirection = (sorting, key) => {
   if (sorting?.[key]) {
     return sorting[key] === 'asc' ? 'dsc' : 'asc'
