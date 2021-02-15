@@ -24,6 +24,7 @@ const ProgressCircle = ({
   text = 'Active',
   complementText = 'Inactive',
   fontSize = 'xxlarge',
+  titleFontSize = 'medium',
   ...otherProps
 }) => {
 
@@ -72,7 +73,7 @@ const ProgressCircle = ({
               {title && (
                 <Text
                   color='grayscale.default'
-                  fontSize='default'
+                  fontSize={titleFontSize}
                 >
                   {title}
                 </Text>

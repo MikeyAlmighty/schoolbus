@@ -2,8 +2,8 @@ import React from 'react'
 
 import { TableRow, Td } from '../styles'
 
-const EmptyRow = () => (
-  <TableRow>
+const EmptyRow = (props) => (
+  <TableRow {...props}>
     <Td center>
       No data
     </Td>
