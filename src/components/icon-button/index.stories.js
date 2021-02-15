@@ -41,6 +41,7 @@ export const Variant = () => (
       <VariantExample variant='secondary' />
       <VariantExample variant='clear' />
       <VariantExample variant='danger' />
+      <VariantExample variant='dark' />
     </Flex>
   </>
 )

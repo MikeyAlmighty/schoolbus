@@ -19,7 +19,7 @@ function renderHeader (header, i, props) {
     const { sorting, setSorting } = props
     const { key = header.title, title, sortable = false, width } = header
 
-    if (!key || !title) {
+    if (!key) {
       throw new Error('key and title required')
     }
 
