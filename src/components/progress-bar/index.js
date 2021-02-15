@@ -7,7 +7,6 @@ import Text from '../text'
 import { ProgressContainer, Progress } from './styles'
 
 const ProgressBar = ({
-  hideText,
   color, 
   backgroundColor,
   fg = color,
@@ -35,14 +34,14 @@ const ProgressBar = ({
       >
         <Progress bg={fg} width={percentage} />
       </ProgressContainer>
-      {!hideText && (
+      {variant !== 'compact' && (
         <Flex justifyContent='center' width='100%' mt='0.5em'>
           <Text
             fontSize='small'
             fontWeight='bold'
             color='grayscale.default'
           >
-            {children || (variant !== 'compact' && `${percentage}% progress`)}
+            {children || `${percentage}% progress`}
           </Text>
         </Flex>
       )}
