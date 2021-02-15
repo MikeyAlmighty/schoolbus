@@ -1,5 +1,5 @@
 import styled, { css} from 'styled-components'
-import { space, layout, typography } from 'styled-system'
+import { space, layout, typography, color } from 'styled-system'
 
 export const Count = styled.span`
   display: flex;
@@ -82,6 +82,7 @@ export const Container = styled.button.attrs({
   ${({ onClick, disabled }) => (onClick && !disabled) && 'cursor: pointer;'}
   ${({ variant }) => variants[variant] || variants.secondary};
   ${space}
+  ${color}
   ${layout}
   ${typography}
 
