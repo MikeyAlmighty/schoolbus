@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-import Row from './row'
 import Flex from '../flex'
 import Loader from '../loader'
 import TableActions from './table-actions'
