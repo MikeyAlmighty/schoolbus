@@ -1,3 +1,4 @@
+import React from 'react'
 import styled, { css } from 'styled-components'
 import CheckCircle from '@lessondesk/material-icons/dist/CheckCircle'
 import CloseCircle from '@lessondesk/material-icons/dist/CloseCircle'
