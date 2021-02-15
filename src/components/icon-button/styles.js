@@ -65,6 +65,16 @@ const variants = {
       box-shadow: none;
     }
   `,
+  dark: css`
+    box-shadow: none;
+    color: ${({ theme }) => theme.colors.grayscale.default};
+    background-color: ${({ theme }) => theme.colors.grayscale.dark};
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.white};
+      background-color: ${({ theme }) => theme.colors.grayscale.default};
+    }
+  `
 }
 
 export const Button = styled(Flex).attrs({

@@ -58,6 +58,14 @@ export const Variants = () => (
         Danger
       </Button>
     </Flex>
+    <Flex bg='grayscale.dark'>
+      <Button variant="dark" m={2}>
+        Dark
+      </Button>
+      <Button variant="dark" m={2} disabled>
+        Dark
+      </Button>
+    </Flex>
     <Button variant="primary" isLoading m={2}>
       Submit
     </Button>

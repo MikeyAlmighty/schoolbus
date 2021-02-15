@@ -94,6 +94,19 @@ const variants = {
   loading: css`
     background-color: ${({ theme }) => theme.colors.grayscale.xlight};
     & > div { margin: auto; }
+  `,
+  dark: css`
+    border: ${({ theme }) => theme.borderStyles.default};
+    background-color: ${({ theme }) => theme.colors.grayscale.dark};
+    color: ${({ theme }) => theme.colors.grayscale.default};
+
+    &:hover:not(:disabled) {
+      border: ${({ theme }) => theme.borderStyles.light};
+      color: ${({ theme }) => theme.colors.white};
+    }
+    &:active {
+      background-color: ${({ theme }) => theme.colors.grayscale.default};
+    }
   `
 }
 
