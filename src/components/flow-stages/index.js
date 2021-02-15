@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { theme, Flex } from '@lessondesk/schoolbus'
 import ChevronRight from '@lessondesk/material-icons/dist/ChevronRight'
 import { Stage } from './styles'
