@@ -26,6 +26,7 @@ Pill.propTypes = {
   ...propTypes.space,
   ...propTypes.layout,
   ...propTypes.typography,
+  ...propTypes.color,
 }
 
 export default Pill
