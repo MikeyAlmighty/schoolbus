@@ -16,6 +16,7 @@ const ProgressBar = ({
   min = 0,
   max = 100,
   value = 0,
+  variant = 'default',
   ...otherProps
 }) => {
 
@@ -41,7 +42,7 @@ const ProgressBar = ({
             fontWeight='bold'
             color='grayscale.default'
           >
-            {children || `${percentage}% progress`}
+            {children || (variant !== 'compact' && `${percentage}% progress`)}
           </Text>
         )}
       </Flex>
