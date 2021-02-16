@@ -71,7 +71,7 @@ const ProgressCircle = ({
               >
                 {Math.round(value)}
               </Text>
-              {title && titlePosition !== 'bottom' && (
+              {title && (
                 <Text
                   color='grayscale.default'
                   fontSize={titleFontSize}
