@@ -32,13 +32,46 @@ export const Td = styled.td`
   text-align: ${({ center }) => (center ? 'center' : 'left')};
 `
 
+const tableRowVariants = {
+  borderless: css`
+    transition: box-shadow 0.15s;
+    :focus,
+    :hover {
+      background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
+    }
+
+    ${({ isChildRow }) => !isChildRow && css`
+      box-shadow: ${({ theme }) => theme.elevations.itemContainer};
+
+      :hover {
+        box-shadow: ${({ theme }) => theme.elevations.cardContainer};
+      }
+    `}
+
+    ${({ isChildRow }) => isChildRow && css`
+      animation: fade-in 0.2s;
+
+      ${Td} {
+        background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
+      }
+
+      ${Td}:first-of-type {
+        visibility: hidden;
+      }
+
+      ${Td}:nth-of-type(2) {
+        border-top-left-radius: 0.4em;
+        border-bottom-left-radius: 0.4em;
+        border-left: ${({ theme }) => theme.borderStyles.light};
+      }
+    `}
+  `
+}
+
 export const TableRow = styled.tr`
   height: 40px;
   font-family: ${({ theme }) => theme.fonts.Montserrat};
-  &:focus,
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
-  }
+  ${({ variant }) => tableRowVariants[variant]}
 `
 
 const variants = {
@@ -60,41 +93,46 @@ const variants = {
     }
 
     th,
-    tr:not(:last-child):not(:last-of-type) td {
+    ${TableRow}:not(:last-child):not(:last-of-type) ${Td} {
       border-bottom: ${({ theme }) => theme.borderStyles.default};
     }
 
-    & .selected > ${Td}:last-of-type {
-      //Using box shadow instead of border to solve above mentioned problem 
-      box-shadow: inset -4px 0px 0 -2px ${({ theme }) => theme.colors.primary.default};
-    }
-    & .selected > ${Td}:first-of-type {
-      //Using box shadow instead of border to solve above mentioned problem 
-      box-shadow: inset 4px 0px 0 -2px ${({ theme }) => theme.colors.primary.default};
-    }
-    & .selected {
+    .selected {
       background-color: ${({ theme }) => theme.colors.primary.light};
       border-top: ${({ theme }) => theme.borderStyles.primary};
+
+      & > ${Td}:last-of-type {
+        //Using box shadow instead of border to solve above mentioned problem 
+        box-shadow: inset -4px 0px 0 -2px ${({ theme }) => theme.colors.primary.default};
+      }
+      & > ${Td}:first-of-type {
+        //Using box shadow instead of border to solve above mentioned problem 
+        box-shadow: inset 4px 0px 0 -2px ${({ theme }) => theme.colors.primary.default};
+      }
+      +.selected {
+        border-top: none;
+      }
+      +:not(.selected) > ${Td} {
+        border-top: ${({ theme }) => theme.borderStyles.primary};
+      }
+      :last-child > ${Td} {
+        border-bottom: ${({ theme }) => theme.borderStyles.primary};
+      }
     }
-    & .selected + .selected {
-      border-top: none;
+
+    ${TableRow} {
+      :last-child ${Td}:first-child {
+        border-bottom-left-radius: ${({ theme }) => theme.radii.small};
+      }
+      :last-child ${Td}:last-child {
+        border-bottom-right-radius: ${({ theme }) => theme.radii.small};
+      }
+      :last-of-type.selected {
+        box-shadow: inset 0 -1px 0 1px ${({ theme }) => theme.colors.primary.default};
+        border-radius: 0 0 ${({ theme }) => `${theme.radii.small} ${theme.radii.small}`};
+      }
     }
-    & .selected +:not(.selected) > ${Td} {
-      border-top: ${({ theme }) => theme.borderStyles.primary};
-    }
-    & .selected:last-child > ${Td} {
-      border-bottom: ${({ theme }) => theme.borderStyles.primary};
-    }
-    & ${TableRow}:last-child ${Td}:first-child {
-      border-bottom-left-radius: ${({ theme }) => theme.radii.small};
-    }
-    & ${TableRow}:last-child ${Td}:last-child {
-      border-bottom-right-radius: ${({ theme }) => theme.radii.small};
-    }
-    & ${TableRow}:last-of-type.selected {
-      box-shadow: inset 0 -1px 0 1px ${({ theme }) => theme.colors.primary.default};
-      border-radius: 0 0 ${({ theme }) => `${theme.radii.small} ${theme.radii.small}`};
-    }
+
   `,
   borderless: css`
     border-collapse: separate;
@@ -109,33 +147,25 @@ const variants = {
       font-size: ${({ theme }) => theme.fontSizes.xsmall};
     }
 
-    & ${TableRow} {
+    ${TableRow} {
       width: 100%;
       margin-bottom: 0.2em;
       background: none;
       border-radius: ${({ theme }) => theme.radii.small};
       background-color: ${({ theme }) => theme.colors.white};
-      box-shadow: ${({ theme }) => theme.elevations.itemContainer};
-      transition: box-shadow 0.15s;
-
-      /* stylelint-disable selector-type-no-unknown */
-      &:hover {
-        /* stylelint-enable selector-type-no-unknown */
-        box-shadow: ${({ theme }) => theme.elevations.cardContainer};
-      }
 
       & > ${Td} {
         font-weight: ${({ theme }) => theme.fontWeights.medium};
         border-top: ${({ theme }) => theme.borderStyles.light};
         border-bottom: ${({ theme }) => theme.borderStyles.light};
 
-        &:first-of-type {
+        :first-of-type {
           font-weight: ${({ theme }) => theme.fontWeights.semi};
           border-top-left-radius: 0.4em;
           border-bottom-left-radius: 0.4em;
           border-left: ${({ theme }) => theme.borderStyles.light};
         }
-        &:last-of-type {
+        :last-of-type {
           border-top-right-radius: 0.4em;
           border-bottom-right-radius: 0.4em;
           border-right: ${({ theme }) => theme.borderStyles.light};
@@ -147,7 +177,7 @@ const variants = {
     border-collapse: separate;
     border-spacing: 0 0.25em;
 
-    & ${Th} {
+    ${Th} {
       text-transform: uppercase;
       color: ${({ theme }) => theme.colors.grayscale.default};
       font-size: ${({ theme }) => theme.fontSizes.xsmall};
@@ -156,17 +186,17 @@ const variants = {
       padding-bottom: 0;
     }
 
-    & ${Td} {
+    ${Td} {
       border-top: ${({ theme }) => theme.borderStyles.light};
       border-bottom: ${({ theme }) => theme.borderStyles.light};
     }
 
-    & ${TableRow} ${Td}:last-of-type {
+    ${TableRow} ${Td}:last-of-type {
       border-right: ${({ theme }) => theme.borderStyles.light};
       border-radius: ${({ theme }) => `0 ${theme.radii.small} ${theme.radii.small} 0`};
     }
 
-    & ${TableRow} ${Td}:first-of-type {
+    ${TableRow} ${Td}:first-of-type {
       border-left: ${({ theme }) => theme.borderStyles.light};
       border-radius: ${({ theme }) => `${theme.radii.small} 0 0 ${theme.radii.small}`};
     }

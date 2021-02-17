@@ -3,17 +3,6 @@ import React from 'react'
 import Popup from './'
 import Button from '../button'
 
-const options = [
-  'bottomRight',
-  'bottomLeft',
-  'topLeft',
-  'topRight',
-  'topCenter',
-  'bottomCenter',
-  'leftCenter',
-  'rightCenter',
-]
-
 export default {
   title: 'Actions/ Popup',
   component: Popup,

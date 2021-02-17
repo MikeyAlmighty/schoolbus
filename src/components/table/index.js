@@ -5,7 +5,8 @@ import Loader from '../loader'
 import TableActions from './table-actions'
 import SortingCaret from './sorting-caret'
 import EmptyRow from './empty-row'
-import { EmptyText, StyledTable, Th, TableRow, Td } from './styles'
+import { EmptyText, StyledTable, Th } from './styles'
+import Row from './row'
 
 const getSortingDirection = (sorting, key) => {
   if (sorting?.[key]) {
@@ -92,30 +93,17 @@ const Table = props => {
                 ? <EmptyRow colSpan={headers.length} />  
                 : data.map((row, index) => {
                   const formattedRow = rowFormatter(row, index, props)
-                  const { selected } = props
-                  const { key, cells, onClick } = formattedRow
-
-                  const isSelected = selected?.some(row2 => {
-                    const { key: key2 } = rowFormatter(row2, index, props)
-                    return key === key2
-                  })
 
                   return (
-                    <TableRow
-                      key={key}
-                      onClick={onClick}
-                      selected={isSelected}
-                      // Adding selected classname since styled-components don't support &:first-of-type inside of the component
-                      // https://stackoverflow.com/a/62514547
-                      {...(isSelected && { className: 'selected' })}
-                    >
-                      {cells.map((cell, i) => {
-                        if (typeof cell === 'function') {
-                          return cell({ key: cell.toString, i, row, props, isSelected })
-                        }
-                        return <Td key={`${cell}${i}`}>{cell}</Td>
-                      })}
-                    </TableRow>
+                    <Row
+                      key={formattedRow?.key}
+                      row={row}
+                      index={index}
+                      formattedRow={formattedRow}
+                      rowFormatter={rowFormatter}
+                      tableProps={props}
+                      variant={variant}
+                    />
                   )
                 })
               }
@@ -124,7 +112,7 @@ const Table = props => {
         )}
       </Flex>
 
-      {hasPagination ? (
+      {!!hasPagination && (
         <TableActions
           containerStyle={tableActionsStyles}
           count={meta.count}
@@ -133,7 +121,7 @@ const Table = props => {
           page={page}
           setPage={setPage}
         />
-      ) : null}
+      )}
     </div>
   )
 }
