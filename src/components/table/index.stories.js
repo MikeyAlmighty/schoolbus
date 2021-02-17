@@ -16,18 +16,24 @@ export default {
 
 const defaultArgs = {
   variant: 'default',
-  headers: ['header1', 'header2', 'header3'],
+  headers: [{ title: 'header1', width: '1em' }, 'header2', 'header3'],
   data: [
-    { id: '1', cell2: 'cell2', cell3: 'cell3' },
-    { id: '2', cell2: 'cell2', cell3: 'cell3' },
-    { id: '3', cell2: 'cell2', cell3: 'cell3' },
-    { id: '4', cell2: 'cell2', cell3: 'cell3' },
-    { id: '5', cell2: 'cell2', cell3: 'cell3' },
-    { id: '6', cell2: 'cell2', cell3: 'cell3' },
+    { id: '1', cell2: 'cell2', cell3: 'cell3', childInfo: [{ id: '1', description: 'Enim qui id sunt pariatur.'}] },
+    { id: '2', cell2: 'cell2', cell3: 'cell3', childInfo: [{ id: '2', description: 'Aliqua ipsum id deserunt esse.'}] },
+    { id: '3', cell2: 'cell2', cell3: 'cell3', childInfo: [{ id: '3', description: 'Velit sunt cupidatat ut nulla.'}] },
+    { id: '4', cell2: 'cell2', cell3: 'cell3', childInfo: [{ id: '4', description: 'Aliqua consectetur ea enim esse.'}] },
+    { id: '5', cell2: 'cell2', cell3: 'cell3', childInfo: [{ id: '5', description: 'Velit ex ipsum est anim.'}] },
+    { id: '6', cell2: 'cell2', cell3: 'cell3', childInfo: [{ id: 6, description: 'Adipisicing magna veniam nulla reprehenderit.'}] },
   ],
-  rowFormatter: ({ id, cell2, cell3 }, i) => ({
+  rowFormatter: ({ id, cell2, cell3, childInfo }, i) => ({
     key: id,
-    cells: [id, cell2, cell3]
+    cells: [id, cell2, cell3],
+    childRows: childInfo.map(({ id, description }) => ({
+      key: id,
+      cells: [
+        { value: description, colSpan: 2, textAlign: 'center' },
+      ]
+    }))
   })
 }
 
@@ -45,6 +51,14 @@ export const BorderlessVariant = () => (
   <Table 
     {...defaultArgs}
     variant='borderless'
+  />
+)
+
+export const ExpandedRowBorderless = () => (
+  <Table 
+    {...defaultArgs}
+    variant='borderless'
+    expanded={[defaultArgs.data[0]]}
   />
 )
 
