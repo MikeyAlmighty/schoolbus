@@ -36,7 +36,7 @@ const Row = ({
         {isChildRow && <Td></Td>}
         {cells.map((cell, i) => {
           if (typeof cell === 'function') {
-            return cell({ i, row, props, isSelected })
+            return cell({ i, row, props: tableProps, isSelected })
           }
           if (typeof cell === 'object') {
             const { value, key = `${value}${i}`, ...otherProps  } = cell
