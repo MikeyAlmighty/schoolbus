@@ -92,6 +92,10 @@ const variants = {
       border-top-right-radius: ${({ theme }) => theme.radii.small};
     }
 
+    ${TableRow}:hover {
+      background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
+    }
+
     th,
     ${TableRow}:not(:last-child):not(:last-of-type) ${Td} {
       border-bottom: ${({ theme }) => theme.borderStyles.default};
