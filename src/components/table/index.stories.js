@@ -2,7 +2,7 @@ import React from 'react'
 import Table from './'
 
 export default {
-  title: 'Table/ Table',
+  title: 'Lists/ Table',
   component: Table,
   parameters: {
     docs: {
