@@ -204,6 +204,10 @@ const variants = {
       border-left: ${({ theme }) => theme.borderStyles.light};
       border-radius: ${({ theme }) => `${theme.radii.small} 0 0 ${theme.radii.small}`};
     }
+
+    ${TableRow}:hover {
+      background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
+    }
   `
 }
 

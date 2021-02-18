@@ -2,7 +2,7 @@ import React from 'react'
 import TableActions from './'
 
 export default {
-  title: 'Table/ Actions',
+  title: 'Lists/ Table Actions',
   component: TableActions,
   parameters: {
     docs: {
