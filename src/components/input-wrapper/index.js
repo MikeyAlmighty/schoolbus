@@ -82,7 +82,7 @@ InputWrapper.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
   children: PropTypes.node,
-  alertText: PropTypes.string,
+  alertText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   alertStyle: PropTypes.object,
   containerStyle: PropTypes.object,
   labelStyle: PropTypes.object,

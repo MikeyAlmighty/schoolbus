@@ -72,6 +72,7 @@ export const Trigger = styled.div`
 export const ContentWrapper = styled.div`
   white-space: nowrap;
   position: absolute;
+  cursor: default;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: ${({ theme }) => theme.radii.small};
   box-shadow: ${({ theme }) => theme.elevations.cardContainer};
@@ -91,4 +92,5 @@ export const ContentWrapper = styled.div`
     ${props => getArrowPosition(props)};
     z-index: -1;
   }
+  ${({ contentCss }) => contentCss}
 `

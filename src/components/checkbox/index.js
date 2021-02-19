@@ -26,7 +26,7 @@ class Checkbox extends React.PureComponent {
         disabled={disabled}
         text={children}
         variant={variant}
-        pl={variant === 'contained' ? '1em' : 0}
+        pl={variant === 'contained' && '1em'}
         {...otherProps}
       >
         <StyledInput

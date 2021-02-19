@@ -23,6 +23,7 @@ class Popup extends PureComponent {
     yOffset: PropTypes.string,
     array: PropTypes.bool,
     animate: PropTypes.bool,
+    onToggle: PropTypes.func,
   }
 
   state = {
@@ -46,9 +47,7 @@ class Popup extends PureComponent {
   }
 
   toggleDialogue = showDialogue => {
-    const { disabled, position } = this.props
-
-    if (disabled) {return}
+    const { position, onToggle } = this.props
 
     if (showDialogue && this.trigger) {
       const { menuHeight, menuWidth } = this.state.dimensions
@@ -66,6 +65,9 @@ class Popup extends PureComponent {
         })
       }
     }
+
+    const { showDialogue: currentlyShowing } = this.state
+    if (currentlyShowing !== showDialogue && onToggle) onToggle(currentlyShowing)
 
     this.setState({ showDialogue })
   }
@@ -103,6 +105,8 @@ class Popup extends PureComponent {
       arrow,
       animate,
       size,
+      contentCss,
+      disabled,
       ...otherProps
     } = this.props
 
@@ -115,15 +119,18 @@ class Popup extends PureComponent {
           onClick={() => !showDialogue && this.toggleDialogue(true)}
           {...otherProps}
         >
-          {trigger || (
-            <IconButton
-              label=''
-              icon='DotsVertical'
-              variant='clear'
-              color={showDialogue ? colors.primary.default : colors.grayscale.default}
-              size={size}
-            />
-          )}
+          {typeof trigger === 'function'
+            ? trigger(showDialogue)
+            : trigger || (
+              <IconButton
+                label=''
+                disabled={disabled}
+                icon='DotsVertical'
+                variant='clear'
+                color={showDialogue ? colors.primary.default : colors.grayscale.default}
+                size={size}
+              />
+            )}
 
           <ContentWrapper
             ref={node => (this.menu = node)}
@@ -133,6 +140,7 @@ class Popup extends PureComponent {
             xOffset={xOffset}
             yOffset={yOffset}
             style={contentStyle}
+            contentCss={contentCss}
             position={position}
             animate={animate}
             arrow={arrow}

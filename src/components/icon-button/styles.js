@@ -90,8 +90,8 @@ export const Button = styled(Flex).attrs({
   min-width: ${({ size }) => BUTTON_SIZES[size] || size};
   height: ${({ size }) => BUTTON_SIZES[size] || size};
   ${({ variant }) => variants[variant] || variants.primary};
-  background-color: ${({ backgroundColor, theme }) => get(theme.colors, backgroundColor) || backgroundColor};
-  color: ${({ color, theme }) => get(theme.colors, color) || color};
+  background-color: ${({ backgroundColor, bg = backgroundColor, theme }) => get(theme.colors, bg) || bg};
+  color: ${({ color, fg = color, theme }) => get(theme.colors, fg) || fg};
 
   &:disabled {
     cursor: default;

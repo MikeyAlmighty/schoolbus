@@ -10,7 +10,7 @@ export default {
   onBlur: PropTypes.func,
   label: PropTypes.string,
   placeholder: PropTypes.string,
-  alertText: PropTypes.string,
+  alertText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   inputStyles: PropTypes.object,
   ...propTypes.layout,
   ...propTypes.space,

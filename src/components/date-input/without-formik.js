@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'formik'
 import DatePicker from 'react-datepicker'
 import CalendarToday from '@lessondesk/material-icons/dist/CalendarToday'
 
@@ -69,4 +68,4 @@ DateInput.defaultProps = {
   onChange: () => {},
 }
 
-export default connect(DateInput)
+export default DateInput
