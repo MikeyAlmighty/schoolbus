@@ -12,6 +12,8 @@ const Chip = ({
   size,
   ...otherProps
 }) => {
+  const isMini = size === 'mini'
+
   return (
     <StyledChip
       key={value || label}
@@ -24,17 +26,17 @@ const Chip = ({
         <OverflowMenu
           ml='1em'
           options={options}
-          size={size ? 'xxsmall' : 'small'}
+          size={isMini ? 'xsmall' : 'small'}
         />
       )}
       {onRemove && (
         <IconButton
           icon='Close'
           label='Remove'
-          ml='1em'
+          ml={isMini ? '0.5em' : '1em'}
           onClick={() => onRemove(value || label)}
           variant='clear'
-          size={size ? 'xxsmall' : 'small'}
+          size={isMini ? 'xsmall' : 'small'}
         />
       )}
     </StyledChip>

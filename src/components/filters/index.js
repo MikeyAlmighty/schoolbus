@@ -46,10 +46,10 @@ const Filters = ({ content, filterCount, ...otherProps }) => {
           alignItems='center'
         >
           <Content
-            {...active} 
             closePopup={closePopup}
             onBack={previous && (() => setActive(previous))}
             setActive={setActive}
+            {...active} 
             {...otherProps}
           />
         </Flex>
