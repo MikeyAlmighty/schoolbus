@@ -1,14 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import toast from 'just-toasty'
 import { useFormikContext } from 'formik'
 
-const FormikErrorToast = ({ fields, singleToast }) => {
-  const { errors, touched, ...otherProps } = useFormikContext()
-  console.log(otherPRops)
-  for (let i = 0; i < touched.length; i++) {
-    const touchedField = touched[i]
-    console.log(touchedfield)
-  }
+function usePrevious(value) {
+  const ref = useRef()
+  useEffect(() => {
+    ref.current = value
+  })
+  return ref.current
+}
+
+const FormikErrorToast = ({ fields, errorOveride }) => {
+  const context = useFormikContext()
+  const { errors, isSubmitting } = context
+  const wasSubmitting = usePrevious(isSubmitting)
+  useEffect(() => {
+    // Check if form has been submitted
+    if (!wasSubmitting || isSubmitting === wasSubmitting) return
+    const erroredFields = Object.entries(errors).find(([key, value]) => !!value && fields.includes(key))
+    const [, error] = erroredFields || []
+    if (error) toast(errorOveride || error)
+  }, [isSubmitting, errors])
   
   return null
 }

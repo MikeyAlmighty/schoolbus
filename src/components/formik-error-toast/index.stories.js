@@ -7,7 +7,7 @@ import Input from '../input'
 import Button from '../button'
 
 export default {
-  title: 'Filters/ Formik Error Toast',
+  title: 'Misc/ Formik Error Toast',
   component: FormikErrorToast,
   parameters: {
     docs: {
@@ -33,14 +33,19 @@ export const Base = (args) => (
     validationSchema={SCHEMA}
     initialValues={INITIAL_VALUES}
   >
-    <Input name='name' label='Description' />
-    <Input name='description' label='Description:' />
-    <Button>Submit</Button>
-    <FormikErrorToast {...args} />
+    {({ handleSubmit }) => (
+      <form>
+        <Input name='name' label='Name:' />
+        <Input name='description' label='Description:' />
+        <Button onClick={handleSubmit}>Submit</Button>
+        <FormikErrorToast {...args} />
+      </form>
+    )}
   </Formik>
 )
 
 Base.args = {
   fields: ['name', 'description'],
-  singleToast: true
+  errorOveride: '',
+  singleToast: true,
 }
