@@ -1,4 +1,3 @@
-import React, { useCallback, useMemo } from 'react'
 import clone from 'lodash.clone'
 import set from 'lodash.set'
 import get from 'lodash.get'
@@ -17,7 +16,7 @@ const AppliedList = ({ filterTypes = [], filters, onSetFilters, ...otherProps })
     onSetFilters(set(clone(filters), key, newValue))
   }, [onSetFilters, filters])
 
-  const hasFilters = useMemo(filterTypes.some(({ key }) => {
+  const hasFilters = useMemo(() => filterTypes.some(({ key }) => {
     const filter = get(filters, key)
     const isArray = Array.isArray(filter)
     return isArray ? filter.length > 0 : !!filter
