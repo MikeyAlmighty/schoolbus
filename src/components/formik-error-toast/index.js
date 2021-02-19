@@ -10,7 +10,7 @@ function usePrevious(value) {
   return ref.current
 }
 
-const FormikErrorToast = ({ fields, errorOveride }) => {
+const FormikErrorToast = ({ fields, errorOverride }) => {
   const context = useFormikContext()
   const { errors, isSubmitting } = context
   const wasSubmitting = usePrevious(isSubmitting)
@@ -19,7 +19,7 @@ const FormikErrorToast = ({ fields, errorOveride }) => {
     if (!wasSubmitting || isSubmitting === wasSubmitting) return
     const erroredFields = Object.entries(errors).find(([key, value]) => !!value && fields.includes(key))
     const [, error] = erroredFields || []
-    if (error) toast(errorOveride || error)
+    if (error) toast(errorOverride || error)
   }, [isSubmitting, errors])
   
   return null

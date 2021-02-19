@@ -46,6 +46,6 @@ export const Base = (args) => (
 
 Base.args = {
   fields: ['name', 'description'],
-  errorOveride: '',
+  errorOverride: '',
   singleToast: true,
 }
