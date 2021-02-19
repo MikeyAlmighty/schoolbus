@@ -31,6 +31,17 @@ const variants = {
   `,
   default: css`
     padding: 0.3em;
+  `,
+  filter: css`
+    padding: 0.5em 0.8em;
+    border-radius: ${({ theme }) => theme.radii.small};
+
+    & ${HoverCircle} {
+      display: none;
+    }
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
+    }
   `
 }
 

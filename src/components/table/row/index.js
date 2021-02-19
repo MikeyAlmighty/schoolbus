@@ -40,7 +40,6 @@ const Row = ({
           }
           if (typeof cell === 'object') {
             const { value, key = `${value}${i}`, ...otherProps  } = cell
-            if (!value) throw Error('Cell requires value')
             return <Td key={key} {...otherProps}>{value}</Td>
           }
           return <Td key={`${cell}${i}`}>{cell}</Td>

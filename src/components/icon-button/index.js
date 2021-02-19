@@ -70,6 +70,7 @@ const ICON_LABEL_MAP = {
 
 const IconButton = ({ label, icon, badge, children, size, ...otherProps }) => {
   const Icon = ICON_MAP[icon]
+  if (!Icon) throw Error('Invalid icon')
   const labelText = label === null ? label || ICON_LABEL_MAP[icon] : label
 
   return (

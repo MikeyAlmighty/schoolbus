@@ -74,7 +74,14 @@ class Card extends React.PureComponent {
         )}
 
         {wrapContent
-          ? <StyledContent showDivider={showDivider}>{children}</StyledContent>
+          ? (
+            <StyledContent
+              hasHeader={title && description}
+              showDivider={showDivider}
+            >
+              {children}
+            </StyledContent>
+          )
           : {children}
         }
 

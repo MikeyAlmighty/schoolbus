@@ -44,7 +44,7 @@ export const StyledCardDescription = styled.p`
 `
 
 export const StyledContent = styled.div`
-  padding-top: ${({ showDivider }) => (showDivider ? '1.5em' : '2em')};
+  ${({ showDivider, hasHeader }) => hasHeader && (`padding-top: ${showDivider ? '1.5em' : '2em'}`)};
 `
 
 export const TitleContainer = styled.div`
