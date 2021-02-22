@@ -29,6 +29,7 @@ export const Button = styled(Flex).attrs({
 export const Option = styled.button`
   width: 100%;
   text-align: left;
+  cursor: pointer;
   padding: ${({ variant }) => variant === 'mini' ? '0.5em 1.2em' : '0.75em 1.5em'};
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.grayscale.default};

@@ -1,4 +1,6 @@
 import React from 'react'
+
+import Text from '../text'
 import Table from './'
 
 export default {
@@ -27,7 +29,7 @@ const defaultArgs = {
   ],
   rowFormatter: ({ id, cell2, cell3, childInfo }, i) => ({
     key: id,
-    cells: [id, cell2, cell3],
+    cells: [id, <Text key='cell2'>{cell2}</Text>, cell3],
     childRows: childInfo.map(({ id, description }) => ({
       key: id,
       cells: [
