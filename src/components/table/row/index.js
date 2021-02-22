@@ -38,7 +38,7 @@ const Row = ({
           if (typeof cell === 'function') {
             return cell({ i, row, props: tableProps, isSelected })
           }
-          if (typeof cell === 'object') {
+          if (typeof cell === 'object' && !React.isValidElement(cell)) {
             const { value, key = `${value}${i}`, ...otherProps  } = cell
             return <Td key={key} {...otherProps}>{value}</Td>
           }
