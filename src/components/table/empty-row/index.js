@@ -2,10 +2,10 @@ import React from 'react'
 
 import { TableRow, Td } from '../styles'
 
-const EmptyRow = (props) => (
+const EmptyRow = ({ emptyText = 'No data', ...otherProps}) => (
   <TableRow>
     <Td center {...props}>
-      No data
+      {emptyText}
     </Td>
   </TableRow>
 )

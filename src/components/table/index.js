@@ -90,7 +90,7 @@ const Table = props => {
             </thead>
             <tbody>
               {isEmpty 
-                ? <EmptyRow colSpan={headers.length} />  
+                ? <EmptyRow colSpan={headers.length} emptyText={emptyText} />  
                 : data.map((row, index) => {
                   const formattedRow = rowFormatter(row, index, props)
 

@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components'
-import { borderStyles } from '../../config/theme'
 
-export const EmptyText = styled.div`
+export const EmptyText = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.small};
   color: ${({ theme }) => theme.colors.grayscale.default};
   font-style: italic;
@@ -217,6 +216,5 @@ export const StyledTable = styled.table`
   border-spacing: 0;
   line-height: 1em;
   flex: 1;
-  background-color: ${({ theme }) => theme.colors.white};
   ${({ variant }) => variants[variant] || variants.default}
 `
