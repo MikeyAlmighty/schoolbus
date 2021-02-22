@@ -43,7 +43,7 @@ export const NavLink = styled(Flex).attrs({
 export const Item = styled.li`
   flex: ${({ expanded }) => expanded && 1};
   text-align: center;
-  min-width: 10em;
+  min-width: calc(100% / 7);
   height: 100%;
   color: ${({ theme }) => theme.colors.grayscale.xlight};
   border-radius: ${({ theme }) => theme.radii.large};
@@ -57,5 +57,9 @@ export const Item = styled.li`
   `}
   &:hover:not(:active) {
     color: ${({ theme }) => theme.colors.white};
+  }
+  &:active {
+    opacity: 0.6;
+    background-color: ${({ theme }) => theme.colors.grayscale.default};
   }
 `
