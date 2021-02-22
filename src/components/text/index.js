@@ -6,7 +6,7 @@ import theme from '../../config/theme'
 
 const Text = styled.p`
   white-space: pre-wrap;
-  color: ${({ theme }) => theme.colors.grayscale.xdark};
+  color: ${({ theme }) => theme.colors.grayscale.dark};
   ${({ uppercase }) => uppercase && 'text-transform: uppercase;'}
   ${typography}
   ${layout}
