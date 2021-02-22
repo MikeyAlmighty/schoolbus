@@ -4,10 +4,12 @@ import Flex from '../flex'
 
 const sizes = {
   small: css`
-    height: 3.5em;
+    min-height: 3.5em;
+    padding: 0.2em 1em;
   `,
   default: css`
-    height: 5.5em;
+    min-height: 5.5em;
+    padding: 1em;
   `
 }
 
@@ -37,7 +39,6 @@ const ListItem = styled(Flex).attrs({
   alignItems: 'center'
 })`
   width: 100%;
-  padding: 0.2em 1em;
   border-radius: ${({ theme }) => theme.radii.medium};
   border: ${({ theme }) => theme.borderStyles.light};
   box-shadow: ${({ theme }) => theme.elevations.itemContainer};
