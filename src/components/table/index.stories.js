@@ -20,7 +20,7 @@ const defaultArgs = {
   variant: 'default',
   headers: [{ title: 'header1', width: '1em' }, 'header2', 'header3'],
   data: [
-    { id: '1', cell2: 'cell1', cell3: 'cell3', childInfo: [{ id: '1', description: 'Enim qui id sunt pariatur.'}] },
+    { id: '1', cell2: 'cell2', cell3: 'cell3', childInfo: [{ id: '1', description: 'Enim qui id sunt pariatur.'}] },
     { id: '2', cell2: 'cell2', cell3: 'cell3', childInfo: [{ id: '2', description: 'Aliqua ipsum id deserunt esse.'}] },
     { id: '3', cell2: 'cell2', cell3: 'cell3', childInfo: [{ id: '3', description: 'Velit sunt cupidatat ut nulla.'}] },
     { id: '4', cell2: 'cell2', cell3: 'cell3', childInfo: [{ id: '4', description: 'Aliqua consectetur ea enim esse.'}] },
