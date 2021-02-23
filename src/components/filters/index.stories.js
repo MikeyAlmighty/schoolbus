@@ -8,9 +8,14 @@ export default {
   component: Filters,
 }
 
+const options = [
+  { value: 'option1', label: 'Option 1' },
+  { label: 'Option 2' }
+]
+
 const values = {
-  multi: ['option1'],
-  single: 'Option 2',
+  multi: [options[0]],
+  single: options[1],
   date: {
     from: '',
     to: ''
@@ -25,20 +30,14 @@ const content = {
       type: 'list', 
       title: 'List multi', 
       name: 'multi',
-      options: [
-        { value: 'option1', label: 'Option 1'}, 
-        { label: 'Option 2'}
-      ],
+      options,
     },
     {
       type: 'list', 
       singleSelect: true, 
       title: 'List single', 
       name: 'single',
-      options: [
-        { value: 'option1', label: 'Option 1' },
-        { label: 'Option 2' }
-      ], 
+      options, 
     },
     {
       type: 'date-range',

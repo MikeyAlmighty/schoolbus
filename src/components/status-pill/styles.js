@@ -18,12 +18,12 @@ const variants = {
 
 const sizes = {
   mini: css`
-    height: 1.9em;
+    min-height: 1.9em;
     padding: 0 2em;
     font-size: ${({ theme }) => theme.fontSizes.small};
   `,
   large: css`
-    height: 2.1em;
+    min-height: 2.1em;
     min-width: 6em;
     font-size: ${({ theme }) => theme.fontSizes.large};
   `
