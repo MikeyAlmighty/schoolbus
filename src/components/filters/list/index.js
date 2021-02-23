@@ -31,18 +31,21 @@ const List = ({ options, name, values, onApply, onChange, singleSelect }) => {
   return (
     <>
       <ListContainer>
-        {options.map(({ label, value = label }) => (
-          <Option key={value}>
-            <Component
-              variant='filter'
-              text={label}
-              onChange={() => handleChange(value)}
-              checked={singleSelect 
-                  ? currentValue === value 
-                  : currentValue?.includes(value)}
-            />
-          </Option>
-        ))}
+        {options.map((option) => {
+          const { label, value = label } = option
+          return (
+            <Option key={value}>
+              <Component
+                variant='filter'
+                text={label}
+                onChange={() => handleChange(option)}
+                checked={singleSelect 
+                  ? currentValue === option 
+                  : currentValue?.includes(option)}
+              />
+            </Option>
+          )
+        })}
       </ListContainer>
       <Button shape='block' mt='1em' onClick={() => onApply(values)}>
         Apply
