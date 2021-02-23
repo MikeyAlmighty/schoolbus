@@ -9,12 +9,14 @@ const InlineInputWrapper = ({
   labelProps,
   disabled,
   text,
+  pl,
   ...otherProps
 }) => {
   return (
     <StyledLabel
       disabled={disabled}
       hasContent={!!text}
+      pl={pl}
       {...otherProps}
     >
       {children}

@@ -8,18 +8,30 @@ import theme from '../../config/theme'
 
 import { contentCss } from './styles'
 
-const findParent = (object, value) => {
+const getKey = object => object?.name || object?.title
+
+const findParent = (object, key) => {
   for (let i = 0; i < object?.options?.length; i++) {
-    const current = object.options[i]
-    if (current === value) return object
-    const parent = findParent(current, value)
+    const current = getKey(object.options[i])
+    if (current === key) return getKey(object)
+    const parent = findParent(current, key)
     if (parent) return parent
   }
 }
 
+const findObject = (object, key)=> {
+  if (getKey(object) === key) return object
+  for (let i = 0; i < object.options?.length; i++) {
+    const current = object.options?.[i]
+    if (getKey(current) === key) return current
+    return findObject(current, key)
+  }
+}
+
 const Filters = ({ content, filterCount, ...otherProps }) => {
-  const [active, setActive] = useState(content)
-  const previous = findParent(content, active)
+  const [activeName, setActiveName] = useState(getKey(content))
+  const previous = findParent(content, activeName)
+  const active = findObject(content, activeName)
 
   return (
     <Popup
@@ -47,8 +59,8 @@ const Filters = ({ content, filterCount, ...otherProps }) => {
         >
           <Content
             closePopup={closePopup}
-            onBack={previous && (() => setActive(previous))}
-            setActive={setActive}
+            onBack={previous && (() => setActiveName(previous))}
+            setActiveName={setActiveName}
             {...active} 
             {...otherProps}
           />
