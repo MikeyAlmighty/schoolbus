@@ -3,7 +3,7 @@ import React from 'react'
 import { OptionButton } from './styles'
 import { ListContainer, Option } from '../styles' 
 
-const Menu = ({ options, setActive }) => (
+const Menu = ({ options, setActiveName }) => (
   <ListContainer>
     {options.map((option) => {
       const { title, disabled } = option
@@ -11,7 +11,7 @@ const Menu = ({ options, setActive }) => (
       return (
         <Option key={title}>
           <OptionButton
-            onClick={() => setActive(option)}
+            onClick={() => setActiveName(option?.name)}
             disabled={disabled}
           >
             {title}
