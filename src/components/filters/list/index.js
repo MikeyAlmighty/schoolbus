@@ -42,8 +42,8 @@ const List = ({ options, name, values, onApply, onChange, singleSelect }) => {
                 text={label}
                 onChange={() => handleChange(option)}
                 checked={singleSelect 
-                  ? currentValue === option 
-                  : currentValue?.includes(option)}
+                  ? compareValues(currentValue, option)
+                  : currentValue?.some(c => compareValues(c, option))}
               />
             </Option>
           )
