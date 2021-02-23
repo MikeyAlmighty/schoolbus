@@ -24,7 +24,8 @@ const findObject = (object, key)=> {
   for (let i = 0; i < object.options?.length; i++) {
     const current = object.options?.[i]
     if (getKey(current) === key) return current
-    return findObject(current, key)
+    const child = findObject(current, key)
+    if (child) return child
   }
 }
 
