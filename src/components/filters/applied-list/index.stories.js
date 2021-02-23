@@ -16,9 +16,9 @@ Base.args = {
     { label: 'Single', key: 'single' }
   ],
   filters: {
-    multi: ['option1'],
-    multi2: ['option1', 'option2'],
-    single: 'Option 2',
+    multi: [{ label: 'option 1', value: 'option1' }],
+    multi2: [{ label: 'option 1', value: 'option1' }, { label: 'option 2', value: 'option2' }],
+    single: { label: 'option 1', value: 'option1' },
     date: {
       from: '',
       to: ''
