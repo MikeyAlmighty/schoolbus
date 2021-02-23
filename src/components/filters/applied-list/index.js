@@ -8,7 +8,7 @@ import Chip from '../../chip'
 import Text from '../../text'
 
 function getArrayValue(value) {
-  return value.length > 1 ? 'Multiple' : value[0].label
+  return value.length > 1 ? 'Multiple' : value[0]?.label || value[0]?.value
 }
 
 const AppliedList = ({ filterTypes = [], filters, onSetFilters, ...otherProps }) => {
@@ -21,7 +21,7 @@ const AppliedList = ({ filterTypes = [], filters, onSetFilters, ...otherProps })
     const filter = get(filters, key)
     const isArray = Array.isArray(filter)
     return isArray ? filter.length > 0 : !!filter
-  }), [filterTypes])
+  }), [filterTypes, filters])
   if (!hasFilters) return null
   
   return (
