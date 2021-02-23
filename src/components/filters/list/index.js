@@ -8,9 +8,11 @@ import Checkbox from '../../checkbox'
 import RadioButton from '../../radio-button'
 import Button from '../../button'
 
-const updateSingleSelectValue = (current, value) => current === value ? '' : value
-const updateMultiSelectValue = (current = [], value) => current?.includes(value) 
-  ? current.filter(currentValue => currentValue !== value)
+const getKey = ({ label, value = label }) => value
+const compareValues = (value1, value2) => getKey(value1) === getKey(value2)
+const updateSingleSelectValue = (current, value) => compareValues(current, value) ? '' : value
+const updateMultiSelectValue = (current = [], value) => current?.some(c => compareValues(c, value)) 
+  ? current.filter(currentValue => !compareValues(currentValue, value))
   : [...current, value]
 
 const List = ({ options, name, values, onApply, onChange, singleSelect }) => {
