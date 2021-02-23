@@ -8,7 +8,7 @@ import Checkbox from '../../checkbox'
 import RadioButton from '../../radio-button'
 import Button from '../../button'
 
-const getKey = ({ label, value = label }) => value
+const getKey = object => object?.value || object?.label
 const compareValues = (value1, value2) => getKey(value1) === getKey(value2)
 const updateSingleSelectValue = (current, value) => compareValues(current, value) ? '' : value
 const updateMultiSelectValue = (current = [], value) => current?.some(c => compareValues(c, value)) 
