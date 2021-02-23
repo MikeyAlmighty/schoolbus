@@ -9,7 +9,7 @@ import RadioButton from '../../radio-button'
 import Button from '../../button'
 
 const updateSingleSelectValue = (current, value) => current === value ? '' : value
-const updateMultiSelectValue = (current = [], value) => current.includes(value) 
+const updateMultiSelectValue = (current = [], value) => current?.includes(value) 
   ? current.filter(currentValue => currentValue !== value)
   : [...current, value]
 
@@ -39,7 +39,7 @@ const List = ({ options, name, values, onApply, onChange, singleSelect }) => {
               onChange={() => handleChange(value)}
               checked={singleSelect 
                   ? currentValue === value 
-                  : currentValue.includes(value)}
+                  : currentValue?.includes(value)}
             />
           </Option>
         ))}
