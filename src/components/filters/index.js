@@ -62,6 +62,7 @@ const Filters = ({ content, filterCount, ...otherProps }) => {
             closePopup={closePopup}
             onBack={previous && (() => setActiveName(previous))}
             setActiveName={setActiveName}
+            initialKey={getKey(content)}
             {...active} 
             {...otherProps}
           />

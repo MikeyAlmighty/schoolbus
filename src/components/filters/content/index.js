@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 
 import Text from '../../text'
 import DateRange from '../date-range'
@@ -13,8 +13,20 @@ const TYPE_MAP = {
   'date-range': DateRange,
 }
 
-const Content = ({ title, type, onBack, ...otherProps }) => {
+const Content = ({
+  title,
+  type,
+  onBack,
+  onApply,
+  ...otherProps
+}) => {
+  const { closePopup, setActiveName, initialKey } = otherProps
   const Component = TYPE_MAP[type]
+  const handleApply = useCallback((...args) => {
+    closePopup()
+    setActiveName(initialKey)
+    onApply(...args)
+  }, [onApply, initialKey, setActiveName, closePopup])
 
   return (
     <>
@@ -31,7 +43,14 @@ const Content = ({ title, type, onBack, ...otherProps }) => {
           {title}
         </Text>
       </Flex>
-      {Component && <Component onBack={onBack} {...otherProps} />}
+      {Component && (
+        <Component
+          onBack={onBack}
+          onApply={handleApply}
+          setActiveName={setActiveName}
+          {...otherProps}
+        />
+      )}
     </>
   )
 }
