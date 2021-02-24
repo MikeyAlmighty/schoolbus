@@ -29,7 +29,7 @@ const findObject = (object, key)=> {
   }
 }
 
-const Filters = ({ content, filterCount, onApply, ...otherProps }) => {
+const Filters = ({ content, filterCount, ...otherProps }) => {
   const [activeName, setActiveName] = useState(getKey(content))
   const previous = findParent(content, activeName)
   const active = findObject(content, activeName)
@@ -62,10 +62,7 @@ const Filters = ({ content, filterCount, onApply, ...otherProps }) => {
             closePopup={closePopup}
             onBack={previous && (() => setActiveName(previous))}
             setActiveName={setActiveName}
-            onApply={(...args) => {
-              closePopup()
-              onApply(...args)
-            }}
+            initialKey={getKey(content)}
             {...active} 
             {...otherProps}
           />
