@@ -6,6 +6,7 @@ import get from 'lodash.get'
 import Flex from '../../flex'
 import Chip from '../../chip'
 import Text from '../../text'
+import Button from '../../button'
 
 function getArrayValue(value) {
   return value.length > 1 ? 'Multiple' : value[0]?.label || value[0]?.value
@@ -17,39 +18,46 @@ const AppliedList = ({ filterTypes = [], filters, onSetFilters, ...otherProps })
     onSetFilters(set(clone(filters), key, newValue))
   }, [onSetFilters, filters])
 
-  const hasFilters = useMemo(() => filterTypes.some(({ key }) => {
+  const hasFilters = filterTypes.some(({ key }) => {
     const filter = get(filters, key)
     const isArray = Array.isArray(filter)
     return isArray ? filter.length > 0 : !!filter
-  }), [filterTypes, filters])
+  })
   if (!hasFilters) return null
   
   return (
-    <Flex mb='1em' as='ul' width='100%' wrap {...otherProps}>
-      {filterTypes.map(({ label = '', key, getValue }) => {
-        const value = getValue ? getValue(get(filters, key), filters) : get(filters, key)
-        const isArray = Array.isArray(value)
-        const isEmptyArray = isArray && value.length === 0
+    <Flex mb='1em' width='100%' justifyContent='space-between' {...otherProps}>
+      <Flex as='ul' wrap>
+        {filterTypes.map(({ label = '', key, getValue }) => {
+          const value = getValue ? getValue(get(filters, key), filters) : get(filters, key)
+          const isArray = Array.isArray(value)
+          const isEmptyArray = isArray && value.length === 0
 
-        if (!value || isEmptyArray) return null
+          if (!value || isEmptyArray) return null
 
-        return (
-          <Chip
-            as='li'
-            size='mini'
-            key={key}
-            onRemove={() => handleFiltersSet(key, isArray)}
-            label={(
-              <>
-                <Text as='strong' fontWeight='extrabold' color='grayscale.dark' mr='0.5em'>
-                  {label}: 
+          return (
+            <Chip
+              as='li'
+              size='mini'
+              key={key}
+              onRemove={() => handleFiltersSet(key, isArray)}
+              label={(
+                <>
+                  <Text as='strong' fontWeight='extrabold' color='grayscale.dark' mr='0.5em'>
+                    {label}:
                 </Text>
-                {isArray ? getArrayValue(value) : value}
-              </>
-            )}
-          />
-        )
-      })}
+                  {isArray ? getArrayValue(value) : value?.label || value?.value}
+                </>
+              )}
+            />
+          )
+        })}
+      </Flex>
+      {hasFilters && (
+        <Button variant='minimal' onClick={() => onSetFilters({})}>
+          Clear all
+        </Button>
+      )}
     </Flex>
   )
 }
