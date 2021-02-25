@@ -12,19 +12,17 @@ function getArrayValue(value) {
   return value.length > 1 ? 'Multiple' : value[0]?.label || value[0]?.value
 }
 
-const AppliedList = ({ filterTypes = [], filters, onSetFilters, ...otherProps }) => {
+const AppliedList = ({
+  filterTypes = [],
+  filters,
+  onSetFilters,
+  initialFilters = {},
+  ...otherProps
+}) => {
   const handleFiltersSet = useCallback((key, isArray) => {
     const newValue = isArray ? [] : null
     onSetFilters(set(clone(filters), key, newValue))
   }, [onSetFilters, filters])
-
-  const handleClearFilters = useCallback(() => {
-    onSetFilters(Object.keys(filters).reduce((acc, filterKey) => 
-      filterTypes.some(({ key }) => key === filterKey)
-        ? { ...acc, [filterKey]: filters[filterKey] }
-        : acc
-    ), {})
-  }, [onSetFilters, filterTypes, filters])
 
   const hasFilters = filterTypes.some(({ key }) => {
     const filter = get(filters, key)
@@ -64,7 +62,7 @@ const AppliedList = ({ filterTypes = [], filters, onSetFilters, ...otherProps })
       {hasFilters && (
         <Button 
           variant='minimal' 
-          onClick={handleClearFilters}
+          onClick={() => onSetFilters(initialFilters)}
         >
           Clear all
         </Button>
