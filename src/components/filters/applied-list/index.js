@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react'
+import React, { useCallback, } from 'react'
 import clone from 'lodash.clone'
 import set from 'lodash.set'
 import get from 'lodash.get'
@@ -17,6 +17,10 @@ const AppliedList = ({ filterTypes = [], filters, onSetFilters, ...otherProps })
     const newValue = isArray ? [] : null
     onSetFilters(set(clone(filters), key, newValue))
   }, [onSetFilters, filters])
+
+  const handleClearFilters = useCallback(() => {
+    onSetFilters(filterTypes.reduce((acc, { key }) => ({ ...acc, [key]: filters[key] }), {}))
+  }, [onSetFilters, filterTypes, filters])
 
   const hasFilters = filterTypes.some(({ key }) => {
     const filter = get(filters, key)
@@ -45,7 +49,7 @@ const AppliedList = ({ filterTypes = [], filters, onSetFilters, ...otherProps })
                 <>
                   <Text as='strong' fontWeight='extrabold' color='grayscale.dark' mr='0.5em'>
                     {label}:
-                </Text>
+                  </Text>
                   {isArray ? getArrayValue(value) : value?.label || value?.value}
                 </>
               )}
@@ -54,7 +58,10 @@ const AppliedList = ({ filterTypes = [], filters, onSetFilters, ...otherProps })
         })}
       </Flex>
       {hasFilters && (
-        <Button variant='minimal' onClick={() => onSetFilters({})}>
+        <Button 
+          variant='minimal' 
+          onClick={handleClearFilters}
+        >
           Clear all
         </Button>
       )}
