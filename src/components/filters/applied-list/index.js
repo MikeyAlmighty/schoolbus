@@ -30,6 +30,12 @@ const AppliedList = ({
     return isArray ? filter.length > 0 : !!filter
   })
   if (!hasFilters) return null
+  const handleClear = () => {
+    onSetFilters(Object.keys(filters).reduce((acc, filterKey) => {
+      if (filterTypes.some(({ key }) => key === filterKey)) return acc
+      return { ...acc, [filterKey]: filters[filterKey] }
+    }, {}))
+  }
   
   return (
     <Flex mb='1em' width='100%' justifyContent='space-between' {...otherProps}>
@@ -62,7 +68,7 @@ const AppliedList = ({
       {hasFilters && (
         <Button 
           variant='minimal' 
-          onClick={() => onSetFilters(initialFilters)}
+          onClick={handleClear}
         >
           Clear all
         </Button>
