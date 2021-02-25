@@ -19,7 +19,11 @@ const AppliedList = ({ filterTypes = [], filters, onSetFilters, ...otherProps })
   }, [onSetFilters, filters])
 
   const handleClearFilters = useCallback(() => {
-    onSetFilters(filterTypes.reduce((acc, { key }) => ({ ...acc, [key]: filters[key] }), {}))
+    onSetFilters(Object.keys(filters).reduce(filterKey => 
+      filterTypes.some(({ key }) => key === filterKey)
+        ? { ...acc, [key]: filters[key] }
+        : acc
+    ), {})
   }, [onSetFilters, filterTypes, filters])
 
   const hasFilters = filterTypes.some(({ key }) => {
