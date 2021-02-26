@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 export const contentCss = css`
   border-radius: ${({ theme }) => theme.radii.large};
   box-shadow: ${({ theme }) => theme.elevations.menu};
+  white-space: break-spaces;
 `
 
 export const ListContainer = styled.ul`

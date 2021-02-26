@@ -19,7 +19,9 @@ const Nav = ({ items, selected, ...otherProps }) => {
         {items
           .map(({ name, href }) => (
             <Item
-              active={pathname.startsWith(href)}
+              active={href === '/' 
+                ? pathname === href
+                : pathname.startsWith(href)}
               expanded={items?.length < MIN_ITEMS}
               key={href}
             >
