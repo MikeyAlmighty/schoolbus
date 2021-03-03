@@ -22,6 +22,7 @@ const InlineInputWrapper = ({
         <Text
           as='span'
           m='0 0.5em'
+          whiteSpace='break-spaces'
           {...labelProps}
         >
           {text}

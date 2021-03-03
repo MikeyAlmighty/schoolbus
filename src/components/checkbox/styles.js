@@ -29,7 +29,7 @@ export const StyledSpan = styled.span`
   border: ${({ theme }) => theme.borderStyles.dark};
   border-color: rgba(0, 0, 0, 0.6);
   border-radius: ${({ theme }) => theme.radii.xsmall};
-  width: 1.25em;
+  min-width: 1.25em;
   height: 1.25em;
   display: block;
   transition: border-color 0.2s, background-color 0.2s;
