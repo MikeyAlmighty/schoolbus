@@ -29,6 +29,7 @@ export const Td = styled.td`
   font-weight: ${({ theme }) => theme.fontWeights.light};
   font-size: ${({ theme }) => theme.fontSizes.small};
   text-align: ${({ center }) => (center ? 'center' : 'left')};
+  line-break: anywhere;
 `
 
 const tableRowVariants = {
@@ -215,6 +216,5 @@ export const StyledTable = styled.table`
   border-radius: ${({ theme }) => theme.radii.small};
   border-spacing: 0;
   line-height: 1em;
-  flex: 1;
   ${({ variant }) => variants[variant] || variants.default}
 `
