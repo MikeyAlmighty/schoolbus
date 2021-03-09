@@ -6,28 +6,21 @@ import { connect } from 'formik'
 import { colors } from '../../config/theme'
 import { errorForField } from '../../utils/error-for-field'
 import InputWrapper from '../input-wrapper'
+import IconButton from '../icon-button'
 import Input from '../styled-input'
 import Popup from '../popup'
 
-const styleOverrides = {
-  icon: {
-    position: 'absolute',
-    right: 10,
-    bottom: 7,
-    pointerEvents: 'none',
-  },
-  popup: {
-    left: '0px',
-    right: 'auto',
-    transformOrigin: 'top center',
-  },
+import { Container, MeridiemActions, styleOverrides } from './styles'
+
+const createTimeObj = () => {
+
 }
 
 class TimeInput extends Component {
   static defaultProps = {
     name: 'time',
     label: 'Time',
-    timeFormat: '12',
+    timeFormat: '24',
     placeholder: 'Set',
     disabled: false,
     width: '48%',
@@ -37,8 +30,9 @@ class TimeInput extends Component {
     showTime: true,
   }
 
-  handleChange = timeObj => {
+  handleChange = (timeObj) => {
     const { formik, name } = this.props
+    console.log(timeObj)
     formik.setFieldValue(name, timeObj)
   }
 
@@ -84,7 +78,7 @@ class TimeInput extends Component {
       >
         {closePopup =>
           showTime && (
-            <div className="clock-wrapper">
+            <Container className="clock-wrapper">
               <TimeKeeper
                 hour24Mode={timeFormat === '24'}
                 switchToMinuteOnHourSelect
@@ -93,7 +87,7 @@ class TimeInput extends Component {
                 onChange={this.handleChange}
                 onDoneClick={() => this.resetClock(closePopup)}
               />
-            </div>
+            </Container>
           )
         }
       </Popup>

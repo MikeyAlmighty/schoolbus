@@ -1,6 +1,7 @@
 import React from 'react'
 import TimeInput from './'
 import defaultInputArgs from '../../config/default-input-args'
+import Box from '../box'
 
 export default {
   title: 'Inputs/ Time Input',
@@ -19,7 +20,7 @@ export default {
   },
 }
 
-export const Base = args => <TimeInput {...args} />
+export const Base = args => <Box height='25em'><TimeInput {...args} /></Box>
 Base.args = defaultInputArgs
 export const Hour12 = () => <TimeInput {...defaultInputArgs} />
 export const Hour24 = () => <TimeInput {...defaultInputArgs} timeFormat="24" />
