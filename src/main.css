@@ -118,8 +118,8 @@
   padding: 0 0 0 8px;
 }
 
-.react-timekeeper__meridiem-toggle {
-  z-index: 5;
+.react-timekeeper__clock {
+  margin-bottom: 16px;
 }
 
 .clock-wrapper .css-1se0bia,
