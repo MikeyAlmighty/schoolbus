@@ -2,6 +2,8 @@ import React from 'react'
 
 import { TableRow, Td } from '../styles'
 
+const MAX_CELL_LENGTH = 55
+
 const Row = ({
   row,
   index,
@@ -42,7 +44,14 @@ const Row = ({
             const { value, key = `${value}${i}`, ...otherProps  } = cell
             return <Td key={key} {...otherProps}>{value}</Td>
           }
-          return <Td key={`${cell}${i}`}>{cell}</Td>
+          if (typeof cell === 'string') {
+            return (
+              <Td key={`${cell}${i}`}>
+                {cell.length > MAX_CELL_LENGTH ? `${cell}…` : cell}
+              </Td>
+            )
+          }
+          return <Td key={i}>{cell}</Td>
         })}
       </TableRow>
       {isExpanded && childRows?.map((row, index) => (
