@@ -29,7 +29,6 @@ export const Td = styled.td`
   font-weight: ${({ theme }) => theme.fontWeights.light};
   font-size: ${({ theme }) => theme.fontSizes.small};
   text-align: ${({ center }) => (center ? 'center' : 'left')};
-  line-break: anywhere;
 `
 
 const tableRowVariants = {
