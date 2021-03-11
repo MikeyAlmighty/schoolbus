@@ -47,7 +47,9 @@ const Row = ({
           if (typeof cell === 'string') {
             return (
               <Td key={`${cell}${i}`}>
-                {cell.length > MAX_CELL_LENGTH ? `${cell}…` : cell}
+                {cell.length > MAX_CELL_LENGTH 
+                  ? `${cell.substring(0, MAX_CELL_LENGTH)}…` 
+                  : cell}
               </Td>
             )
           }
