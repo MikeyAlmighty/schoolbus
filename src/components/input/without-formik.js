@@ -27,7 +27,7 @@ class Input extends React.PureComponent {
       onBlur,
       onChange,
       inputProps,
-      Icon,
+      icon,
       ...otherProps
     } = this.props
 
@@ -61,12 +61,12 @@ class Input extends React.PureComponent {
             {...inputProps}
           />
 
-          {Icon && (
+          {icon && !alertText && (
             <Flex
               position='absolute'
               right='1em'
             >
-              <Icon />
+              {icon}
             </Flex>
           )}
         </ErrorIconWrapper>
