@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { connect } from 'formik'
 
+import Flex from '../flex'
 import ErrorIconWrapper from '../error-icon-wrapper'
 import StyledInput from '../styled-input'
 import InputWrapper from '../input-wrapper'
@@ -26,6 +27,7 @@ class Input extends React.PureComponent {
       onBlur,
       onChange,
       inputProps,
+      icon,
       ...otherProps
     } = this.props
 
@@ -41,7 +43,7 @@ class Input extends React.PureComponent {
     const alertText = alertTextOverride || formikAlertText
 
     return (
-      <InputWrapper 
+      <InputWrapper
         alertText={alertText}
         {...otherProps}
       >
@@ -58,6 +60,15 @@ class Input extends React.PureComponent {
             hasError={!!alertText}
             {...inputProps}
           />
+
+          {icon && !alertText && (
+            <Flex
+              position='absolute'
+              right='1em'
+            >
+              {icon}
+            </Flex>
+          )}
         </ErrorIconWrapper>
       </InputWrapper>
     )
