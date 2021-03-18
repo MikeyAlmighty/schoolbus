@@ -33,7 +33,6 @@ export const colors = {
   black: '#000',
   transparent: 'transparent',
   grayscale: ['#F3F3F3', '#E3E3E3', '#BEBEBE', '#909090', '#515355'],
-  green: ['#F9FFF4', '#85E2A2', '#37B049', '#65D287'],
   primary: ['#FFA400', 'rgb(255, 164, 0, 0.1)', '#FFB900'],
   answers: ['#F15152', '#3480EE', '#1E9E2F', '#FFA400'],
   statusFill: ['#6DC65D', '#F9FFF4', '#FB7979', '#FFF5F5', '#F15252'],
