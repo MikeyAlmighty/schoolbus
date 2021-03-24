@@ -83,8 +83,8 @@ export const styleOverride = (config) => {
     indicatorsContainer: (_, state) => ({
       display: state.isDisabled ? 'none' : 'flex',
     }),
-    multiValueRemove: (base, { isDisabled }) => ({
-      ...base,
+    multiValueRemove: (defaultStyles, { isDisabled }) => ({
+      ...defaultStyles,
       display: isDisabled ? 'none' : 'flex',
     }),
     option: (defaultStyles, { isSelected, isFocused }) => {
