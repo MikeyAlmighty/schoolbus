@@ -51,7 +51,6 @@ const Select = props => {
           placeholder={placeholder}
           styles={styleOverride({ hasError, ...props })}
           options={options}
-          isClearable={!isDisabled}
           isDisabled={isDisabled}
           isMulti={multiple}
           id={id}
