@@ -10,6 +10,7 @@ const Chip = ({
   options,
   onRemove,
   size,
+  disabled,
   ...otherProps
 }) => {
   const isMini = size === 'mini'
@@ -19,7 +20,7 @@ const Chip = ({
       key={value || label}
       size={size}
       {...otherProps}
-      hasIcon={!!options || !!onRemove}
+      hasIcon={(!!options || !!onRemove) && !disabled}
     >
       {label}
       {options && (
@@ -29,7 +30,7 @@ const Chip = ({
           size={isMini ? 'xsmall' : 'small'}
         />
       )}
-      {onRemove && (
+      {onRemove && !disabled && (
         <IconButton
           icon='Close'
           label='Remove'

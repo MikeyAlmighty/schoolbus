@@ -21,7 +21,7 @@ function getBorder({ variant, hasShadow, hasError }, state) {
   return 'solid 2px transparent'
 }
 
-export const styleOverride = (config) => { 
+export const styleOverride = (config) => {
   const {
     fontSize,
     shape,
@@ -83,8 +83,12 @@ export const styleOverride = (config) => {
     indicatorsContainer: (_, state) => ({
       display: state.isDisabled ? 'none' : 'flex',
     }),
+    multiValueRemove: (defaultStyles, { isDisabled }) => ({
+      ...defaultStyles,
+      display: isDisabled ? 'none' : 'flex',
+    }),
     option: (defaultStyles, { isSelected, isFocused }) => {
-      const backgroundColor = isFocused || isSelected 
+      const backgroundColor = isFocused || isSelected
         ? colors.grayscale.xxlight
         : colors.white
 
