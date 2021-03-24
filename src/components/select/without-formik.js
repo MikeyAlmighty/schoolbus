@@ -35,6 +35,7 @@ const Select = props => {
     formik,
   })
 
+  const isDisabled = disableEmpty ? disabled || options.length === 0 : disabled
   const defaultOnChange = hasFormik && (value => formik.setFieldValue(name, value))
   const defaultValue = hasFormik && formik.values[name]
   const hasError = !!alertText
@@ -50,7 +51,8 @@ const Select = props => {
           placeholder={placeholder}
           styles={styleOverride({ hasError, ...props })}
           options={options}
-          isDisabled={disableEmpty ? disabled || options.length === 0 : disabled}
+          isClearable={!isDisabled}
+          isDisabled={isDisabled}
           isMulti={multiple}
           id={id}
         />
