@@ -28,7 +28,6 @@ class Input extends React.PureComponent {
       onChange,
       inputProps,
       icon,
-      as,
       ...otherProps
     } = this.props
 
