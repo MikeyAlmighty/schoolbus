@@ -28,6 +28,7 @@ class Input extends React.PureComponent {
       onChange,
       inputProps,
       icon,
+      as,
       ...otherProps
     } = this.props
 
@@ -58,6 +59,7 @@ class Input extends React.PureComponent {
             disabled={disabled}
             name={name}
             hasError={!!alertText}
+            type={type}
             {...inputProps}
           />
 

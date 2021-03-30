@@ -1,6 +1,9 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-const StyledInput = styled.input`
+
+const StyledInput = styled.input.attrs(({ type }) => ({
+  as: type === 'textarea' ? 'textarea' : 'input'
+}))`
   background-color: ${({ disabled, theme }) =>
     disabled ? theme.colors.white : theme.colors.grayscale.xxlight};
   border: 1px solid ${({ disabled, theme }) => theme.colors.grayscale[disabled ? 'xlight' : 'xxlight']};
@@ -19,6 +22,12 @@ const StyledInput = styled.input`
   &:focus {
     border: ${({ theme }) => theme.borderStyles.primary};
   }
+
+  ${({ type }) => type === 'textarea' && css`
+    resize: vertical;
+    min-height: 5em;
+    height: 5em;
+  `}
 
   ${({ hasError, theme }) => hasError && `
     border: ${theme.borderStyles.danger};
