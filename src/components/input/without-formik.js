@@ -28,6 +28,7 @@ class Input extends React.PureComponent {
       onChange,
       inputProps,
       icon,
+      type,
       ...otherProps
     } = this.props
 
