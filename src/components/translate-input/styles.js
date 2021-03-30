@@ -7,6 +7,7 @@ export const TranslateIconContainer = styled.div`
   right: 0.8em;
   cursor: pointer;
   line-height: 0;
+  ${({ fixed }) => fixed && `top: 0.5em;`}
 `
 
 export const TranslateInput = styled(StyledInput)`

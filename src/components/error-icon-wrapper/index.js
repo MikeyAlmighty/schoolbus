@@ -11,14 +11,33 @@ const StyledAlert = styled(Alert)`
   ${({ onClick }) => onClick && `cursor: pointer;`}
 `
 
-const ErrorIconWrapper = ({ onClick, alertText, children, offset = '0.5em', size = '1.5em' }) => {
+const ErrorIconWrapper = ({
+  onClick,
+  alertText,
+  children,
+  fixed,
+  offset = '0.5em',
+  size = '1.5em'
+}) => {
   return (
     <Flex position='relative' alignItems='center' width='100%'>
       {children}
       {alertText && (
-        <Box position='absolute' right={offset}>
-          <Tooltip text={alertText?.verbose || alertText} position='top' $offset='0.75em'>
-            <StyledAlert color={theme.colors.statusFill.error} size={size} onClick={onClick} />
+        <Box 
+          position='absolute'
+          right={offset}
+          {...(fixed && { top: '0.5em' })}
+        >
+          <Tooltip
+            text={alertText?.verbose || alertText}
+            position='top'
+            $offset='0.75em'
+          >
+            <StyledAlert 
+              color={theme.colors.statusFill.error} 
+              size={size}
+              onClick={onClick}
+            />
           </Tooltip>
         </Box>
       )}

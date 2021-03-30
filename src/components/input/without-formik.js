@@ -58,6 +58,7 @@ class Input extends React.PureComponent {
             disabled={disabled}
             name={name}
             hasError={!!alertText}
+            type={type}
             {...inputProps}
           />
 

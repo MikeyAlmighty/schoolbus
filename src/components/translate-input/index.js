@@ -123,7 +123,11 @@ class TranslationInput extends Component {
 
     return (
       <InputWrapper alertText={alertMessage} {...otherProps}>
-        <ErrorIconWrapper alertText={alertMessage} onClick={this.toggleModal}>
+        <ErrorIconWrapper
+          alertText={alertMessage}
+          onClick={this.toggleModal}
+          fixed={type === 'textarea'}
+        >
           <TranslateInput
             {...inputDefaults}
             id={id}
@@ -133,10 +137,15 @@ class TranslationInput extends Component {
             placeholder={placeholder || label}
             disabled={disabled}
             hasError={hasError}
+            type={type}
             {...inputProps}
           />
 
-          <TranslateIconContainer onClick={this.toggleModal} hidden={hasError}>
+          <TranslateIconContainer 
+            onClick={this.toggleModal} 
+            fixed={type === 'textarea'}
+            hidden={hasError}
+          >
             <Translate size={fontSizes.normal} color={colors.grayscale.default} />
           </TranslateIconContainer>
 
@@ -147,7 +156,6 @@ class TranslationInput extends Component {
               onClose={this.toggleModal}
               onSubmit={this.handleTranslationsSubmit}
               onLanguagesChange={onLanguagesChange}
-              type={type}
               disabled={disabled}
               languages={languages}
             />

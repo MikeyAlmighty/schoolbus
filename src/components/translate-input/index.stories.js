@@ -73,3 +73,5 @@ const alertText = [{
   }
 }]
 export const Invalid = () => <TranslateInput {...defaultProps} alertText={alertText} />
+
+export const TextArea = () => <TranslateInput {...defaultProps} type='textarea' />
