@@ -84,6 +84,7 @@ const IconButton = ({ href, target, label, icon, badge, children, size, ...other
       size={size}
       aria-label={labelText}
       target={target}
+      {...(opensInNewTab && { href })}
       {...(href && { as: 'a' })}
     >
       {badge > 0 && <Badge>{badge}</Badge>}

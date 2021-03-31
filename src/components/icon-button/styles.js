@@ -78,7 +78,6 @@ const variants = {
 }
 
 export const Button = styled(Flex).attrs({
-  as: 'button',
   type: 'button',
 })`
   position: relative;
