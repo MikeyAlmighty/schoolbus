@@ -24,9 +24,9 @@ const StyledInput = styled.input.attrs(({ type }) => ({
   }
 
   ${({ type }) => type === 'textarea' && css`
-    resize: vertical;
-    min-height: 5em;
-    height: 5em;
+    resize: none;
+    min-height: 5.5em;
+    height: 5.5em;
   `}
 
   ${({ hasError, theme }) => hasError && `
