@@ -1,18 +1,11 @@
 import React, { useMemo } from 'react'
+import Link from 'next/link'
 import PropTypes from 'prop-types'
 
 import Popup from '../popup'
 import { Button } from './styles'
 
-const Link = ({ href, children, ...otherProps }) => (
-  <a href={href} {...otherProps}>
-    {children}
-  </a>
-)
-
 const OverflowMenu = ({ position, options, NextLink, ...otherProps }) => {
-  const LinkComponent = NextLink ? NextLink : Link
-
   const filteredOptions = useMemo(
     () => options.filter(value => Boolean(value)).flat(),
     [options]
@@ -28,9 +21,9 @@ const OverflowMenu = ({ position, options, NextLink, ...otherProps }) => {
     >
       {filteredOptions.map(({ name, onClick, href, ...otherProps }) =>
         href ? (
-          <LinkComponent key={name} href={href} {...otherProps}>
+          <Link key={name} href={href} {...otherProps}>
             <Button>{name}</Button>
-          </LinkComponent>
+          </Link>
         ) : (
           <Button key={name} onClick={onClick} {...otherProps}>
             {name}

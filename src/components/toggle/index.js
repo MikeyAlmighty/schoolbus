@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { space, layout } from 'styled-system'
 import propTypes from '@styled-system/prop-types'

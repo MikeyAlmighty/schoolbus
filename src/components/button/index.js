@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import Link from 'next/link'
 import PropTypes from 'prop-types'
 import propTypes from '@styled-system/prop-types'
 
@@ -28,19 +29,23 @@ class Button extends React.PureComponent {
   }
 
   render() {
-    const { isLoading, disabled, spinnerProps, variant, children, ...otherProps } = this.props
+    const { href, isLoading, disabled, spinnerProps, variant, children, ...otherProps } = this.props
 
-    return (
+    const button = (
       <StyledButton
         {...otherProps}
         variant={isLoading ? 'loading' : variant}
         disabled={disabled || isLoading}
+        {...(href && ({ as: 'a' }))}
       >
         {isLoading 
           ? <Spinner color="white" size="20px" width="3px" {...spinnerProps} />
           : children}
       </StyledButton>
     )
+
+    if (!href) return button
+    return <Link href={href}>{button}</Link>
   }
 }
 

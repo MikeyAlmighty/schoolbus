@@ -102,3 +102,5 @@ export const Shapes = () => (
     </Button>
   </>
 )
+
+export const AsLink = () => <Button href='#'>Link button</Button>
