@@ -29,13 +29,24 @@ class Button extends React.PureComponent {
   }
 
   render() {
-    const { href, isLoading, disabled, spinnerProps, variant, children, ...otherProps } = this.props
+    const { 
+      href, 
+      target, 
+      isLoading,
+      disabled,
+      spinnerProps,
+      variant,
+      children,
+      ...otherProps
+    } = this.props
+    const opensInNewTab = target === '_blank'
 
     const button = (
       <StyledButton
         {...otherProps}
         variant={isLoading ? 'loading' : variant}
         disabled={disabled || isLoading}
+        target={target}
         {...(href && ({ as: 'a' }))}
       >
         {isLoading 
@@ -44,7 +55,7 @@ class Button extends React.PureComponent {
       </StyledButton>
     )
 
-    if (!href) return button
+    if (!href || opensInNewTab) return button
     return <Link href={href}>{button}</Link>
   }
 }

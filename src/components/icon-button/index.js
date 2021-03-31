@@ -69,10 +69,11 @@ const ICON_LABEL_MAP = {
   ChevronRight: 'Next',
 }
 
-const IconButton = ({ href, label, icon, badge, children, size, ...otherProps }) => {
+const IconButton = ({ href, target, label, icon, badge, children, size, ...otherProps }) => {
   const Icon = ICON_MAP[icon]
   if (!Icon) throw Error('Invalid icon')
   const labelText = label === null ? label || ICON_LABEL_MAP[icon] : label
+  const opensInNewTab = target === '_blank'
 
   const button = (
     <Button
@@ -82,6 +83,7 @@ const IconButton = ({ href, label, icon, badge, children, size, ...otherProps })
       badge={badge}
       size={size}
       aria-label={labelText}
+      target={target}
       {...(href && { as: 'a' })}
     >
       {badge > 0 && <Badge>{badge}</Badge>}
@@ -99,7 +101,7 @@ const IconButton = ({ href, label, icon, badge, children, size, ...otherProps })
     </Button>
   )
 
-  if (!href) return button
+  if (!href || opensInNewTab) return button
   return <Link href={href}>{button}</Link>
 }
 
