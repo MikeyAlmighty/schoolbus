@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import PropTypes from 'prop-types'
 
 import Eye from '@lessondesk/material-icons/dist/Eye'
@@ -7,7 +8,7 @@ import FilterVariant from '@lessondesk/material-icons/dist/FilterVariant'
 import Download from '@lessondesk/material-icons/dist/Download'
 import Plus from '@lessondesk/material-icons/dist/Plus'
 import Close from '@lessondesk/material-icons/dist/Close'
-import Link from '@lessondesk/material-icons/dist/Link'
+import LinkIcon from '@lessondesk/material-icons/dist/Link'
 import Pencil from '@lessondesk/material-icons/dist/Pencil'
 import Tune from '@lessondesk/material-icons/dist/Tune'
 import Delete from '@lessondesk/material-icons/dist/Delete'
@@ -32,13 +33,13 @@ const ICON_SIZES = {
 }
 
 export const ICON_MAP = {
+  Link: LinkIcon,
   Eye,
   DotsVertical,
   FilterVariant,
   Download,
   Plus,
   Close,
-  Link,
   Pencil,
   Tune,
   Delete,
@@ -68,19 +69,20 @@ const ICON_LABEL_MAP = {
   ChevronRight: 'Next',
 }
 
-const IconButton = ({ label, icon, badge, children, size, ...otherProps }) => {
+const IconButton = ({ href, label, icon, badge, children, size, ...otherProps }) => {
   const Icon = ICON_MAP[icon]
   if (!Icon) throw Error('Invalid icon')
   const labelText = label === null ? label || ICON_LABEL_MAP[icon] : label
 
-  return (
+  const button = (
     <Button
+      {...otherProps}
       alignItems="center"
       justifyContent="center"
       badge={badge}
       size={size}
-      {...otherProps}
       aria-label={labelText}
+      {...(href && { as: 'a' })}
     >
       {badge > 0 && <Badge>{badge}</Badge>}
       {labelText
@@ -96,6 +98,9 @@ const IconButton = ({ label, icon, badge, children, size, ...otherProps }) => {
       
     </Button>
   )
+
+  if (!href) return button
+  return <Link href={href}>{button}</Link>
 }
 
 IconButton.propTypes = {

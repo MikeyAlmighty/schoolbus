@@ -22,6 +22,7 @@ Base.args = {
   color: 'primary.default',
   badge: 2,
   icon: 'Plus',
+  href: undefined
 }
 
 const VariantExample = ({ variant }) => (
@@ -85,6 +86,8 @@ export const Size = () => (
     </Flex>
   </>
 )
+
+export const AsLink = () => <IconButton href='#' />
 
 export const AvailableIcons = () => (
   <Flex wrap>

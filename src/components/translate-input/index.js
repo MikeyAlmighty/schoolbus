@@ -15,7 +15,7 @@ import { TranslateIconContainer, TranslateInput } from './styles'
 
 class TranslationInput extends Component {
   static defaultProps = {
-    type: 'lesson',
+    type: 'text',
     onChange: () => {},
     onBlur: () => {},
   }
