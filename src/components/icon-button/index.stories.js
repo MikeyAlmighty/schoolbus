@@ -88,10 +88,10 @@ export const Size = () => (
 )
 
 export const AsLink = () => (
-  <>
-    <IconButton href='#' mb='1em' label='Link' />
+  <Flex>
+    <IconButton href='#' mr='1em' label='Link' />
     <IconButton href='#' target='_blank' label='With target' />
-  </>
+  </Flex>
 )
 
 export const AvailableIcons = () => (
