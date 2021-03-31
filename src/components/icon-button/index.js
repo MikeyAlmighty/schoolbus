@@ -74,6 +74,7 @@ const IconButton = ({ href, target, label, icon, badge, children, size, ...other
   if (!Icon) throw Error('Invalid icon')
   const labelText = label === null ? label || ICON_LABEL_MAP[icon] : label
   const opensInNewTab = target === '_blank'
+  if (href) console.log(href && { as: 'a' })
 
   const button = (
     <Button
@@ -84,6 +85,7 @@ const IconButton = ({ href, target, label, icon, badge, children, size, ...other
       size={size}
       aria-label={labelText}
       target={target}
+      {...(opensInNewTab && { href })}
       {...(href && { as: 'a' })}
     >
       {badge > 0 && <Badge>{badge}</Badge>}

@@ -87,12 +87,17 @@ export const Size = () => (
   </>
 )
 
-export const AsLink = () => <IconButton href='#' />
+export const AsLink = () => (
+  <>
+    <IconButton href='#' mb='1em' label='Link' />
+    <IconButton href='#' target='_blank' label='With target' />
+  </>
+)
 
 export const AvailableIcons = () => (
   <Flex wrap>
     {Object.keys(ICON_MAP).map(icon => (
-      <IconButton icon={icon} key='icon' mr='1em' mb='1em' />
+      <IconButton icon={icon} key={icon} mr='1em' mb='1em' />
     ))}
   </Flex>
 )
