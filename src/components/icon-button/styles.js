@@ -113,6 +113,7 @@ export const Badge = styled.span`
   height: 18px;
   min-width: 18px;
   padding: 0 6px;
+  font-size: ${({ theme }) => theme.fontSizes.xsmall};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   line-height: 0;
   border-radius: 9px;
