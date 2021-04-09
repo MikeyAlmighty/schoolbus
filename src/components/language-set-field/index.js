@@ -15,6 +15,7 @@ const LanguageSetField = ({
   name,
   id = name,
   disabled,
+  maxLength,
   ...otherProps
 }) => {
   language = language || languages.find(({ code }) => code === locale)
@@ -34,6 +35,7 @@ const LanguageSetField = ({
         value={value}
         onChange={onChange}
         disabled={disabled}
+        maxLength={maxLength}
         {...inputProps}
       />
     </Container>
