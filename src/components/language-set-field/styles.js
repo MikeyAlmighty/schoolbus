@@ -9,6 +9,7 @@ export const Container = styled.div`
   border-radius: ${({ theme }) => theme.radii.small};
   background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
   margin-bottom: 1em;
+  transition: border 0.1s;
 
   &:focus-within {
     border: ${({ theme }) => theme.borderStyles.primary};

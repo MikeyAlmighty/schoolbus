@@ -99,6 +99,7 @@ class TranslationInput extends Component {
       alertText: alertTextOverride,
       disabled,
       languages,
+      maxLength,
       ...otherProps
     } = this.props
 
@@ -138,6 +139,7 @@ class TranslationInput extends Component {
             disabled={disabled}
             hasError={hasError}
             type={type}
+            maxLength={maxLength}
             {...inputProps}
           />
 
@@ -158,6 +160,7 @@ class TranslationInput extends Component {
               onLanguagesChange={onLanguagesChange}
               disabled={disabled}
               languages={languages}
+              maxLength={maxLength}
             />
           </Modal>
         </ErrorIconWrapper>

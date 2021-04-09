@@ -25,7 +25,7 @@ function updateLanguageSets(formikLanguageSets, state) {
 class TranslateModal extends Component {
   static defaultProps = {
     values: [],
-    maxTranslationLength: 120,
+    maxTranslationLength: 300,
   }
 
   state = {
@@ -45,8 +45,8 @@ class TranslateModal extends Component {
 
   handleValueChange = (i, { value }) => {
     const { languageSets: prevLanguageSets } = this.state
-    const { maxTranslationLength } = this.props
-    const slicedValue = value.slice(0, maxTranslationLength)
+    const { maxLength } = this.props
+    const slicedValue = value.slice(0, maxLength)
     const languageSets = prevLanguageSets.map((set, index) =>
       index === i ? { ...set, value: slicedValue } : set
     )
@@ -54,7 +54,14 @@ class TranslateModal extends Component {
   }
 
   render() {
-    const { placeholder, onSubmit, onLanguagesChange, disabled, languages } = this.props
+    const { 
+      placeholder,
+      onSubmit,
+      onLanguagesChange,
+      disabled,
+      languages,
+      maxLength
+    } = this.props
     const { languageSets } = this.state
 
     return (
@@ -67,6 +74,7 @@ class TranslateModal extends Component {
             onChange={({ target }) => this.handleValueChange(i, target)}
             disabled={disabled}
             languages={languages}
+            maxLength={maxLength}
           />
         ))}
 
