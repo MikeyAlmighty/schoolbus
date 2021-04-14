@@ -1,34 +1,22 @@
-import React, { useState, useCallback } from 'react'
-import styled from 'styled-components'
+import React, { useRef, useState, useCallback } from 'react'
 
 import Flex from '../flex'
+import { Popup } from './styles'
 
-const POSITION_MAP = {
-  bottom: 'top',
-  top: 'bottom',
-  left: 'right',
-  right: 'left'
+const calculateOffset = (popup) => {
+  const { innerWidth } = window
+  const { left, right } = popup.current.getBoundingClientRect()
+
+  if (right > innerWidth) return innerWidth - right
+  if (left < 0) return -left
 }
-
-const Popup = styled.p`
-  position: absolute;
-  ${({ position = 'bottom', $offset = '1em' }) => 
-    `${POSITION_MAP[position]}: calc(100% + ${$offset});`}
-  border-radius: ${({ theme }) => theme.radii.xsmall};
-  background-color: ${({ theme }) => theme.colors.grayscale.dark};
-  color: ${({ theme }) => theme.colors.white};
-  padding: 0.5em 1em;
-  ${({ hovering }) => !hovering && `display: none`};
-  pointer-events: none;
-  white-space: nowrap;
-  z-index: 10;
-  line-height: 1em; 
-`
 
 const Tooltip = ({ text, children, className, style, ...otherProps }) => {
   const [hovering, setHovering] = useState(false)
+  const popup = useRef(null)
   const handleMouseEnter = useCallback(() => setHovering(true))
   const handleMouseLeave = useCallback(() => setHovering(false))
+  const offset = hovering && calculateOffset(popup)
 
   return (
     <Flex
@@ -41,7 +29,12 @@ const Tooltip = ({ text, children, className, style, ...otherProps }) => {
       onMouseLeave={handleMouseLeave}
     >
       {children}
-      <Popup hovering={hovering} {...otherProps}>
+      <Popup
+        ref={popup}
+        hovering={hovering}
+        screenOffset={offset}
+        {...otherProps}
+      >
         {text}
       </Popup>
     </Flex>
