@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Flex from '../flex'
 import Tooltip from './'
 
 export default {
