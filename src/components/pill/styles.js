@@ -21,6 +21,30 @@ const variants = {
   primary: css`
     color: ${({ theme }) => theme.colors.primary.default};
     box-shadow: ${({ theme }) => theme.elevations.cardContainer};
+    
+    &:hover,
+    &:active {
+      box-shadow: none;
+      color: ${({ theme }) => theme.colors.grayscale.default};
+    }
+
+    &:active {
+      background-color: ${({ theme }) => theme.colors.grayscale.xlight};
+      border-color: ${({ theme }) => theme.colors.transparent};
+
+      & ${Count} {
+        background-color: ${({ theme }) => theme.colors.grayscale.light};
+      }
+    }
+    
+    &:hover:not(:disabled):not(:active) {
+      background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
+      border-color: ${({ theme }) => theme.colors.transparent};
+
+      & ${Count} {
+        background-color: ${({ theme }) => theme.colors.grayscale.xlight};
+      }
+    }
 
     & ${Count} {
       background-color: ${({ theme }) => theme.colors.primary.light};
@@ -32,9 +56,11 @@ const variants = {
 
     &:active {
       background-color: ${({ theme }) => theme.colors.grayscale.xlight};
+      border-color: ${({ theme }) => theme.colors.transparent};
     }
     
-    &:hover:not(:disabled) {
+    &:hover:not(:disabled):not(:active) {
+      border-color: ${({ theme }) => theme.colors.transparent};
       background-color: ${({ theme }) => theme.colors.grayscale.xxlight};
 
       & ${Count} {
@@ -51,7 +77,7 @@ const variants = {
     color: ${({ theme }) => theme.colors.white};
     border: ${({ theme }) => theme.borderStyles.light};
 
-    &:hover:not(:disabled) {
+    &:hover:not(:disabled):not(:active) {
       background-color: ${({ theme }) => theme.colors.grayscale.default};
 
       & ${Count} {
@@ -79,6 +105,7 @@ export const Container = styled.button.attrs({
   font-size: ${({ theme }) => theme.fontSizes.small};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-family: ${({ theme }) => theme.fonts.Montserrat};
+  transition: background-color 0.1s;
   ${({ onClick, disabled }) => (onClick && !disabled) && 'cursor: pointer;'}
   ${({ variant }) => variants[variant] || variants.secondary};
   ${space}
@@ -88,7 +115,5 @@ export const Container = styled.button.attrs({
 
   &:active {
     background-color: ${({ theme }) => theme.colors.grayscale.xlight};
-  }
-  
-  transition: border 200ms ease-out;
+  } 
 `
