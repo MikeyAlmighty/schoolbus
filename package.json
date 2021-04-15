@@ -1,8 +1,11 @@
 {
-  "name": "@lessondesk/schoolbus",
+  "name": "@fullfacing/schoolbus",
   "version": "0.0.0-dev",
   "description": "🚌 Lesson Desk Component Library",
   "main": "lib/index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@fullfacing"
+  },
   "module": "lib-esm/index.js",
   "style": "lib/index.css",
   "repository": {
@@ -49,9 +52,9 @@
     "@babel/preset-env": "7.12.7",
     "@babel/preset-react": "7.12.5",
     "@fullfacing/browserslist-config": "^1.0.2",
+    "@fullfacing/material-icons": "^1.0.3",
     "@lessondesk/babel-preset": "1.0.0",
     "@lessondesk/eslint-config": "1.4.1",
-    "@lessondesk/material-icons": "^1.0.2",
     "@storybook/addon-a11y": "6.1.14",
     "@storybook/addon-actions": "6.1.14",
     "@storybook/addon-docs": "^6.1.14",
