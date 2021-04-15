@@ -24,7 +24,7 @@ In order to create a great experience for our users, the component library is in
 The following peer dependencies are required:
 
 ```json
-"@lessondesk/material-icons": "^1.0.2",
+"@fullfacing/material-icons": "^1.0.3",
 "formik": "2.1.5",
 "prop-types": "^15.7.2",
 "react": "^16.8.6",
@@ -36,9 +36,9 @@ The following peer dependencies are required:
 Afterwards, you can install the library:
 
 ```sh
-npm install @lessondesk/schoolbus
+npm install @fullfacing/schoolbus
 # OR
-yarn add @lessondesk/schoolbus
+yarn add @fullfacing/schoolbus
 ```
 
 ## Contributing
