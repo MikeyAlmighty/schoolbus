@@ -28,7 +28,7 @@ jobs:
         with:
           org_name: fullfacing
         env:
-          AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AUTH_TOKEN: ${{ secrets.ACTIONS_PAT }}
       # Runs a set of commands using the runners shell
       - name: Install dependencies
         run: npm install
