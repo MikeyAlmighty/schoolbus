@@ -10,6 +10,6 @@ module.exports = {
     "^.+\\.md?$": "markdown-loader-jest"
   },
   "transformIgnorePatterns": [
-    "/node_modules/(?!@lessondesk/material-icons).+\\.js$"
+    "/node_modules/(?!@fullfacing/material-icons).+\\.js$"
   ]
 }

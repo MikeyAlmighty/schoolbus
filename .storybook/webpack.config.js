@@ -10,7 +10,7 @@ module.exports = async ({ config }) => {
       ),
         'styled-system': path.join(__dirname, '../node_modules/styled-system'),
     'prop-types': path.join(__dirname, '../node_modules/prop-types'),
-    '@lessondesk/material-icons': path.join(__dirname, '../node_modules/@lessondesk/material-icons/'),
+    '@fullfacing/material-icons': path.join(__dirname, '../node_modules/@fullfacing/material-icons/'),
     '@babel/runtime': path.join(__dirname, '../node_modules/@babel/runtime'),
     '@lessondesk/schoolbus': path.join(__dirname, '../src'),
     }
@@ -20,10 +20,10 @@ module.exports = async ({ config }) => {
     f => f.test.toString() !== '/\\.css$/'
   );
 
-  // NOTE: Let babel compile @lessondesk/material-icons by overriding excludes rule
+  // NOTE: Let babel compile @fullfacing/material-icons by overriding excludes rule
   config.module.rules[0].exclude = function (modulePath) {
     return /node_modules/.test(modulePath) &&
-      !/node_modules\/@lessondesk\/material-icons/.test(modulePath);
+      !/node_modules\/@fullfacing\/material-icons/.test(modulePath);
   }
 
   return config
